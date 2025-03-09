@@ -27,13 +27,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \SetupKeyvalOptions{family=UGLY, prefix=UGLY@, setkeys=\kvsetkeys}
 % \newcommand{\ekv}[1]{\kvsetkeys{UGLY}{#1}}
 
-% \DeclareStringOption[blue]{color}
-% \DeclareVoidOption{green}{\kvsetkeys{UGLY}{color=green}}
-% \DeclareVoidOption{cyan}{\kvsetkeys{UGLY}{color=cyan}}
-% \DeclareVoidOption{blue}{\kvsetkeys{UGLY}{color=blue}}
-% \DeclareVoidOption{sakura}{\kvsetkeys{UGLY}{color=sakura}}
-% \DeclareVoidOption{black}{\kvsetkeys{UGLY}{color=black}}
-% \DeclareVoidOption{brown}{\kvsetkeys{UGLY}{color=brown}}
+\DeclareStringOption[black]{color}
+\DeclareVoidOption{green}{\kvsetkeys{UGLY}{color=green}}
+\DeclareVoidOption{cyan}{\kvsetkeys{UGLY}{color=cyan}}
+\DeclareVoidOption{blue}{\kvsetkeys{UGLY}{color=blue}}
+\DeclareVoidOption{sakura}{\kvsetkeys{UGLY}{color=sakura}}
+\DeclareVoidOption{black}{\kvsetkeys{UGLY}{color=black}}
+\DeclareVoidOption{brown}{\kvsetkeys{UGLY}{color=brown}}
 
 \DeclareStringOption[cn]{lang}
 \DeclareVoidOption{cn}{\kvsetkeys{UGLY}{lang=cn}}
@@ -84,8 +84,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 自定义的宏包
 \RequirePackage{dependencies}
 \RequirePackage{docfmt}
-\RequirePackage{doclanguage}
 \RequirePackage{docpapersize}
+\RequirePackage{doccolor}
+\RequirePackage{doccaptions}
+\RequirePackage{doclanguage}
 \RequirePackage{commands}
 
 % 调整标题下移距离，减少顶部空白
@@ -148,25 +150,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \pagestyle{fancy}
 % \fancyhead{} % 仅清空页眉
 % \renewcommand{\headrulewidth}{0pt} % 去掉页眉的横线
-
-% 设置图表标题样式
-\captionsetup{
-  font={small,bf,stretch=1.25},
-  labelsep=space,
-  justification=centering,
-  singlelinecheck=false
-}
-
-\subcaptionsetup{
-  labelfont=bf, textfont=bf,
-  font={small,bf,stretch=1.25}, % 字体大小、加粗、行距
-  labelsep=space, % 标签和标题之间的间隔
-  labelformat=simple,
-  singlelinecheck=off % 关闭单行检测
-}
-
-% 设置子图标题
-\renewcommand\thesubfigure{(\alph{subfigure})}
 
 % 定义新的命令
 

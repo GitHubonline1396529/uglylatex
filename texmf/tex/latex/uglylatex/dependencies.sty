@@ -30,10 +30,16 @@
 
 % 交叉引用包
 \RequirePackage[
-  colorlinks=true,
-  linkcolor=black,
-  citecolor=magenta,
-  urlcolor=blue
+  % colorlinks=true,
+  % linkcolor=black,
+  % citecolor=magenta,
+  % urlcolor=blue
+  pdfborder={0 0 0},
+  colorlinks,
+  citecolor=ecolor,
+  filecolor=ecolor,
+  linkcolor=ecolor,
+  urlcolor=ecolor
 ]{hyperref}
 
 % 其他包
@@ -90,6 +96,7 @@ url=false]{biblatex}  % 使用 biblatex 处理引用
 % 颜色处理
 \RequirePackage{color}
 \RequirePackage{xcolor}
+\RequirePackage{xpatch}
 
 % 代码环境设置
 \RequirePackage{verbatim} % 简易代码环境

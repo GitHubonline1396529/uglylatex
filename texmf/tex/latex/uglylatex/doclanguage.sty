@@ -12,9 +12,11 @@
   \newtheorem*{remark}{\normalfont\bfseries 评论} %
   \newtheorem*{note}{\normalfont\bfseries 注} %
   \newtheorem{case}{\normalfont\bfseries 案例} %
-  \renewcommand*{\proofname}{\normalfont\bfseries 证明} %
+  \renewcommand*{\proofname}{
+    \normalfont\bfseries\color{ecolor} 证明
+  } %
   \renewcommand\contentsname{目\ \ \ \ 录}
-  \renewcommand\refname{参考文献} %
+  \renewcommand\refname{\color{ecolor}参考文献} %
   \renewcommand\figurename{图} %
   \renewcommand\tablename{表}%
   \newcommand\versiontext{版本：}%
@@ -22,16 +24,14 @@
   \newcommand{\ebibname}{参考文献}
   % \renewcommand\abstractname{摘\ \ \ \ 要}
   \setlength\parindent{2\ccwd}
-  % \renewcommand{\abstracttextfont}{\small\citshape\noindent\ignorespaces}
-  % 新定义命令
   \newcommand{\keywords}[1]{
-    \vskip2ex\par\noindent{\small\heiti 关键词: } #1
+    \vskip2ex\par\noindent{\small\heiti\color{ecolor} 关键词: } #1
   }
   \newcommand\figref[1]{{\bfseries 图~\ref{#1}}}
   \newcommand\tabref[1]{{\bfseries 表~\ref{#1}}}
   \renewcommand{\appendixtocname}{附录}
   \renewcommand{\appendixpagename}{附录}
-  \renewcommand{\lstlistingname}{代码}
+  \renewcommand{\lstlistingname}{\color{ecolor}代码}
 }{\relax}
 
 \ifdefstring{\UGLY@lang}{en}{
@@ -48,21 +48,37 @@
   \newtheorem*{remark}{Remark} %
   \newtheorem*{note}{Note} %
   \newtheorem{case}{Case} %
-  \renewcommand*{\proofname}{\normalfont\bfseries Proof}%
+  \renewcommand*{\proofname}{
+    \normalfont\bfseries\color{ecolor} Proof
+  }%
   \newcommand\versiontext{\itshape Version: }%
   \newcommand\updatetext{\itshape Date: }%
   \setlength\parindent{2em}
   % \renewcommand{\abstracttextfont}{\sffamily\small\noindent\ignorespaces}
   % newcommands defined in this template.
   \newcommand{\keywords}[1]{
-    \vskip 2ex\par\noindent{\bfseries Keywords: } #1
+    \vskip 2ex\par\noindent{\bfseries\color{ecolor} Keywords: } #1
   }
   \renewcommand\contentsname{Table of Contents}
   \newcommand\figref[1]{{\bfseries Figure~\ref{#1}}}
   \newcommand\tabref[1]{{\bfseries Table~\ref{#1}}}
   \newcommand{\ebibname}{Bibliography}
-  \renewcommand{\lstlistingname}{Code}
+  \renewcommand{\lstlistingname}{\color{ecolor}Code}
 }{\relax}
+
+\let\openbox\relax
+\newtheoremstyle{plain}{\topsep}{\topsep}{\citshape}{}{%
+  \color{ecolor}\bfseries}{}{%
+  0.5em}{%
+  \thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+\newtheoremstyle{definition}{\topsep}{\topsep}{\citshape}{}{%
+  \color{ecolor}\bfseries}{}{%
+  0.5em}{}
+
+\newtheoremstyle{remark}{\topsep}{\topsep}{\cnormal}{}{
+  \color{ecolor}\bfseries}{}{
+  0.5em}{}
 
 % 代码环境定制
 % 定义颜色

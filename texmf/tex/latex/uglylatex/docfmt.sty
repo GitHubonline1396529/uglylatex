@@ -22,3 +22,20 @@
 
 % 全文字号参数传递
 \RequirePackage[\UGLY@fontsize]{extsizes}
+
+% 字体格式处理
+\ifcsname kaishu\endcsname
+  \newcommand{\citshape}{\kaishu}
+\else
+  \newcommand{\citshape}{\itshape}
+\fi
+\ifcsname kaishu\endcsname
+  \newcommand{\cnormal}{\kaishu}
+\else
+  \newcommand{\cnormal}{\normalfont}
+\fi
+\ifcsname fangsong\endcsname
+  \newcommand{\cfs}{\fangsong}
+\else
+  \newcommand{\cfs}{\normalfont}
+\fi

@@ -1,0 +1,19 @@
+% 设置图表标题样式
+\captionsetup{
+  labelfont={bf, color=ecolor}, textfont=bf,
+  font={small, bf, stretch=1.25},
+  labelsep=space,
+  justification=centering,
+  singlelinecheck=false
+}
+
+\subcaptionsetup{
+  labelfont={bf, color=ecolor}, textfont=bf,
+  font={small, bf, stretch=1.25}, % 字体大小、加粗、行距
+  labelsep=space, % 标签和标题之间的间隔
+  labelformat=simple,
+  singlelinecheck=off % 关闭单行检测
+}
+
+% 设置子图标题
+\renewcommand\thesubfigure{(\alph{subfigure})}
