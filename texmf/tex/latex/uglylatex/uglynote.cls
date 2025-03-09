@@ -108,13 +108,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 % 标题格式设置
 \titleformat{\section}
-{\centering\bfseries\fontsize{14pt}{16pt}\selectfont}
+{\centering\bfseries\large}
 {\chinese{section}、}{0em}{}
 \titleformat{\subsection}
-{\bfseries\fontsize{12pt}{14pt}\selectfont}
+{\bfseries\normalsize}
 {\thesubsection}{1em}{}
 \titleformat{\subsubsection}
-{\bfseries\fontsize{10.5pt}{12pt}\selectfont}
+{\bfseries\small}
 {\thesubsubsection}{1em}{}
 
 % 标题间距设置

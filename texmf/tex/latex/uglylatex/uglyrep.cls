@@ -108,23 +108,23 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \makeatother
 
 \titleformat{\chapter}[hang]
-{\centering\bfseries\fontsize{14pt}{16pt}\selectfont}
+{\centering\bfseries\large}
 {\chinese{chapter}、}
 {0em}
 {}
 \titleformat{\section}
-{\bfseries\fontsize{12pt}{14pt}\selectfont}
+{\bfseries\normalsize}
 {\thesection}
 {1em}
 {}
 \titleformat{\subsection}
-{\bfseries\fontsize{12pt}{14pt}\selectfont}
+{\bfseries\normalsize}
 {\thesubsection}
 {1em}
 {}
 \titleformat{\subsubsection}[runin]
 % 加上 [runin] 参数将 subsubsection 调整为常见的款项样式
-{\bfseries\fontsize{10.5pt}{12pt}\selectfont} %
+{\bfseries\small} %
 {\thesubsubsection}
 {1em}
 {}
