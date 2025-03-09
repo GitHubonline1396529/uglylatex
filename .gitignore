@@ -16,3 +16,6 @@
 # The vscode workspace folder
 .vscode
 .vscode/*
+
+# PDF files in example dictionary
+example/*.pdf
