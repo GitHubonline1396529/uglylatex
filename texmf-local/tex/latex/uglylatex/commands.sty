@@ -1,0 +1,36 @@
+% 定义 subtitle 命令
+% tex-fmt: off
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par
+  \end{center}
+  \begin{center}\large#1
+  \end{center}
+  \vskip0.5em
+}%
+}
+% tex-fmt: on
+
+% 用于双列模式下的
+\newcommand{\maketitlewithonecolabstract}[1]{
+  \twocolumn[
+    \maketitle
+    \begin{onecolabstract}
+      #1
+    \end{onecolabstract}
+  ]
+}
+
+% 定义自定义命令 \fig
+% 默认宽度为 0.5\linewidth
+\NewDocumentCommand{\fig}{O{} O{} m}{%
+  \begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{#3}
+    \IfValueT{#1}{\caption{#1}}
+    \IfValueT{#2}{\label{#2}}
+  \end{figure}
+}
+
+% 设置字体为思源宋体粗体的命令
+\newcommand{\shserifbold}{\CJKfamily{shserifbold}}

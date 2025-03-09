@@ -1,0 +1,21 @@
+% 正文字体
+%
+% 西文字体
+\setmainfont{Times New Roman}
+
+% 中文字体不需要额外设置，CTeX 已经解决了兼容性问题
+
+% 额外的字体设置：有些情况下会使用的字体
+%
+% 使用思源宋体粗体作为标题字体，因为方正小标宋需要版权
+\setCJKfamilyfont{shserifbold}{Source Han Serif SC Bold}
+
+% 正文格式设置
+\setlength{\parindent}{1em}
+\linespread{1.25}
+% \setlength{\parskip}{0pt plus 1pt}
+\setlength{\parskip}{0pt}
+
+% 设置 itemize 和 enumerate 的每一项间距等于行距
+\setlist[itemize]{itemsep=-3pt}
+\setlist[enumerate]{itemsep=-3pt}

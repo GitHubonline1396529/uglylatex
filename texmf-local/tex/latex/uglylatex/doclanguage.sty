@@ -1,0 +1,93 @@
+\ifdefstring{\UGLY@lang}{cn}{
+  \theoremstyle{plain}% default
+  \newtheorem{theorem}{定理}[section] %
+  \newtheorem{lemma}[theorem]{引理} %
+  \newtheorem{proposition}[theorem]{命题} %
+  \newtheorem*{corollary}{推论} %
+  \theoremstyle{definition} %
+  \newtheorem{definition}{定义}[section] %
+  \newtheorem{conjecture}{猜想}[section] %
+  \newtheorem{example}{例}[section] %
+  \theoremstyle{remark} %
+  \newtheorem*{remark}{\normalfont\bfseries 评论} %
+  \newtheorem*{note}{\normalfont\bfseries 注} %
+  \newtheorem{case}{\normalfont\bfseries 案例} %
+  \renewcommand*{\proofname}{\normalfont\bfseries 证明} %
+  \renewcommand\contentsname{目\ \ \ \ 录}
+  \renewcommand\refname{参考文献} %
+  \renewcommand\figurename{图} %
+  \renewcommand\tablename{表}%
+  \newcommand\versiontext{版本：}%
+  \newcommand\updatetext{日期：}%
+  \newcommand{\ebibname}{参考文献}
+  % \renewcommand\abstractname{摘\ \ \ \ 要}
+  \setlength\parindent{2\ccwd}
+  % \renewcommand{\abstracttextfont}{\small\citshape\noindent\ignorespaces}
+  % 新定义命令
+  \newcommand{\keywords}[1]{
+    \vskip2ex\par\noindent{\small\heiti 关键词: } #1
+  }
+  \newcommand\figref[1]{{\bfseries 图~\ref{#1}}}
+  \newcommand\tabref[1]{{\bfseries 表~\ref{#1}}}
+  \renewcommand{\appendixtocname}{附录}
+  \renewcommand{\appendixpagename}{附录}
+  \renewcommand{\lstlistingname}{代码}
+}{\relax}
+
+\ifdefstring{\UGLY@lang}{en}{
+  \theoremstyle{plain}% default
+  \newtheorem{theorem}{Theorem}[section] %
+  \newtheorem{lemma}[theorem]{Lemma} %
+  \newtheorem{proposition}[theorem]{Proposition} %
+  \newtheorem*{corollary}{Corollary} %
+  \theoremstyle{definition} %
+  \newtheorem{definition}{Definition}[section] %
+  \newtheorem{conjecture}{Conjecture}[section] %
+  \newtheorem{example}{Example}[section] %
+  \theoremstyle{remark} %
+  \newtheorem*{remark}{Remark} %
+  \newtheorem*{note}{Note} %
+  \newtheorem{case}{Case} %
+  \renewcommand*{\proofname}{\normalfont\bfseries Proof}%
+  \newcommand\versiontext{\itshape Version: }%
+  \newcommand\updatetext{\itshape Date: }%
+  \setlength\parindent{2em}
+  % \renewcommand{\abstracttextfont}{\sffamily\small\noindent\ignorespaces}
+  % newcommands defined in this template.
+  \newcommand{\keywords}[1]{
+    \vskip 2ex\par\noindent{\bfseries Keywords: } #1
+  }
+  \renewcommand\contentsname{Table of Contents}
+  \newcommand\figref[1]{{\bfseries Figure~\ref{#1}}}
+  \newcommand\tabref[1]{{\bfseries Table~\ref{#1}}}
+  \newcommand{\ebibname}{Bibliography}
+  \renewcommand{\lstlistingname}{Code}
+}{\relax}
+
+% 代码环境定制
+% 定义颜色
+\definecolor{commentgreen}{HTML}{3CA53C}
+% 设置代码环境
+\lstset{
+  basicstyle=\small\ttfamily, % 整体的字号、字体
+  backgroundcolor=\color{white}, % 背景颜色
+  frame=trbl, %显示各方向的代码框线条
+  % frameround=tttt, % 设置代码框各棱角的形状
+  showstringspaces=false, % 取消特别的字符间距
+  framexleftmargin=5pt, % 内部左边距
+  keywordstyle=\color{blue},
+  commentstyle=\color{commentgreen},
+  stringstyle=\color{red},
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  breaklines=true,
+  breakatwhitespace=true,
+  breakautoindent=true,
+  linewidth=\textwidth,
+  % numberbychapter=true,
+  xleftmargin=1em, % 左右两侧的空白
+  xrightmargin=1em,
+}

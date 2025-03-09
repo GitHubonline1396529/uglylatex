@@ -1,0 +1,18 @@
+
+\RequirePackage{abstract} % 用于设置摘要
+
+% 中文模式下的摘要样式
+\ifdefstring{\UGLY@lang}{cn}{
+  \renewcommand{\abstractname}{摘\ \ \ \ 要} % 设置摘要标题文本
+}{\relax}
+
+% 西文模式下的摘要样式
+\ifdefstring{\UGLY@lang}{en}{
+  \renewcommand{\abstractname}{Abstract} % 设置摘要标题文本
+}{\relax}
+
+% 使用标准的字体
+\renewcommand{\abstractnamefont}{
+\bfseries\large\selectfont}
+\renewcommand{\abstracttextfont}{
+\normalfont\normalsize\selectfont}

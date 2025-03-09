@@ -1,0 +1,109 @@
+% 导入 CTEX 宏包来支持中文文本
+\RequirePackage{ctex}
+
+% 导入其他需要的 TeX 包
+\RequirePackage{titling}
+\RequirePackage{titlesec}
+\RequirePackage{array}
+\RequirePackage{hologo}
+
+% 设置页边距
+\RequirePackage{geometry}
+
+\RequirePackage{fontspec}
+\RequirePackage{float}
+\RequirePackage{zhlipsum}
+\RequirePackage{authblk}
+
+% 与数学环境有关的包
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\RequirePackage{mathrsfs}
+\RequirePackage{cancel}
+% \RequirePackage{newtxmath}
+
+% 用于设置目录样式的包
+\RequirePackage[titles, subfigure]{tocloft}
+\RequirePackage{titletoc}
+
+% 交叉引用包
+\RequirePackage[
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=magenta,
+  urlcolor=blue
+]{hyperref}
+
+% 其他包
+\RequirePackage{fancyhdr}
+\RequirePackage{enumerate}
+\RequirePackage{enumitem} % 用于有序列表的设置
+\RequirePackage{metalogo}
+\RequirePackage{setspace}
+\RequirePackage{caption} % For customizing captions
+% \RequirePackage{subfigure}
+\RequirePackage{subcaption}
+% \RequirePackage{abstract} % 用于设置摘要
+% \RequirePackage[runin]{abstract}
+% 利用可选参数 runin ，将摘要标题添加到摘要正文段前
+\RequirePackage{appendix}
+\RequirePackage{graphicx} % graphicpaths 需要这个包
+\graphicspath{
+  {./fig/}
+  {./figs/}
+  {./figure/}
+  {./figures/}
+  {./img/}
+  {./imgs/}
+  {./image/}
+  {./images/}
+  {./graphics/}
+  {./graphic/}
+  {./pictures/}
+  {./picture/}
+}
+
+% 用于设置表格样式的包
+\RequirePackage{booktabs} % 使用 Excel2LaTeX 插件导出的表格需要这个
+\RequirePackage{multirow}
+\RequirePackage{longtable}
+\RequirePackage{pdfpages}
+\RequirePackage[
+  style=gb7714-2015,
+  sorting=none,
+  backend=biber,
+  hyperref=true,
+url=false]{biblatex}  % 使用 biblatex 处理引用
+
+% 部分与学科高度相关的包
+\RequirePackage{braket} % 量子力学算符
+\RequirePackage{qcircuit} % 量子电路绘制
+\RequirePackage[version=4]{mhchem} % 化学式、反应方程的书写
+\RequirePackage{chemfig} %结构式绘制
+\RequirePackage{tikz} % 一般图绘制
+\RequirePackage{tikz-network} % 神经网络图示绘制
+\RequirePackage{circuitikz} % 数字电路绘制
+\RequirePackage{pgfplots}
+
+% 颜色处理
+\RequirePackage{color}
+\RequirePackage{xcolor}
+
+% 代码环境设置
+\RequirePackage{verbatim} % 简易代码环境
+% （提供：verbatim 环境。缺点：不能解决断行问题。）
+\RequirePackage{listings} % 定制代码环境
+\RequirePackage{matlab-prettifier} % MATLAB专门的代码环境
+
+%             A____A       A____A
+%            /*    *\     /*    *\
+%           {   _  _ }   {   _  _ }
+%           A` >  v /<   A` >  ^ /<
+%         / !!!!! !!}  / !!!!! !!}
+%        / ! \!!!!! | / ! \!!!!! |
+%   ____{   ) |  |  |    ) |  |  |
+%  / ___{!!!c |  |  | !!!c |  |  |
+% { (___ \__\__@@_)@_)\__\__@@_)@_)
+%  \____)       \____)

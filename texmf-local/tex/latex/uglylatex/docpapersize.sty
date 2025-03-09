@@ -1,0 +1,55 @@
+
+% \WarningsOff
+% \RequirePackage[\UGLY@fontsize]{extsizes}
+% \WarningsOn
+
+\ifdefstring{\UGLY@device}{pad}{%
+  \geometry{
+    paperwidth=6in,
+    paperheight=8in,
+    includefoot,
+    margin=8mm}}{%
+  \relax}
+
+\ifdefstring{\UGLY@device}{pc}{
+  \geometry{%
+    margin=8mm,
+    paperwidth=6.2in,
+    paperheight=6in,
+    includefoot}}{%
+  \relax}
+
+\ifdefstring{\UGLY@device}{kindle}{%
+  \geometry{
+    margin=8mm,
+    paperwidth=3.68in, 
+    paperheight=4.92in}}{%
+  \relax}
+
+\ifdefstring{\UGLY@device}{normal}{%
+  \geometry{
+    margin=1in,
+    a4paper}}{%
+  \relax}
+
+\ifdefstring{\UGLY@device}{screen}{%  
+  \geometry{
+    screen,
+    paperwidth=25.4cm,
+    paperheight=19.05cm,
+    margin=1.6cm,
+    headheight=2.17cm,
+    footskip=0.6cm}}{%
+  \relax}
+
+\ifdefstring{\UGLY@device}{booklet}{%
+  \geometry{
+    margin=2cm,
+    a5paper}}{%
+  \relax}
+
+\ifdefstring{\UGLY@device}{textbook}{%
+  \geometry{
+    margin=2cm,
+    b5paper}}{%
+  \relax}

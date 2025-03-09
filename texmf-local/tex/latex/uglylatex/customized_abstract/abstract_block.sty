@@ -1,0 +1,27 @@
+
+\RequirePackage{abstract} % 用于设置摘要
+
+% 中文模式下的摘要样式
+\ifdefstring{\UGLY@lang}{cn}{
+  \renewcommand{\abstractname}{摘\ \ \ \ 要} % 设置摘要标题文本
+  % \abslabeldelim{:} % 在摘要标题后添加 符号“:”
+  % 下面这两行是使用了 CTEX 宏包定义的楷书命令 \kaishu
+  % 指定摘要使用楷书字体
+  \renewcommand{\abstractnamefont}{
+  \bfseries\normalsize\selectfont}
+  \renewcommand{\abstracttextfont}{
+  \normalfont\kaishu\normalsize\selectfont}
+}{\relax}
+
+% 西文模式下的摘要样式
+\ifdefstring{\UGLY@lang}{en}{
+  \renewcommand{\abstractname}{Abstract} % 设置摘要标题文本
+  \renewcommand{\abstractnamefont}{
+  \bfseries\normalsize\selectfont}
+  \renewcommand{\abstracttextfont}{
+  \normalfont\normalsize\selectfont}
+}{\relax}
+
+% 调整摘要位置的间距
+\setlength{\absleftindent}{1.18cm} % 控制摘要左缩进
+\setlength{\absrightindent}{1.18cm} % 控制摘要右缩进
