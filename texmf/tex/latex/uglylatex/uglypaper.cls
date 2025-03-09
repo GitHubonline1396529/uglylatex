@@ -106,7 +106,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 % 标题格式设置
 \titleformat{\section}
-{\centering\bfseries\large}
+{\bfseries\large}
 {\chinese{section}、}{0em}{}
 \titleformat{\subsection}
 {\bfseries\normalsize}
