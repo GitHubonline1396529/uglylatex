@@ -26,7 +26,7 @@ all:
 
 install:
 	@echo "Installing to $(PREFIX)"
-	cp -r ./texmf-local/* $(PREFIX)/
+	cp -r ./texmf/* $(PREFIX)/
 	cd $(PREFIX) && texhash .
 
 example:
@@ -35,8 +35,8 @@ example:
 		echo "Compiling $$file"; \
 		latexmk -xelatex $$file; \
 	done
-	@cp example/*.pdf texmf-local/doc/
-	@echo "All PDFs have been copied to ./texmf-local/doc/"
+	@cp example/*.pdf texmf/doc/
+	@echo "All PDFs have been copied to ./texmf/doc/"
 
 clear:
 	@cd example && rm $(AUXFILES) *.pdf

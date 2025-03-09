@@ -66,10 +66,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % \DeclareVoidOption{biber}{\kvsetkeys{UGLY}{bibend=biber}}
 % \DeclareVoidOption{bibtex}{\kvsetkeys{UGLY}{bibend=bibtex}}
 
-% \DeclareStringOption[11pt]{fontsize}
-% \DeclareVoidOption{10pt}{\kvsetkeys{UGLY}{fontsize=10pt}}
-% \DeclareVoidOption{11pt}{\kvsetkeys{UGLY}{fontsize=11pt}}
-% \DeclareVoidOption{12pt}{\kvsetkeys{UGLY}{fontsize=12pt}}
+\DeclareStringOption[11pt]{fontsize}
+\DeclareVoidOption{10pt}{\kvsetkeys{UGLY}{fontsize=10pt}}
+\DeclareVoidOption{11pt}{\kvsetkeys{UGLY}{fontsize=11pt}}
+\DeclareVoidOption{12pt}{\kvsetkeys{UGLY}{fontsize=12pt}}
 
 % \DeclareStringOption[cm]{math}
 % \DeclareVoidOption{newtx}{\kvsetkeys{UGLY}{math=newtx}}
