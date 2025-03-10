@@ -10,20 +10,17 @@
 
 # Universal LaTeX AUX files
 AUXFILES = \
-*.aux \
-*.bbl \
-*.bcf \
-*.blg \
-*.fdb_latexmk \
-*.fls \
-*.log \
-*.loc \
-*.out \
+*.aux *.bbl *.bcf *.blg \
+*.fdb_latexmk *.fls \
+*.log *.loc *.out \
 *.run.xml \
-*.soc \
-*.toc \
-*.xdv
+*.soc *.toc *.xdv
 
+# Manually maintain the list of .tex files
+TEX_FILES := \
+uglynote-cn.tex \
+uglypaper-cn.tex \
+uglyrep-cn.tex
 
 .PHONY: example clear
 
@@ -39,7 +36,7 @@ install:
 # Build example PDF files
 example:
 	@echo "Compiling example files..."
-	@cd example && for file in *.tex; do \
+	@cd example && for file in $(TEX_FILES); do \
 		echo "Compiling $$file"; \
 		latexmk -xelatex $$file; \
 	done

@@ -1,0 +1,49 @@
+\documentclass[12pt, blue]{uglynote}
+\title{\bfseries UglyNote：一个“丑陋”的\LaTeX{}笔记模板}
+\author{GitHubonline1396529}
+\date{\zhdate{2022/12/31}}
+\input{colors.tex}
+\begin{document}
+
+\maketitle
+\begin{abstract}
+    本文是UglyNote模板的排版效果示例及模板文档，在展示排版效果的同时简要阐述了模板的部分功能及其使用方法。UglyNote最初是我留作自用的\LaTeX 模板，具有较好的Pandoc Markdown to PDF via \LaTeX 兼容性，适合用于日常写作的快速排版。
+
+    \keywords{\LaTeX;\quad 排版;\quad 文档类;}
+\end{abstract}
+
+\section{UglyNote使用须知}
+
+\subsection{UglyNote模板介绍}
+
+\input{mainbody-cn/introduction-cn.tex}
+
+\subsection{守正创新}
+
+\input{mainbody-cn/new_things-cn.tex}
+
+\section{文档类功能}
+
+\subsection{文档类选项}
+
+此模板基于\LaTeX{}的标准文档类\texttt{article}设计，所以\texttt{article}文类的选项也能传递给本模板，比如 \texttt{a4paper, 10pt} 等等。
+
+\input{mainbody-cn/classoptions-cn.tex}
+
+\subsection{定理类环境}
+
+\input{mainbody-cn/theorem-cn.tex}
+
+\subsection{语言模式}
+
+\input{mainbody-cn/language_mode-cn.tex}
+
+\subsection{颜色模式}
+
+\input{mainbody-cn/colors_mode-cn.tex}
+
+\section{写作示例}
+
+\input{mainbody-cn/demo-cn.tex}
+
+\end{document}

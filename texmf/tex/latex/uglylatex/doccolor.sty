@@ -1,19 +1,25 @@
-\ifdefstring{\UGLY@color}{green}{
-  \definecolor{ecolor}{RGB}{0,120,2}%
-}{\relax}
-\ifdefstring{\UGLY@color}{cyan}{
-  \definecolor{ecolor}{RGB}{31,186,190}%
-}{\relax}
-\ifdefstring{\UGLY@color}{blue}{
-  % \definecolor{ecolor}{RGB}{1,126,218}%
-  \definecolor{ecolor}{RGB}{0,91,150}%
-}{\relax}
-\ifdefstring{\UGLY@color}{sakura}{
-  \definecolor{ecolor}{RGB}{255,183,197}%
-}{\relax}
 \ifdefstring{\UGLY@color}{black}{
   \definecolor{ecolor}{RGB}{0,0,0}%
 }{\relax}
-\ifdefstring{\UGLY@color}{brown}{
+
+% ElegantLaTeX 原来的色系设计
+\ifdefstring{\UGLY@color}{elegantgreen}{
+  \definecolor{ecolor}{RGB}{0,120,2}%
+}{\relax}
+\ifdefstring{\UGLY@color}{elegantcyan}{
+  \definecolor{ecolor}{RGB}{31,186,190}%
+}{\relax}
+\ifdefstring{\UGLY@color}{elegantblue}{
+  \definecolor{ecolor}{RGB}{1,126,218}%
+}{\relax}
+\ifdefstring{\UGLY@color}{elegantsakura}{
+  \definecolor{ecolor}{RGB}{255,183,197}%
+}{\relax}
+\ifdefstring{\UGLY@color}{elegantbrown}{
   \definecolor{ecolor}{RGB}{109,62,18}%
+}{\relax}
+
+% 新的色系系统
+\ifdefstring{\UGLY@color}{blue}{
+  \definecolor{ecolor}{RGB}{0,91,150}%
 }{\relax}

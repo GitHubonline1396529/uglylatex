@@ -9,3 +9,24 @@
 本项目旨在 **直接生成效果理想的排版文档**，因为我想简化流程，直接生成想要的文档格式，无需在正式编写文档的时候再去调整。但是这也意味着本模板对二次修改的兼容性较差，很多内容被直接写死了。在这种情况下如果你对本文档类的排版效果不满意，那就只能去修改文档类 (`.cls`) 文件了。这也是为什么我没有打算把这个项目当作一个正式的 LaTeX 包来开发，而是，
 
 **目前项目还在初始化过程当中，我先把文件传上来，但是我的注释和文档还没写完。大家可以先等一等我，或者帮我干活。**
+
+# Q&A
+
+## 在 Pandoc 中启用颜色
+
+```yaml
+colorlinks: true
+citecolor: ecolor
+filecolor: ecolor
+linkcolor: ecolor
+urlcolor: ecolor
+```
+
+## 在 Pandoc 中启用代码换行
+
+```yaml
+# Warp lines in code blocks
+header-includes:
+ - \usepackage{fvextra}
+ - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+```
