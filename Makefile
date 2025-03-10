@@ -1,8 +1,14 @@
-# Makefile
+# Makefile for project `UglyLaTeX`
+#
+# Name: Makefile
+# Date: 2025/3/10
+# Version: 0.1.0.0
+# License: Copyright (c) 2025 Githubonline1396529
+
 # Read `config.mk` file (If exist).
 -include config.mk
 
-# 通用的临时文件
+# Universal LaTeX AUX files
 AUXFILES = \
 *.aux \
 *.bbl \
@@ -24,11 +30,13 @@ AUXFILES = \
 all:
 	@echo "Building project..."
 
+# Install the document class files to local `texmf` directory
 install:
 	@echo "Installing to $(PREFIX)"
 	cp -r ./texmf/* $(PREFIX)/
 	cd $(PREFIX) && texhash .
 
+# Build example PDF files
 example:
 	@echo "Compiling example files..."
 	@cd example && for file in *.tex; do \
@@ -38,5 +46,6 @@ example:
 	@cp example/*.pdf texmf/doc/
 	@echo "All PDFs have been copied to ./texmf/doc/"
 
+# Remove all AUX files
 clear:
 	@cd example && rm $(AUXFILES) *.pdf

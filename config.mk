@@ -1,3 +1,5 @@
+# Configurations for Makefile
+#
 # Name: config.mk
 # Date: 2025/3/10
 # Version: 0.1.0.0
