@@ -32,6 +32,13 @@
     a4paper}}{%
   \relax}
 
+% 紧凑型布局，只有 2cm 页边距。
+\ifdefstring{\UGLY@device}{compact}{%
+  \geometry{
+    margin=2cm,
+    a4paper}}{%
+  \relax}
+
 \ifdefstring{\UGLY@device}{screen}{%  
   \geometry{
     screen,

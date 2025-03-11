@@ -16,9 +16,46 @@
 % \setlength{\parskip}{0pt plus 1pt}
 \setlength{\parskip}{0pt}
 
-% 设置 itemize 和 enumerate 的每一项间距等于行距
-\setlist[itemize]{itemsep=-3pt}
-\setlist[enumerate]{itemsep=-3pt}
+% 列表项左侧顶格写
+% 理论上，itemsep=0pt 或者 itemsep=0pt 可以设置 
+% itemize 和 enumerate 的每一项间距等于行距，但实际上
+% 这个设置和精美的带阴影的球的 item label 不兼容。
+\setlist[itemize]{
+  % itemsep=0pt，
+  noitemsep,
+  leftmargin=*
+}
+\setlist[enumerate]{
+  % itemsep=0pt，
+  noitemsep,
+  leftmargin=*
+}
+
+% 多级列表格式设置
+% 设置一组列表项格式为带阴影的球，用于 itemize 环境。
+\usetikzlibrary{shadows}
+\newcommand*{\eitemi}{
+  \tikz\draw[baseline,ball color=ecolor,draw=none] circle (2pt);}
+\newcommand*{\eitemii}{
+  \tikz\draw[
+    baseline,
+    fill=ecolor,
+    draw=none,
+    circular drop shadow
+    ] circle (2pt);}
+\newcommand*{\eitemiii}{%
+  \tikz\draw[baseline,fill=ecolor,draw=none] circle (2pt);}
+
+% 有序列表启用多级不同序号样式
+\setlist[enumerate,1]{label=\color{ecolor}\arabic*.}
+\setlist[enumerate,2]{label=\color{ecolor}(\alph*).}
+\setlist[enumerate,3]{label=\color{ecolor}\Roman*.}
+\setlist[enumerate,4]{label=\color{ecolor}\Alph*.}
+
+% 无序列表启用更精致的 label 项
+\setlist[itemize,1]{label={\eitemi}}
+\setlist[itemize,2]{label={\eitemii}}
+\setlist[itemize,3]{label={\eitemiii}}
 
 % 全文字号参数传递
 \RequirePackage[\UGLY@fontsize]{extsizes}

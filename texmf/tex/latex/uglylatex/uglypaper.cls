@@ -16,64 +16,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \fi
 
 % 文档类参数处理
-% % 自定义文档类选项
-% \SetupKeyvalOptions{family=UGLY, prefix=UGLY@, setkeys=\kvsetkeys}
-% % \newcommand{\ekv}[1]{\kvsetkeys{UGLY}{#1}}
-
-% \DeclareStringOption[cn]{lang}
-% \DeclareVoidOption{cn}{\kvsetkeys{UGLY}{lang=cn}}
-% \DeclareVoidOption{en}{\kvsetkeys{UGLY}{lang=en}}
-
-\SetupKeyvalOptions{family=UGLY, prefix=UGLY@, setkeys=\kvsetkeys}
-% \newcommand{\ekv}[1]{\kvsetkeys{UGLY}{#1}}
-
-\DeclareStringOption[black]{color}
-\DeclareVoidOption{green}{\kvsetkeys{UGLY}{color=green}}
-\DeclareVoidOption{cyan}{\kvsetkeys{UGLY}{color=cyan}}
-\DeclareVoidOption{blue}{\kvsetkeys{UGLY}{color=blue}}
-\DeclareVoidOption{sakura}{\kvsetkeys{UGLY}{color=sakura}}
-\DeclareVoidOption{black}{\kvsetkeys{UGLY}{color=black}}
-\DeclareVoidOption{brown}{\kvsetkeys{UGLY}{color=brown}}
-
-\DeclareStringOption[cn]{lang}
-\DeclareVoidOption{cn}{\kvsetkeys{UGLY}{lang=cn}}
-\DeclareVoidOption{en}{\kvsetkeys{UGLY}{lang=en}}
-
-\DeclareStringOption[normal]{device}
-\DeclareVoidOption{pc}{\kvsetkeys{UGLY}{device=pc}}
-\DeclareVoidOption{pad}{\kvsetkeys{UGLY}{device=pad}}
-\DeclareVoidOption{kindle}{\kvsetkeys{UGLY}{device=kindle}}
-\DeclareVoidOption{normal}{\kvsetkeys{UGLY}{device=normal}}
-\DeclareVoidOption{screen}{\kvsetkeys{UGLY}{device=screen}}
-\DeclareVoidOption{booklet}{\kvsetkeys{UGLY}{device=booklet}}
-\DeclareVoidOption{textbook}{\kvsetkeys{UGLY}{device=textbook}}
-
-% \DeclareStringOption{mode}
-% \DeclareVoidOption{geye}{\kvsetkeys{UGLY}{mode=geye}}
-% \DeclareVoidOption{hazy}{\kvsetkeys{UGLY}{mode=hazy}}
-% \DeclareVoidOption{sepia}{\kvsetkeys{UGLY}{mode=sepia}}
-
-% \DeclareStringOption[ctexfont]{chinesefont}
-% \DeclareVoidOption{ctexfont}{\kvsetkeys{UGLY}{chinesefont=ctexfont}}
-% \DeclareVoidOption{founder}{\kvsetkeys{UGLY}{chinesefont=founder}}
-% \DeclareVoidOption{nofont}{\kvsetkeys{UGLY}{chinesefont=nofont}}
-
-% \DeclareStringOption[numeric-comp]{citestyle}
-% \DeclareStringOption[numeric]{bibstyle}
-
-% \DeclareStringOption[biber]{bibend}
-% \DeclareVoidOption{biber}{\kvsetkeys{UGLY}{bibend=biber}}
-% \DeclareVoidOption{bibtex}{\kvsetkeys{UGLY}{bibend=bibtex}}
-
-\DeclareStringOption[11pt]{fontsize}
-\DeclareVoidOption{10pt}{\kvsetkeys{UGLY}{fontsize=10pt}}
-\DeclareVoidOption{11pt}{\kvsetkeys{UGLY}{fontsize=11pt}}
-\DeclareVoidOption{12pt}{\kvsetkeys{UGLY}{fontsize=12pt}}
-
-% \DeclareStringOption[cm]{math}
-% \DeclareVoidOption{newtx}{\kvsetkeys{UGLY}{math=newtx}}
-% \DeclareVoidOption{mtpro2}{\kvsetkeys{UGLY}{math=mtpro2}}
-% \DeclareVoidOption{cm}{\kvsetkeys{UGLY}{math=cm}}
+\input{classoptions}
 
 % 传递文档类选项
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{article}}
@@ -108,13 +51,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 % 标题格式设置
 \titleformat{\section}
-{\bfseries\large}
+{\bfseries\large\color{ecolor}}
 {\chinese{section}、}{0em}{}
 \titleformat{\subsection}
-{\bfseries\normalsize}
+{\bfseries\normalsize\color{ecolor}}
 {\thesubsection}{1em}{}
 \titleformat{\subsubsection}
-{\bfseries\small}
+{\bfseries\small\color{ecolor}}
 {\thesubsubsection}{1em}{}
 
 % 标题间距设置
@@ -153,11 +96,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 % 定义新的命令
 
-% 额外定义的功能性命令
-
 % 精确调整 aritcle title 的位置
 \makeatletter
 \def\@maketitle{%
+  \color{ecolor}
   \newpage
   \null
   \vskip 2em%

@@ -20,6 +20,29 @@
 }{\relax}
 
 % 新的色系系统
+\ifdefstring{\UGLY@color}{green}{
+  \definecolor{ecolor}{RGB}{0,120,2}%
+}{\relax}
 \ifdefstring{\UGLY@color}{blue}{
   \definecolor{ecolor}{RGB}{0,91,150}%
+}{\relax}
+\ifdefstring{\UGLY@color}{crimson}{
+  \definecolor{ecolor}{RGB}{184,15,10}%
+}{\relax}
+\ifdefstring{\UGLY@color}{cyan}{
+  \definecolor{ecolor}{RGB}{0,128,128}%
+}{\relax}
+\ifdefstring{\UGLY@color}{olive}{
+  \definecolor{ecolor}{RGB}{128,128,0}%
+}{\relax}
+
+% 隐藏色
+\ifdefstring{\UGLY@color}{army}{
+  \definecolor{ecolor}{RGB}{75,83,32}%
+}{\relax}
+\ifdefstring{\UGLY@color}{airforce}{
+  \definecolor{ecolor}{RGB}{0,48,143}%
+}{\relax}
+\ifdefstring{\UGLY@color}{navy}{
+  \definecolor{ecolor}{RGB}{2,7,93}%
 }{\relax}
