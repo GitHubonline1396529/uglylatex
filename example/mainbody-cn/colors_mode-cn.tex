@@ -1,0 +1,21 @@
+本模板在颜色模式方面的改进，主要是针对\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}中的各种颜色的问题进行了增强。例如原有的 \textcolor{elegantsakura}{sakura} 和 \textcolor{elegantblue}{blue} 颜色方案由于颜色深度不足，在白色纸张上辨读效果不好。再比如，原有的 \textcolor{elegantbrown}{brown} 因为颜色太深，导致无法和黑色字体区分开来。
+
+表\ref{tab:colors}展示了经过增强前后的颜色的展示效果对比。可以看出，本项目为了增强文本阅读特性，对每个颜色在RGB 0到255的色号之间都进行了均衡，相较以往的\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}的配色方案，辨读效果更理想。
+
+\begin{table}[!h]
+  \centering
+  \caption{\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}与本模板颜色对照}%
+  \label{tab:colors}
+  \begin{tabular}{c c c c}
+    \toprule
+    旧颜色 & 旧色号 & 对标颜色 & 新色号 \\
+    \midrule
+    \textcolor{elegantblack}{black} & \texttt{0,0,0} & \textcolor{eblack}{black} & \texttt{0,0,0} \\
+    \textcolor{elegantblue}{blue} & \texttt{1,126,218} & \textcolor{eblue}{blue} & \texttt{0,91,150} \\
+    \textcolor{elegantgreen}{green} & \texttt{0,120,2} & \textcolor{egreen}{green} & \texttt{0,120,2} \\
+    \textcolor{elegantcyan}{cyan} & \texttt{0,175,152} & \textcolor{ecyan}{cyan} & \texttt{0,128,128} \\
+    \textcolor{elegantsakura}{sakura} & \texttt{255,183,197} & \textcolor{ecrimson}{crimson} & \texttt{184,15,10} \\
+    \textcolor{elegantbrown}{brown} & \texttt{109,62,18} & \textcolor{eolive}{olive} & \texttt{128,128,0} \\
+    \bottomrule
+  \end{tabular}
+\end{table}

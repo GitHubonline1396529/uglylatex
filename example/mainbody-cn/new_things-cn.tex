@@ -2,14 +2,20 @@
 \begin{itemize}
   \item \textbf{语言模式切换}：支持通过文档类选项\texttt{lang=cn}和\texttt{lang=en}切换中英文语言模式。
   \item \textbf{定理与公式环境}：支持数学公式编辑，并提供了11种不同的定理类环境的选项，支持交叉引用。
-  \item \textbf{适配不同设备}，包括 Pad，Screen (幻灯片)，Kindle，PC (双页)，通用 (A4 纸张)；
-  \item \textbf{全局字体大小支持}：8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 和 20pt；
+  \item \textbf{适配不同设备}，包括适配手机或平板电脑尺寸的Pad，适用于演示文稿的Screen (幻灯片)，适用于电子阅读器的Kindle，适用于电脑屏幕尺寸的PC，以及默认的通用 (A4 纸张)；
+  \item \textbf{全局字体大小支持}：从8pt到20pt的自由变换；
   \item \textbf{原有的6套颜色主题}：\textcolor{elegantblue}{blue}（默认）、\textcolor{elegantgreen}{green}、\textcolor{elegantcyan}{cyan}、 \textcolor{elegantsakura}{sakura} 和 \textcolor{elegantblack}{black}、\textcolor{elegantbrown}{brown}；
 \end{itemize}
 
 除此之外，本项目还在\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}的基础之上增加了一系列新的优势性功能，包括但不限于
 \begin{itemize}
   \item \textbf{新增两种排版}：小开本 (32开A5)，课本 (B5纸张)；
-  \item \textbf{更严谨更现代化的目录结构}：模块化功能便于维护，支持使用\texttt{Makefile}安装到目录。
-  \item \textbf{Pandoc兼容性}：从Markdown文件快速构建您的文档PDF。
+  \item \textbf{更现代化的目录结构}：模块化功能便于维护，支持使用\texttt{Makefile}安装到目录；
+  \item \textbf{Pandoc兼容性}：从Markdown文件快速构建您的文档PDF；
+  \item \textbf{新的配色选项}：增加了新的配色方案如更深的蓝色\textcolor{eblue}{blue}\footnote{\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目原有的几种配色方案中存在颜色太浅、阅读体验不够理想的问题。引进新的配色有助于解决这种问题。详情参见章节\ref{ssec:classoptions}和章节\ref{ssec:colors}。}。
+  \item \textbf{风格更正式的排版}：我去除了\LaTeX{}本来的古板的学术画风，但我可以保留了一部分。因为只有保留一部分，你才能知道你用的是\LaTeX{}排版。
 \end{itemize}
+
+\begin{remark}
+  原有的\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}经常被认为是将各种功能模块写得太死了，想要在排版的时候进行进一步的个性化格式修改就会很困难。这个问题在本项目中非但有之，而且更甚。本项目的理念就是要确保在排版的过程中不需要引入任何额外的样式修改，直接提供足够理想的终产物样式，并适配尽可能广的应用场景。
+\end{remark}

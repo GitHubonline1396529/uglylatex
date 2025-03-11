@@ -1,35 +1,66 @@
-\documentclass[12pt, textbook]{uglyrep}
+\documentclass[12pt, textbook, green]{uglyrep}
 \title{\bfseries UglyRep：一个“丑陋”的\LaTeX{}报告模板}
 \author{GitHubonline1396529}
 \date{\zhdate{2022/12/31}}
+
+% 本文档命令
+\input{colors.tex}
+\addbibresource{reference.bib} % 参考文献，不要删除
 
 \begin{document}
 
 \maketitle
 \begin{abstract}
-  本文是UglyRep模板的排版效果示例及模板文档，在展示排版效果的同时简要阐述了模板的部分功能及其使用方法。UglyRep最初是我留作自用的\LaTeX 模板，用以在\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目停止更新后取代其功能。
+  自从\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目停更之后，我就时常感到十分的无措，尽管大家都说 Elegant\LaTeX 的历史使命已经完成、已经过时了，不在适合继续维护，但是我原本很喜欢这个项目。系列模板使用起来也特别方便，尤其是可以通过在Markdwon文件的YAML Header中使用\texttt{documentclass}指定文档类，再通过Pandoc一次性转换为PDF via \LaTeX{}快速排版。
+
+  最初，为了满足我个人的使用需求，我自己搓了这几个模板。后来觉得比较好用，我就觉得应该发出来跟大家分享，大家一起用。但是因为我的技术比较菜，而且没有什么艺术细胞，做不到Elegant，所以我把项目命名为了Ugly\LaTeX{}，很合理吧。
+
+  本文是UglyRep模板的排版效果示例及模板文档，在展示排版效果的同时简要阐述了模板的部分功能及其使用方法。%
+  % UglyRep最初是我留作自用的\LaTeX 报告模板，用以在\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目停止更新后取代其功能。
+  UglyRep模板对标的是\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目中的\href{https://github.com/ElegantLaTeX/ElegantBook}{ElegantBook}，实际上却是基于\texttt{report}文档类构建的。这样的设计不仅是为了更好的Pandoc兼容性，也是从更强的实用性的角度出发的考量。
 
   \keywords{\LaTeX;\quad 排版;\quad 文档类;}
 \end{abstract}
 
 \tableofcontents
 
-\chapter{UglyRep使用须知}
-
-\section{UglyRep模板介绍}
-
+\chapter{模板须知}
+\section{模板介绍}
 \input{mainbody-cn/introduction-cn.tex}
 
-UglyRep模板对标的是\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目中的\href{https://github.com/ElegantLaTeX/ElegantBook}{ElegantBook}，实际上却是基于\texttt{report}文档类构建的。这样的设计不仅是为了更好的Pandoc兼容性，也是从更强的实用性的角度出发的考量。
-
 \section{守正创新}
-
 \input{mainbody-cn/new_things-cn.tex}
+
+\chapter{文档类功能及使用方法}
+\section{文档类选项}\label{ssec:classoptions}
+
+此模板基于\LaTeX{}的标准文档类\texttt{article}设计，所以\texttt{article}文类的选项也能传递给本模板，比如 \texttt{a4paper, 10pt} 等等。
+
+\input{mainbody-cn/classoptions-cn.tex}
+
+\section{定理类环境}
+\input{mainbody-cn/theorem-cn.tex}
+
+\section{语言模式}
+\input{mainbody-cn/language_mode-cn.tex}
+
+\section{颜色模式}\label{ssec:colors}
+\input{mainbody-cn/colors_mode-cn.tex}
+
+\section{文献引用}
+\input{mainbody-cn/citation-cn.tex}
 
 \chapter{写作示例}
 
-\section{来自\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}的示例}
-
 \input{mainbody-cn/demo-cn.tex}
+
+% \nocite{*}
+\printbibliography[
+  % heading=bibintoc, 
+  title=\ebibname]
+
+\appendix
+%\appendixpage
+\addappheadtotoc
 
 \end{document}
