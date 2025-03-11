@@ -107,3 +107,11 @@
   xleftmargin=1em, % 左右两侧的空白
   xrightmargin=1em,
 }
+
+% minted 宏包的换行选项，从技术上来说，将这两行代码加入到 Markdown YAML Header
+% 的 `header-include` 参数当中可以允许 `minted` 环境换行，
+% 但是因为暂时默认不使用 `minted` 而是使用 `listing`，暂时注释掉了。
+% \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+%   breaklines,
+%   commandchars=\\\{\}
+% }

@@ -1,13 +1,11 @@
 本模板内含两套语言环境，改变语言环境会改变图表标题的引导词 (图，表)，文章结构词 (比如目录，参考文献等)，以及定理环境中的引导词 (比如定理，引理等)。不同语言模式的启用如下：
 
-\begin{lstlisting}[
-  frame=none, language=TeX,
-  caption={启用语言模式}]  
+\begin{minted}{tex} 
   \documentclass[cn]{elegantnote} 
   \documentclass[lang=cn]{elegantnote} 
   \documentclass[en]{elegantnote} 
   \documentclass[lang=en]{elegantnote}
-\end{lstlisting}
+\end{minted}
 
 \begin{note}
   % 只有中文模式才可输入中文，如果需要在英文模式下输入中文，可以自行添加 \lstinline{ctex} 宏包\footnote{需要使用 \lstinline{scheme=plain} 选项才不会把标题改为中文。}或者使用 \lstinline{xeCJK} 宏包设置字体。另外如果在笔记中使用了抄录环境 (\lstinline{lstlisting})，并且里面有中文字符，请务必使用 \hologo{XeLaTeX} 编译。
