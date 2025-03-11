@@ -11,11 +11,11 @@
 # LaTeX packages. Set the `PREFIX` as following to install this LaTeX document
 # class into your local system.
 
-# PREFIX = /d/texlive/texmf-local
+PREFIX = /d/texlive/texmf-local
 
 # In another way, if you're using MiKTeX instead, you can, for example, create
 # a directory in <C:/Programs/texmf-local> by yourself, and add it into your 
 # TEXMF ROOT LIST in your MiKTeX Console, for you to install your own LaTeX 
 # packages. Then you can set the `PREFIX` as the following:
 
-PREFIX = /c/Programs/texmf-local
+# PREFIX = /c/Programs/texmf-local
