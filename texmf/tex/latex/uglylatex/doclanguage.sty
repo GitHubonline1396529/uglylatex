@@ -29,8 +29,8 @@
   }
   \newcommand\figref[1]{{\bfseries 图~\ref{#1}}}
   \newcommand\tabref[1]{{\bfseries 表~\ref{#1}}}
-  \renewcommand{\appendixtocname}{附录}
-  \renewcommand{\appendixpagename}{附录}
+  \renewcommand{\appendixtocname}{\textcolor{ecolor}{附录}}
+  \renewcommand{\appendixpagename}{\textcolor{ecolor}{附录}}
   \renewcommand{\lstlistingname}{\color{ecolor}代码}
 }{\relax}
 
@@ -62,6 +62,8 @@
   \renewcommand\contentsname{Table of Contents}
   \newcommand\figref[1]{{\bfseries Figure~\ref{#1}}}
   \newcommand\tabref[1]{{\bfseries Table~\ref{#1}}}
+  \renewcommand{\appendixtocname}{\textcolor{ecolor}{Appendices}}
+  \renewcommand{\appendixpagename}{\textcolor{ecolor}{Appendices}}
   \newcommand{\ebibname}{Bibliography}
   \renewcommand{\lstlistingname}{\color{ecolor}Code}
 }{\relax}
@@ -79,39 +81,3 @@
 \newtheoremstyle{remark}{\topsep}{\topsep}{\cnormal}{}{
   \color{ecolor}\bfseries}{}{
   0.5em}{}
-
-% 代码环境定制
-% 定义颜色
-\definecolor{commentgreen}{HTML}{3CA53C}
-% 设置代码环境
-\lstset{
-  basicstyle=\small\ttfamily, % 整体的字号、字体
-  backgroundcolor=\color{white}, % 背景颜色
-  frame=trbl, %显示各方向的代码框线条
-  % frameround=tttt, % 设置代码框各棱角的形状
-  showstringspaces=false, % 取消特别的字符间距
-  framexleftmargin=5pt, % 内部左边距
-  keywordstyle=\color{blue},
-  commentstyle=\color{commentgreen},
-  stringstyle=\color{red},
-  numberstyle=\tiny\color{gray},
-  stepnumber=1,
-  numbersep=5pt,
-  showspaces=false,
-  showstringspaces=false,
-  breaklines=true,
-  breakatwhitespace=true,
-  breakautoindent=true,
-  linewidth=\textwidth,
-  % numberbychapter=true,
-  xleftmargin=1em, % 左右两侧的空白
-  xrightmargin=1em,
-}
-
-% minted 宏包的换行选项，从技术上来说，将这两行代码加入到 Markdown YAML Header
-% 的 `header-include` 参数当中可以允许 `minted` 环境换行，
-% 但是因为暂时默认不使用 `minted` 而是使用 `listing`，暂时注释掉了。
-% \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
-%   breaklines,
-%   commandchars=\\\{\}
-% }

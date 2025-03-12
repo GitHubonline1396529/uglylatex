@@ -31,6 +31,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{doccolor}
 \RequirePackage{doccaptions}
 \RequirePackage{doclanguage}
+% \RequirePackage{docappendix}
 \RequirePackage{commands}
 
 % 调整标题下移距离，减少顶部空白

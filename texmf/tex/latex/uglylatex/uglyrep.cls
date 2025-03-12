@@ -32,6 +32,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{doccolor}
 \RequirePackage{doccaptions}
 \RequirePackage{doclanguage}
+% \RequirePackage{docappendix}
 \RequirePackage{commands}
 
 % 定义中文序号

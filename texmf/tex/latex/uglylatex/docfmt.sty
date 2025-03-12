@@ -76,3 +76,46 @@
 \else
   \newcommand{\cfs}{\normalfont}
 \fi
+
+% 代码环境定制
+% 定义颜色
+\definecolor{commentgreen}{RGB}{0,100, 0}
+% \definecolor{lightgrey}{HTML}{EEEEEE}
+% 设置代码环境
+\lstset{
+  basicstyle=\small\ttfamily, % 整体的字号、字体
+  backgroundcolor=\color{white}, % 背景颜色
+  % frame=trbl, %显示各方向的代码框线条
+  frame=tb, %显示各方向的代码框线条，只保留上和下
+  framerule=1pt,
+  rulecolor=\color{ecolor},
+  % frameround=tttt, % 设置代码框各棱角的形状
+  showstringspaces=false, % 取消特别的字符间距
+  framexleftmargin=5pt, % 内部左边距
+  keywordstyle=\color{blue},
+  commentstyle=\color{commentgreen},
+  stringstyle=\color{red},
+  numberstyle=\small\color{ecolor},
+  stepnumber=1,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  breaklines=true,
+  breakatwhitespace=true,
+  breakautoindent=true,
+  % linewidth=\textwidth,
+  % numberbychapter=true,
+  xleftmargin=1em, % 左右两侧的空白
+  xrightmargin=1em,
+}
+
+% minted 宏包的换行选项，从技术上来说，将这两行代码加入到 Markdown YAML Header
+% 的 `header-include` 参数当中可以允许 `minted` 环境换行，
+% 但是因为暂时默认不使用 `minted` 而是使用 `listing`，暂时注释掉了。
+% \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+%   breaklines,
+%   commandchars=\\\{\}
+% }
+
+% 表格格式设置
+\arrayrulecolor{ecolor} % 将所有表格线设为 ecolor
