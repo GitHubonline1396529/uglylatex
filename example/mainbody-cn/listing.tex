@@ -1,0 +1,55 @@
+对于\texttt{listing}宏包的代码有两种展示方式：直接在文档中插入代码块，或者从代码文件输入。前者适用于较短的代码文件的展示，后者则更适合长代码文件的展示 (例如放在附录中长代码)。\texttt{listing}宏包的高亮模式已经在文档类中设置好。一个简单的\texttt{listling}代码块如下所示，使用\texttt{language}参数可以指定语言，使用\texttt{caption}参数可以设置标题。
+
+% tex-fmt: off
+\begin{minted}{tex}
+\begin{lstlisting}[
+  numbers=left, % 启用行号
+  language=C, 
+  caption={
+    一个简单的Hello World程序
+    \label{lst:insert}
+    }
+  ]
+#include <stdio.h>
+
+int main( void ) {
+    /* Print 'hello, world' message. */
+    print("hello, world\n");
+    return 0;
+}
+}
+\end{lstlisting}
+\end{minted}
+% tex-fmt: on
+
+\begin{note}
+  如果想要在文章的任意位置引用这段代码，可以像上面这样为标题增加一个\texttt{label}。但是要注意，\texttt{\textbackslash label\{\}}要紧跟在\texttt{caption}文本的后面。
+\end{note}
+
+上述代码的实际演示效果如代码块\ref{lst:insert}所示。
+
+% \begin{figure*}[!h]
+\begin{lstlisting}[
+  numbers=left, % 启用行号
+  language=C, 
+  caption={
+    一个简单的Hello World程序
+    \label{lst:insert}
+    }
+  ]
+#include <stdio.h>
+
+int main( void ) {
+    /* Print 'hello, world' message. */
+    print("hello, world\n");
+    return 0;
+}
+}
+\end{lstlisting}
+% \end{figure*}
+
+\begin{note}
+  如果你想要在双列模式下插入代码块，你可以尝试将代码块置于一个\texttt{figure*}环境内，这将会创建一个横跨两列的代码块。
+\end{note}
+
+% 以文件形式插入代码块的示例见附录代码\ref{lst:demo}。

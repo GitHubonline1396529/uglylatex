@@ -1,0 +1,9 @@
+与\texttt{listing}相比，\texttt{minted}的使用要简单一些。由于文档类没有预先导入\texttt{minted}宏包，在使用之前你需要在文档的导言区使用：
+
+% tex-fmt: off
+\begin{minted}{tex}
+\usepackage{minted}
+\end{minted}
+% tex-fmt: on
+
+不同于\texttt{listing}宏包，\texttt{minted}宏包本身并不具备为文本增添caption的功能，但仍有相应的方法能够手动添加caption并进行交叉引用。这些内容与本文档类不相关，请自行查证有关的资料。此不赘述。其他有关的用法，请参考\texttt{minted}宏包的手册。

@@ -44,7 +44,15 @@
 \subsection{文献引用}
 \input{mainbody-cn/citation-cn.tex}
 
-\section{Pandoc Markdown结合使用}
+\subsection{代码块}
+\input{mainbody-cn/codes.tex}
+
+\subsubsection{listing宏包的使用}
+\input{mainbody-cn/listing.tex}
+\subsubsection{minted宏包的使用}
+\input{mainbody-cn/minted.tex}
+
+\subsection{Pandoc Markdown结合使用}
 
 \input{mainbody-cn/pandoc.tex}
 
@@ -55,10 +63,20 @@
 % \nocite{*}
 \printbibliography[
   % heading=bibintoc, 
-  title=\ebibname]
+  title=\ebibname
+]
 
+\clearpage
 \appendix
-%\appendixpage
 \addappheadtotoc
+\appendixpage
+
+\section{插入代码块效果示例}
+
+\lstinputlisting[
+  numbers=left, 
+  language=Python, 
+  caption={系统聚类方法的实现（Python）：\label{lst:demo}} 
+]{code/demo.py} % Python
 
 \end{document}

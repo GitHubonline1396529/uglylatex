@@ -1,22 +1,22 @@
+% tex-fmt: off
 本模板类的一大优势是可用极其方便地与Pandoc Markdown相结合，从而将Markdown文件方便地转化为排版好的PDF。你可以在Markdown文件开头处的YAML Header作如下指定，从而使用\texttt{uglynote}文档类，传递参数\texttt{12pt, blue}：
 
 \begin{minted}{yaml}
-  documentclass: uglynote
-  classoptions: 12pt, blue
+documentclass: uglynote
+classoptions: 12pt, blue
 \end{minted}
 
-这些参数被称为Markdown文档的“元数据”。通过\texttt{title}、\texttt{subtitle}、\texttt{author}、\texttt{date}可以设置文档的大标题、副标题、作者名字和日期。
+通过\texttt{title}、\texttt{subtitle}、\texttt{author}、\texttt{date}可以设置文档的大标题、副标题、作者名字和日期。这些参数被称为Markdown文档的“元数据”。
 
 \begin{minted}{yaml}
-  title: 文档标题
-  subtitle: 文档副标题
-  author: 作者的名字
-  date: 2025年3月11日
+title: 文档标题
+subtitle: 文档副标题
+author: 作者的名字
+date: 2025年3月11日
 \end{minted}
 
-% tex-fmt: off
 \begin{note}
-上述的这些参数在指定的时候，如果要转化为PDF via \LaTeX{}，则可以混合使用\LaTeX{}语法，例如：
+上述的这些参数在指定的时候，如果要转化为PDF via \LaTeX{} 而不转化为其他文件格式，则可以混合使用\LaTeX{}语法，例如：
 
 \begin{minted}{yaml}
 author: |
@@ -26,6 +26,7 @@ author: |
   }
 date: \zhtoday
 \end{minted}
-
 \end{note}
+
+关于Pandoc的更多用法，另请参阅\href{https://pandoc.org/MANUAL.html}{Pandoc User's Guide}。
 % tex-fmt: on
