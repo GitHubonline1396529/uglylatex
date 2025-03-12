@@ -8,6 +8,12 @@
 # Read `config.mk` file (If exist).
 -include config.mk
 
+# Variables
+PACKAGE_DIR = texmf
+PACKAGE_NAME = uglylatex
+EXAMPLE_SOURCE = example
+README_YAML_HEADER = metadata.yaml
+
 # Universal LaTeX AUX files
 AUXFILES = \
 *.aux *.bbl *.bcf *.blg \
@@ -22,6 +28,17 @@ uglynote-cn.tex \
 uglypaper-cn.tex \
 uglyrep-cn.tex
 
+# Pandoc options to convert README.md into PDF
+# Note don't add anything after backslashes not even comments!
+PANDOC_OPTIONS = \
+--pdf-engine=xelatex \
+--mathjax \
+--highlight-style=haddock \
+--filter pandoc-latex-unlisted \
+--shift-heading-level-by=-1 \
+--column=45 \
+--metadata-file=$(README_YAML_HEADER)
+
 .PHONY: example clear
 
 all:
@@ -29,9 +46,9 @@ all:
 
 # Install the document class files to local `texmf` directory
 install:
-	@echo "Installing to $(PREFIX)"
-	cp -r ./texmf/* $(PREFIX)/
-	cd $(PREFIX) && texhash .
+	@echo "Installing to $(TEXMF)"
+	cp -r ./$(PACKAGE_DIR)/* $(TEXMF)/
+	cd $(TEXMF) && texhash .
 
 # Build example PDF files
 example:
@@ -40,8 +57,13 @@ example:
 		echo "Compiling $$file"; \
 		latexmk -xelatex $$file; \
 	done
-	@cp example/*.pdf texmf/doc/
-	@echo "All PDFs have been copied to ./texmf/doc/"
+	@cp $(EXAMPLE_SOURCE)/*.pdf texmf/doc/
+	@echo "All PDFs have been copied to $(PACKAGE_DIR)/doc/"
+
+# Convert README.md into document PDF
+doc:
+	pandoc README.md $(PANDOC_OPTIONS) \
+	--output=$(PACKAGE_DIR)/doc/$(PACKAGE_NAME)/README-cn.pdf
 
 # Remove all AUX files
 clear:

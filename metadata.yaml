@@ -1,0 +1,33 @@
+# Metadata YAML to convert README.md into document PDF
+#
+# Name: metadata.yaml
+# Date: 2025/3/13
+# Version: 0.1.0.0
+# License: Copyright (c) Githubonline1396529
+
+# Metadata
+subtitle: (README.md)
+author: Githubonline1396529
+date: \zhtoday
+
+# LaTeX options
+documentclass: uglynote
+classoption: 12pt, normal, crimson
+toc: false
+indent: true
+numbersections: true
+
+# Enable document colors.
+colorlinks: true
+citecolor: ecolor
+filecolor: ecolor
+linkcolor: ecolor
+urlcolor: ecolor
+
+# Warp lines in code blocks
+header-includes:
+  - \usepackage{fvextra}
+  - |
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+      breaklines,commandchars=\\\{\}
+    }

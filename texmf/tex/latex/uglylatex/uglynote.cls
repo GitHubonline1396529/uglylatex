@@ -1,21 +1,42 @@
-\ProvidesClass{uglyart}[
+%%
+%% This is file `uglynote.cls',
+%% created for UglyLaTeX.
+%%
+%% Copyright (C) 2025 Githubonline1396529
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License (LPPL),
+%% either version 1.3c of this license or (at your option)
+%% any later version. The latest version of this license is in:
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of
+%% LaTeX version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status "maintained".
+%%
+\ProvidesClass{uglynote}[
 2025/03/09 Custom Article Class]
 \NeedsTeXFormat{LaTeX2e}
 
-% 流程控制宏包
+% -----------------------------------------------------------------------------
+% Process Control Packages
+% 
+% Note that these packages must be imported before the Complier constraint.
 \RequirePackage{ifxetex}
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
 \RequirePackage{calc}
 
+% Complier constraint
 \RequireXeTeX
 \ifxetex\else
-\ClassError{uglyart}{
-You must use the `xelatex' driver\MessageBreak }{%
-Just choose `xelatex', no `pdflatex' or `latex' and so on.}
+\ClassError{uglynote}{
+  You must use the `xelatex' driver\MessageBreak }{%
+    Just choose `xelatex', no `pdflatex' or `latex' and so on.
+  }
 \fi
 
-% 文档类参数处理
+% Class options processing
 \input{classoptions}
 
 % 传递文档类选项
