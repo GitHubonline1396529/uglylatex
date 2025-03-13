@@ -18,17 +18,18 @@
 TEXMF = /d/texlive/texmf-local
  
 # Alternatively, if you are using MiKTeX, you can manually create a directory,
-# such as `C:/Programs/texmf-local`, and add it to your TEXMF root list
+# such as `D:/Programs/texmf-local`, and add it to your TEXMF root list
 # via the MiKTeX Console. This allows you to store your own LaTeX packages.
 # In this case, set `TEXMF` as follows:
 
-# TEXMF = /c/Programs/texmf-local
+# TEXMF = /d/Programs/texmf-local
 
 # Note: In POSIX-compatible environments for Windows, such as MSYS2, drive
 # letters are represented as `/c`, `/d` instead of `C:`, `D:`. If you're
-# using Cygwin, maybe your drivers are mounted under `/mnt` director.
+# using Cygwin or WSL, maybe your drivers are mounted under `/mnt` director.
 
-# TEXMF = /mnt/c/Programs/texmf-local
+# TEXMF = /mnt/d/texlive/texmf-local
+# TEXMF = /mnt/d/Programs/texmf-local
 
 # === Linux & macOS ===
 # If you are using TeX Live on Linux or macOS, user-installed packages should 

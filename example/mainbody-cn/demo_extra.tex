@@ -1,0 +1,11 @@
+\begin{example}
+  在使用Miller-Tucker-Zemlin 约束作为SEC的情况下，一个典型的TSP模型的最终表述形式为：
+  \begin{equation}
+    \begin{array}{ll}
+        \displaystyle \min f = \sum_{i=1}^n \sum_{j=1}^n d_{i, j} \times x_{i, j}, &\quad \forall (i, j) \in E, i \ne j \\
+        \displaystyle \sum_{i = 1}^n x_{ij} = 1, &\quad \forall i \in V \\
+        \displaystyle \sum_{j = 1}^n x_{ji} = 1, &\quad \forall j \in V \\
+        \displaystyle u_i - u_j + n \cdot x_{ij} \leq n - 1, &\quad \forall (i, j) \in E, i \ne j \ne 1
+        \end{array}
+  \end{equation}
+\end{example}

@@ -12,8 +12,8 @@ date: \zhtoday
 
 # LaTeX options
 documentclass: uglynote
-classoption: 12pt, normal, crimson
-toc: false
+classoption: 12pt, cyan
+toc: true
 indent: true
 numbersections: true
 

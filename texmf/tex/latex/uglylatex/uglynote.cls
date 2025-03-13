@@ -1,19 +1,19 @@
-%%
-%% This is file `uglynote.cls',
-%% created for UglyLaTeX.
-%%
-%% Copyright (C) 2025 Githubonline1396529
-%%
-%% This work may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License (LPPL),
-%% either version 1.3c of this license or (at your option)
-%% any later version. The latest version of this license is in:
-%%   http://www.latex-project.org/lppl.txt
-%% and version 1.3 or later is part of all distributions of
-%% LaTeX version 2005/12/01 or later.
-%%
-%% This work has the LPPL maintenance status "maintained".
-%%
+%
+% This is file `uglynote.cls',
+% created for UglyLaTeX.
+%
+% Copyright (C) 2025 Githubonline1396529
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License (LPPL),
+% either version 1.3c of this license or (at your option)
+% any later version. The latest version of this license is in:
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of
+% LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
 \ProvidesClass{uglynote}[
 2025/03/09 Custom Article Class]
 \NeedsTeXFormat{LaTeX2e}
@@ -58,12 +58,8 @@
 \RequirePackage{commands}
 
 % 调整标题下移距离，减少顶部空白
-% 由于原本使用的文章类型是 article 而不是 ctexart
-% 需要设置这个：
 %
 % \setlength{\droptitle}{-5cm}
-%
-% 但现在则需要看实际情况来考虑，应该是暂时不用了
 
 % 定义中文序号
 \renewcommand\thesection

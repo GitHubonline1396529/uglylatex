@@ -36,7 +36,6 @@ PANDOC_OPTIONS = \
 --highlight-style=haddock \
 --filter pandoc-latex-unlisted \
 --shift-heading-level-by=-1 \
---column=45 \
 --metadata-file=$(README_YAML_HEADER)
 
 .PHONY: example clear
@@ -57,7 +56,7 @@ example:
 		echo "Compiling $$file"; \
 		latexmk -xelatex $$file; \
 	done
-	@cp $(EXAMPLE_SOURCE)/*.pdf texmf/doc/
+	@cp $(EXAMPLE_SOURCE)/*.pdf $(PACKAGE_DIR)/doc/$(PACKAGE_NAME)
 	@echo "All PDFs have been copied to $(PACKAGE_DIR)/doc/"
 
 # Convert README.md into document PDF

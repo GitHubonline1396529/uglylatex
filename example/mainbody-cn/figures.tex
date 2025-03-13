@@ -1,0 +1,21 @@
+考虑到以往的\texttt{subfigure}宏包已不再维护，模板将默认使用更加现代的\texttt{subcaption}宏包。图\ref{fig:figures}展示了一个基本的分图示例，其中具体的分图如分图\ref{fig:a}和分图\ref{fig:b}所示。
+
+\begin{figure*}[!h]
+  \centering
+  \begin{minipage}{0.4\linewidth}
+    \centering
+    \includegraphics[
+      height=0.2\textheight
+      ]{subfig1.jpg}
+      \subcaption{粗粉涂层}\label{fig:a}
+  \end{minipage}
+  \begin{minipage}{0.4\linewidth}
+    \centering
+    \includegraphics[
+      height=0.2\textheight
+      ]{subfig2.jpg}
+      \subcaption{细粉涂层}\label{fig:b}
+  \end{minipage}
+  \caption{涂层在冷却过程中残余热应力的变化情况}
+  \label{fig:figures}
+\end{figure*}

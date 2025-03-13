@@ -1,0 +1,25 @@
+本模板定义了如下的额外的功能性命令：
+
+\begin{enumerate}
+    \item \texttt{\textbackslash fig\{<图题>\}\{<图片文件名>\}\{<label内容>\}}：用于快速方便地插入图片。
+    \item \texttt{\textbackslash \subtitle\{\}}：用于为文档添加一个副标题是。
+    \item \texttt{\textbackslash maketitlewithonecolabstract\{<摘要内容>\}}：在使用双列模式的情况下，同时实现插入摘要文本和生成文档标题。
+    \item \texttt{\textbackslash shserifbold}：使用思源宋体粗体，通常用在文档的大标题上——如果你不喜欢黑体作为文档总标题的话。
+\end{enumerate}
+
+\begin{remark}
+  使用\texttt{twocolumn} 参数的情况下，文档的大标题会被默认安置在文档的一侧。如果您希望大标题横跨两栏，就必须使用\texttt{\textbackslash twocolumn}命令的参数栏将\texttt{\textbackslash maketitle}命令和\texttt{onecolabstract}环境一起包裹起来：
+
+% tex-fmt: off
+\begin{minted}{tex}
+\twocolumn[
+  \maketitle
+  \begin{onecolabstract}
+    摘要内容……摘要内容……摘要内容……
+    \end{onecolabstract}
+]
+\end{minted}
+% tex-fmt: on
+
+  这将会十分不方便。因此，为了解决这个问题，我们定义了专门的\texttt{\textbackslash maketitlewithonecolabstract\{<摘要内容>\}}命令，来实现two column abstract一步处理。
+\end{remark}
