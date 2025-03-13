@@ -26,7 +26,7 @@
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
 \RequirePackage{calc}
-
+% -----------------------------------------------------------------------------
 % Complier constraint
 \RequireXeTeX
 \ifxetex\else
@@ -35,19 +35,19 @@
     Just choose `xelatex', no `pdflatex' or `latex' and so on.
   }
 \fi
-
+% -----------------------------------------------------------------------------
 % Class options processing
 \input{classoptions}
 
-% 传递文档类选项
+% Pass document class options
 \DeclareDefaultOption{
   \PassOptionsToClass{\CurrentOption}{article}
  }
 \ProcessKeyvalOptions*\relax
 
 \LoadClass{article}
-
-% 自定义的宏包
+% -----------------------------------------------------------------------------
+% Import customized packages
 \RequirePackage{dependencies}
 \RequirePackage{docfmt}
 \RequirePackage{docpapersize}
@@ -57,11 +57,10 @@
 % \RequirePackage{docappendix}
 \RequirePackage{commands}
 
-% 调整标题下移距离，减少顶部空白
-%
-% \setlength{\droptitle}{-5cm}
+% -----------------------------------------------------------------------------
+% Title format settings
 
-% 定义中文序号
+% Redefine header numbers' format
 \renewcommand\thesection
 {\arabic{section}}
 \renewcommand\thesubsection
@@ -69,7 +68,6 @@
 \renewcommand\thesubsubsection
 {\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
 
-% 标题格式设置
 \titleformat{\section}
 {\centering\bfseries\large\color{ecolor}}
 {\chinese{section}、}{0em}{}
@@ -80,12 +78,17 @@
 {\bfseries\small\color{ecolor}}
 {\thesubsubsection}{1em}{}
 
-% 标题间距设置
+% 
 \titlespacing{\section}{0pt}{20pt}{10pt}
 \titlespacing{\subsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
 \titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
 % \titlespacing{\subsection}{0pt}{0pt}{0pt}
 % \titlespacing{\subsubsection}{0pt}{0pt}{0pt}
+
+% Adjust the `\droptitle' distance to reduce the space between the title
+% and the top of the page
+%
+% \setlength{\droptitle}{-5cm}
 
 % 摘要格式设置
 \RequirePackage{customized_abstract/abstract_block}
