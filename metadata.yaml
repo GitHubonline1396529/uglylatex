@@ -13,6 +13,7 @@ date: \zhtoday
 # LaTeX options
 documentclass: uglynote
 classoption: 12pt, cyan
+mainfont: Times New Roman
 toc: true
 indent: true
 numbersections: true
