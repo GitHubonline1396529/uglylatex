@@ -175,6 +175,22 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
   \markboth{\thechapter#1}{}
 }
 
+% 附录格式设置
+\renewcommand{\appendix}{%
+  \par
+  \setcounter{chapter}{0}%
+  \setcounter{section}{0}%
+  \setcounter{subsection}{0}%
+  \setcounter{subsubsection}{0}%
+  \renewcommand{\thechapter}{\Alph{chapter}}%
+  \titleformat{\chapter}[hang]
+  {\centering\bfseries\large\color{ecolor}}
+  {\Alph{chapter}. }
+  {0em}
+  {}
+  \renewcommand{\thesection}{\thechapter.\arabic{section}}%
+}
+
 % 设置图表标题样式
 
 % 图表按章节编号

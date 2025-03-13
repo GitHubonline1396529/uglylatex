@@ -110,6 +110,19 @@
 % \fancyhead{} % 仅清空页眉
 % \renewcommand{\headrulewidth}{0pt} % 去掉页眉的横线
 
+% 附录格式设置
+\renewcommand{\appendix}{%
+  \par
+  \setcounter{section}{0}%
+  \setcounter{subsection}{0}%
+  \setcounter{subsubsection}{0}%
+  \renewcommand{\thesection}{\Alph{section}}%
+  \titleformat{\section}
+  {\centering\bfseries\large\color{ecolor}}
+  {\Alph{section}. }{0em}{}
+  \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}%
+}
+
 % 定义新的命令
 
 % 额外定义的功能性命令
