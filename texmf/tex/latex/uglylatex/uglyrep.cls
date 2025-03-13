@@ -145,9 +145,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 拓宽 chapter 标题序号后面的间距
 \addtolength{\cftchapnumwidth}{1em}
 
-\renewcommand{\cftchapfont}{\fontsize{12pt}{14pt}\bfseries} % 章节标题字体
-\renewcommand{\cftsecfont}{\fontsize{12pt}{14pt}} % 小节标题字体
-\renewcommand{\cftsubsecfont}{\fontsize{12pt}{14pt}} % 子小节标题字体
+\renewcommand{\cftchapfont}{\normalsize\bfseries} % 章节标题字体
+\renewcommand{\cftsecfont}{\normalsize} % 小节标题字体
+\renewcommand{\cftsubsecfont}{\normalsize} % 子小节标题字体
 
 % 设置目录项格式
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % 章节之间的点线
