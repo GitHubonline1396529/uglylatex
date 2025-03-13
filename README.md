@@ -131,7 +131,7 @@ texdoc -l uglylatex
 | tikz-network      | circuitikz | pdfpages | braket    |
 | multirow          | longtable  | pgfplots | color     |
 | xcolor            | colortbl   | xpatch   | verbatim  |
-| matlab-prettifier |            |          |           |
+| matlab-prettifier | bookmark   |          |           |
 
 
 : 本文档类所使用到的宏包
