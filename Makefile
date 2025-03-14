@@ -33,6 +33,7 @@ uglyrep-cn.tex
 PANDOC_OPTIONS = \
 --pdf-engine=xelatex \
 --mathjax \
+--listing \
 --highlight-style=haddock \
 --filter pandoc-latex-unlisted \
 --shift-heading-level-by=-1 \

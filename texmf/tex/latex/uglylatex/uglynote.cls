@@ -19,7 +19,7 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % -----------------------------------------------------------------------------
-% Process Control Packages
+% Process Control Packages.
 % 
 % Note that these packages must be imported before the Complier constraint.
 \RequirePackage{ifxetex}
@@ -27,7 +27,7 @@
 \RequirePackage{etoolbox}
 \RequirePackage{calc}
 % -----------------------------------------------------------------------------
-% Complier constraint
+% Complier constraint.
 \RequireXeTeX
 \ifxetex\else
 \ClassError{uglynote}{
@@ -78,7 +78,7 @@
 {\bfseries\small\color{ecolor}}
 {\thesubsubsection}{1em}{}
 
-% 
+% Agjust spacing of the headers
 \titlespacing{\section}{0pt}{20pt}{10pt}
 \titlespacing{\subsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
 \titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
