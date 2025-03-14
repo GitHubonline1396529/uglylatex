@@ -15,15 +15,22 @@
 % This work has the LPPL maintenance status "maintained".
 %
 \ProvidesClass{uglypaper}[
-2025/03/09 Custom Article Class]
+  2025/03/14 Customized document class based on `aritcle'
+]
 \NeedsTeXFormat{LaTeX2e}
 
-% 流程控制宏包
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Process Control Packages.
+% 
+% Note these packages must be imported before the Complier constraint.
 \RequirePackage{ifxetex}
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
 \RequirePackage{calc}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Complier constraint, forcing user to use XeLaTeX and give necessary error 
+% message.
 \RequireXeTeX
 \ifxetex\else
 \ClassError{uglypaper}{
@@ -31,16 +38,21 @@ You must use the `xelatex' driver\MessageBreak }{%
 Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \fi
 
-% 文档类参数处理
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Class options processing.
+% Note this part of TeX must be `input' not `imported', which means, must use
+% `\input' not `\usepackage' or `\RequirePackage'.
 \input{classoptions}
 
-% 传递文档类选项
+% Pass document class options to the `article' class, and load the class.
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessKeyvalOptions*\relax
 
+% Load the class.
 \LoadClass{article}
 
-% 自定义的宏包
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Import customized packages
 \RequirePackage{dependencies}
 \RequirePackage{docfmt}
 \RequirePackage{docpapersize}
@@ -50,39 +62,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % \RequirePackage{docappendix}
 \RequirePackage{commands}
 
-% 调整标题下移距离，减少顶部空白
-% 由于原本使用的文章类型是 article 而不是 ctexart
-% 需要设置这个：
-%
-% \setlength{\droptitle}{-5cm}
-%
-% 但现在则需要看实际情况来考虑，应该是暂时不用了
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title format settings.
 
-% 定义中文序号
-\renewcommand\thesection
-{\arabic{section}}
-\renewcommand\thesubsection
-{\arabic{section}.\arabic{subsection}}
-\renewcommand\thesubsubsection
-{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
-
-% 标题格式设置
-\titleformat{\section}
-{\bfseries\large\color{ecolor}}
-{\chinese{section}、}{0em}{}
-\titleformat{\subsection}
-{\bfseries\normalsize\color{ecolor}}
-{\thesubsection}{1em}{}
-\titleformat{\subsubsection}
-{\bfseries\small\color{ecolor}}
-{\thesubsubsection}{1em}{}
-
-% 标题间距设置
-\titlespacing{\section}{0pt}{20pt}{10pt}
-\titlespacing{\subsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
-\titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
-% \titlespacing{\subsection}{0pt}{0pt}{0pt}
-% \titlespacing{\subsubsection}{0pt}{0pt}{0pt}
+\RequirePackage{customized_headers/paperheaders}
 
 % 摘要格式设置
 \RequirePackage{customized_abstract/runin_abstract}

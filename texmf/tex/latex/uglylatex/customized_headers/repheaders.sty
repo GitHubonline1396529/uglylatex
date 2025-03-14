@@ -1,0 +1,81 @@
+%
+% This is file `repheaders.sty',
+% created for UglyLaTeX.
+%
+% Copyright (C) 2025 Githubonline1396529
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License (LPPL),
+% either version 1.3c of this license or (at your option)
+% any later version. The latest version of this license is in:
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of
+% LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+
+% Redefine header numbers' format.
+\renewcommand\thechapter{
+\arabic{chapter}}
+\renewcommand\thesection{
+\arabic{chapter}.\arabic{section}}
+\renewcommand\thesubsection{
+\arabic{chapter}.\arabic{section}.\arabic{subsection}}
+\renewcommand\thesubsubsection{
+  \arabic{chapter}.\arabic{section}.%
+  \arabic{subsection}.\arabic{subsubsection}
+}
+
+% 标题格式设置
+\makeatletter
+\patchcmd{\@makechapterhead}{\vspace*{50\p@}}{\vspace*{25\p@}}{}{}
+\patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{\vspace*{25\p@}}{}{}
+\makeatother
+
+\ifdefstring{\UGLY@lang}{cn}{
+  \titleformat{\chapter}[hang]%
+  {\centering\bfseries\large\color{ecolor}}%
+  {\chinese{chapter}、}{0em}{}
+}{\relax}
+\ifdefstring{\UGLY@lang}{en}{
+  \titleformat{\chapter}[hang]%
+  {\centering\bfseries\large\color{ecolor}}%
+  {\Roman{chapter}.}{0em}{}
+}{\relax}
+% We use \relax in the false branch of \ifdefstring to ensure that LaTeX  
+% does not encounter a missing argument error. The \ifdefstring macro  
+% requires four parameters: (1) the tested string, (2) the target string,  
+% (3) the code to execute if the strings match, and (4) the code to execute  
+% if they do not match. If the false branch is omitted, LaTeX will fail  
+% with an error such as:  
+%  
+%     ! LaTeX Error: Missing \begin{document}.  
+%  
+% This happens because \ifdefstring expects an explicit false branch, even  
+% if no action is required. Using \relax ensures LaTeX has a valid fallback  
+% without introducing an empty group ({}) that might affect parsing.  
+
+\titleformat{\section}
+{\bfseries\normalsize\color{ecolor}}
+{\thesection}
+{1em}
+{}
+\titleformat{\subsection}
+{\bfseries\normalsize\color{ecolor}}
+{\thesubsection}
+{1em}
+{}
+\titleformat{\subsubsection}[runin]
+% 加上 [runin] 参数将 subsubsection 调整为常见的款项样式
+{\bfseries\small\color{ecolor}} %
+{\thesubsubsection}
+{1em}
+{}
+[\hspace*{1em}] % 在标题后插入 1em 的间距
+
+% 标题间距设置
+\titlespacing{\chapter}{0pt}{20pt}{10pt}
+\titlespacing{\section}{0pt}{0.5\baselineskip}{0.5\baselineskip}
+\titlespacing{\subsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
+\titlespacing{\subsubsection}{0pt}{0\baselineskip}{0\baselineskip}[1em]

@@ -15,19 +15,23 @@
 % This work has the LPPL maintenance status "maintained".
 %
 \ProvidesClass{uglynote}[
-2025/03/09 Custom Article Class]
+  2025/03/14 Customized document class based on `aritcle'
+]
 \NeedsTeXFormat{LaTeX2e}
 
-% -----------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Process Control Packages.
 % 
-% Note that these packages must be imported before the Complier constraint.
+% Note these packages must be imported before the Complier constraint.
 \RequirePackage{ifxetex}
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
 \RequirePackage{calc}
-% -----------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Complier constraint.
+%
+% forcing user to use XeLaTeX and give necessary error message.
 \RequireXeTeX
 \ifxetex\else
 \ClassError{uglynote}{
@@ -35,19 +39,26 @@
     Just choose `xelatex', no `pdflatex' or `latex' and so on.
   }
 \fi
-% -----------------------------------------------------------------------------
-% Class options processing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Class options processing.
+%
+% Note this part of TeX must be `input' not `imported', which means, must use
+% `\input' not `\usepackage' or `\RequirePackage'.
 \input{classoptions}
 
-% Pass document class options
+% Pass document class options to the `article' class, and load the class.
 \DeclareDefaultOption{
   \PassOptionsToClass{\CurrentOption}{article}
  }
 \ProcessKeyvalOptions*\relax
 
+% Load the class.
 \LoadClass{article}
-% -----------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Import customized packages
+
 \RequirePackage{dependencies}
 \RequirePackage{docfmt}
 \RequirePackage{docpapersize}
@@ -57,49 +68,22 @@
 % \RequirePackage{docappendix}
 \RequirePackage{commands}
 
-% -----------------------------------------------------------------------------
-% Title format settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title format settings.
 
-% Redefine header numbers' format
-\renewcommand\thesection
-{\arabic{section}}
-\renewcommand\thesubsection
-{\arabic{section}.\arabic{subsection}}
-\renewcommand\thesubsubsection
-{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\RequirePackage{customized_headers/noteheaders}
 
-\titleformat{\section}
-{\centering\bfseries\large\color{ecolor}}
-{\chinese{section}、}{0em}{}
-\titleformat{\subsection}
-{\bfseries\normalsize\color{ecolor}}
-{\thesubsection}{1em}{}
-\titleformat{\subsubsection}
-{\bfseries\small\color{ecolor}}
-{\thesubsubsection}{1em}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abstract format setting.
 
-% Agjust spacing of the headers
-\titlespacing{\section}{0pt}{20pt}{10pt}
-\titlespacing{\subsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
-\titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
-% \titlespacing{\subsection}{0pt}{0pt}{0pt}
-% \titlespacing{\subsubsection}{0pt}{0pt}{0pt}
-
-% Adjust the `\droptitle' distance to reduce the space between the title
-% and the top of the page
-%
-% \setlength{\droptitle}{-5cm}
-
-% 摘要格式设置
 \RequirePackage{customized_abstract/abstract_block}
 
-% 设置目录标题样式
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of content format setting.
 %
-% 拓宽 section 标题序号后面的间距
-\addtolength{\cftsecnumwidth}{1em}
+% The `\contentsname' depends on the language model of the document. See  
+% `doclanguage.sty' for this part of implementation.
 %
-% 目录标题：三号宋体，加粗，居中，段前20磅，段后10磅，无缩进，
-% “目”和“录”之间空4格；
 % \renewcommand{\contentsname}{\centering 目\ \ \ \ 录}
 \renewcommand{\cfttoctitlefont}{\hfill\normalsize} % ToC = Table of Contents
 \renewcommand{\cftaftertoctitle}{\hfill}
@@ -108,11 +92,13 @@
 \renewcommand{\cftlottitlefont}{\normalsize} % LoT = List of Tables
 \renewcommand{\cftafterlottitle}{}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 设置页眉和页脚
 \pagestyle{fancy}
 % \fancyhead{} % 仅清空页眉
 % \renewcommand{\headrulewidth}{0pt} % 去掉页眉的横线
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 附录格式设置
 \renewcommand{\appendix}{%
   \par
@@ -126,12 +112,19 @@
   \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}%
 }
 
-% 定义新的命令
-
-% 额外定义的功能性命令
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Additional defined functional commands. Defined in `commands.sty'.
 \RequirePackage{commands}
 
-% 精确调整 aritcle title 的位置
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Redefine `\maketitle' command to:
+%   1. Accurately adjust the position of `title'.
+%   2. Colour the title text lines with `ecolor'.
+%
+% See also: The titling package <texdoc titling>
+% Note: I forget what I should note here, but I really sure I've got something
+% to note with, so I kept the `Note:' mark here to remind myself typing the
+% note immediately once I recall it.
 \makeatletter
 \def\@maketitle{%
   \color{ecolor}

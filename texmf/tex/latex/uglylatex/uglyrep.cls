@@ -15,16 +15,22 @@
 % This work has the LPPL maintenance status "maintained".
 %
 \ProvidesClass{uglyrep}[
-2024/07/17 Custom Article Class]
+  2025/03/14 Customized document class based on `report'
+]
 \NeedsTeXFormat{LaTeX2e}
 
-% 流程控制宏包
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Process Control Packages.
+% 
+% Note these packages must be imported before the Complier constraint.
 \RequirePackage{ifxetex}
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
 \RequirePackage{calc}
 
-% 编译器约束
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Complier constraint, forcing user to use XeLaTeX and give necessary error 
+% message.
 \RequireXeTeX
 \ifxetex\else
 \ClassError{uglyrep}{
@@ -32,16 +38,21 @@ You must use the `xelatex' driver\MessageBreak }{%
 Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \fi
 
-% 文档类参数处理
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Class options processing.
+% Note this part of TeX must be `input' not `imported', which means, must use
+% `\input' not `\usepackage' or `\RequirePackage'.
 \input{classoptions}
 
-% 传递文档类选项
+% Pass document class options to the `article' class, and load the class.
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessKeyvalOptions*\relax
 
+% Load the class.
 \LoadClass{report}
 
-% 自定义的宏包
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Import customized packages
 \RequirePackage{dependencies}
 \RequirePackage{docfmt}
 \RequirePackage{docpapersize}
@@ -51,52 +62,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % \RequirePackage{docappendix}
 \RequirePackage{commands}
 
-% 定义中文序号
-\renewcommand\thechapter{
-\arabic{chapter}}
-\renewcommand\thesection{
-\arabic{chapter}.\arabic{section}}
-\renewcommand\thesubsection{
-\arabic{chapter}.\arabic{section}.\arabic{subsection}}
-\renewcommand\thesubsubsection{
-  \arabic{chapter}.\arabic{section}.%
-  \arabic{subsection}.\arabic{subsubsection}
-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title format settings.
 
-% 标题格式设置
-\makeatletter
-\patchcmd{\@makechapterhead}{\vspace*{50\p@}}{\vspace*{25\p@}}{}{}
-\patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{\vspace*{25\p@}}{}{}
-\makeatother
-
-\titleformat{\chapter}[hang]
-{\centering\bfseries\large\color{ecolor}}
-{\chinese{chapter}、}
-{0em}
-{}
-\titleformat{\section}
-{\bfseries\normalsize\color{ecolor}}
-{\thesection}
-{1em}
-{}
-\titleformat{\subsection}
-{\bfseries\normalsize\color{ecolor}}
-{\thesubsection}
-{1em}
-{}
-\titleformat{\subsubsection}[runin]
-% 加上 [runin] 参数将 subsubsection 调整为常见的款项样式
-{\bfseries\small\color{ecolor}} %
-{\thesubsubsection}
-{1em}
-{}
-[\hspace*{1em}] % 在标题后插入 1em 的间距
-
-% 标题间距设置
-\titlespacing{\chapter}{0pt}{20pt}{10pt}
-\titlespacing{\section}{0pt}{0.5\baselineskip}{0.5\baselineskip}
-\titlespacing{\subsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
-\titlespacing{\subsubsection}{0pt}{0\baselineskip}{0\baselineskip}[1em]
+\RequirePackage{customized_headers/repheaders}
 
 % 摘要格式设置
 \RequirePackage{customized_abstract/abstract_page}

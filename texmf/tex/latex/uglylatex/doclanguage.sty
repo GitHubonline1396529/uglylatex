@@ -83,6 +83,18 @@
   \newcommand{\ebibname}{Bibliography}
   \renewcommand{\lstlistingname}{\color{ecolor}Code}
 }{\relax}
+% We use \relax in the false branch of \ifdefstring to ensure that LaTeX  
+% does not encounter a missing argument error. The \ifdefstring macro  
+% requires four parameters: (1) the tested string, (2) the target string,  
+% (3) the code to execute if the strings match, and (4) the code to execute  
+% if they do not match. If the false branch is omitted, LaTeX will fail  
+% with an error such as:  
+%  
+%     ! LaTeX Error: Missing \begin{document}.  
+%  
+% This happens because \ifdefstring expects an explicit false branch, even  
+% if no action is required. Using \relax ensures LaTeX has a valid fallback  
+% without introducing an empty group ({}) that might affect parsing.  
 
 \let\openbox\relax
 \newtheoremstyle{plain}{\topsep}{\topsep}{\citshape}{}{%
