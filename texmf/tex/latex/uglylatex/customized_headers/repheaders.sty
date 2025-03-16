@@ -27,7 +27,6 @@
   \arabic{subsection}.\arabic{subsubsection}
 }
 
-% 标题格式设置
 \makeatletter
 \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{\vspace*{25\p@}}{}{}
 \patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{\vspace*{25\p@}}{}{}
@@ -67,14 +66,14 @@
 {1em}
 {}
 \titleformat{\subsubsection}[runin]
-% 加上 [runin] 参数将 subsubsection 调整为常见的款项样式
+% Use [runin] argument to make `subsubsection' a more elegant format.
 {\bfseries\small\color{ecolor}} %
 {\thesubsubsection}
 {1em}
 {}
-[\hspace*{1em}] % 在标题后插入 1em 的间距
+[\hspace*{1em}] % Insert 1em spacing after the `subsubsection'
 
-% 标题间距设置
+% Agjust spacing of the headers
 \titlespacing{\chapter}{0pt}{20pt}{10pt}
 \titlespacing{\section}{0pt}{0.5\baselineskip}{0.5\baselineskip}
 \titlespacing{\subsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
