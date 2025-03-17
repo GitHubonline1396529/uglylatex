@@ -39,6 +39,12 @@ PANDOC_OPTIONS = \
 --shift-heading-level-by=-1 \
 --metadata-file=$(README_YAML_HEADER)
 
+ifeq ($(DISTRIBUTION), miktex)
+    REFRESH := mktexlsr
+else
+    REFRESH := texhash .
+endif
+
 .PHONY: example clear
 
 all:
@@ -48,7 +54,7 @@ all:
 install:
 	@echo "Installing to $(TEXMF)"
 	cp -r ./$(PACKAGE_DIR)/* $(TEXMF)/
-	cd $(TEXMF) && texhash .
+	cd $(TEXMF) && $(REFRESH)
 
 # Build example PDF files
 example:

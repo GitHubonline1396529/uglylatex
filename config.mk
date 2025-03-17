@@ -5,6 +5,11 @@
 # Version: 0.1.0.0
 # License: Copyright (c) 2025 Githubonline1396529
 #
+# `DISTRIBUTION` specifies the distribution of your LaTeX. Options can be 
+# `texlive` or `miktex` 
+DISTRIBUTION = miktex
+# DISTRIBUTION = texlive
+
 # `TEXMF` specifies the target installation directory (TEXMF directory)
 # for this LaTeX document class.
 #
@@ -15,14 +20,14 @@
 # packages. To install this document class into your local TeX system, set
 # `TEXMF` as follows:
  
-TEXMF = /d/texlive/texmf-local
+# TEXMF = /d/texlive/texmf-local
  
 # Alternatively, if you are using MiKTeX, you can manually create a directory,
-# such as `D:/Programs/texmf-local`, and add it to your TEXMF root list
+# such as `C:/Programs/texmf-local`, and add it to your TEXMF root list
 # via the MiKTeX Console. This allows you to store your own LaTeX packages.
 # In this case, set `TEXMF` as follows:
 
-# TEXMF = /d/Programs/texmf-local
+TEXMF = /c/Programs/texmf-local
 
 # Note: In POSIX-compatible environments for Windows, such as MSYS2, drive
 # letters are represented as `/c`, `/d` instead of `C:`, `D:`. If you're
