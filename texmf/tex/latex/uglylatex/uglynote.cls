@@ -19,7 +19,7 @@
 ]
 \NeedsTeXFormat{LaTeX2e}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Process Control Packages.
 % 
 % Note these packages must be imported before the Complier constraint.
@@ -28,10 +28,9 @@
 \RequirePackage{etoolbox}
 \RequirePackage{calc}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Complier constraint.
-%
-% forcing user to use XeLaTeX and give necessary error message.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Complier constraint, forcing user to use XeLaTeX and give necessary
+% error message.
 \RequireXeTeX
 \ifxetex\else
 \ClassError{uglynote}{
@@ -40,11 +39,12 @@
   }
 \fi
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Class options processing.
 %
-% Note this part of TeX must be `input' not `imported', which means, must use
-% `\input' not `\usepackage' or `\RequirePackage'.
+% Note that this part of TeX must be `input' rather than `imported',
+% meaning that `\input' must be used instead of `\usepackage' or
+% `\RequirePackage'.
 \input{classoptions}
 
 % Pass document class options to the `article' class, and load the class.
@@ -56,7 +56,7 @@
 % Load the class.
 \LoadClass{article}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Import customized packages
 
 \RequirePackage{dependencies}
@@ -68,38 +68,36 @@
 % \RequirePackage{docappendix}
 \RequirePackage{commands}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title format settings.
 
 \RequirePackage{customized_headers/noteheaders}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Abstract format setting.
 
-\RequirePackage{customized_abstract/abstract_block}
+\RequirePackage{customized_abstract/abstractblock}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table of content format setting.
 %
 % The `\contentsname' depends on the language model of the document. See  
 % `doclanguage.sty' for this part of implementation.
 %
-% \renewcommand{\contentsname}{\centering 目\ \ \ \ 录}
-\renewcommand{\cfttoctitlefont}{\hfill\normalsize} % ToC = Table of Contents
+\renewcommand{\cfttoctitlefont}{\hfill\normalsize} 
+% ToC = Table of Contents
 \renewcommand{\cftaftertoctitle}{\hfill}
 \renewcommand{\cftloftitlefont}{\normalsize} % LoF = List of Figures
 \renewcommand{\cftafterloftitle}{}
 \renewcommand{\cftlottitlefont}{\normalsize} % LoT = List of Tables
 \renewcommand{\cftafterlottitle}{}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 设置页眉和页脚
-\pagestyle{fancy}
-% \fancyhead{} % 仅清空页眉
-% \renewcommand{\headrulewidth}{0pt} % 去掉页眉的横线
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set the page header and the page footer.
+\pagestyle{fancy} % Use the footheader style `fancy'
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 附录格式设置
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendix format settings.
 \renewcommand{\appendix}{%
   \par
   \setcounter{section}{0}%
@@ -112,19 +110,19 @@
   \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}%
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Additional defined functional commands. Defined in `commands.sty'.
 \RequirePackage{commands}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Redefine `\maketitle' command to:
 %   1. Accurately adjust the position of `title'.
 %   2. Colour the title text lines with `ecolor'.
 %
 % See also: The titling package <texdoc titling>
-% Note: I forget what I should note here, but I really sure I've got something
-% to note with, so I kept the `Note:' mark here to remind myself typing the
-% note immediately once I recall it.
+% Note: I forget what I should note here, but I really sure I've got
+% something to note with, so I kept the `Note:' mark here to remind myself
+% writting the note down immediately once I recall it.
 \makeatletter
 \def\@maketitle{%
   \color{ecolor}

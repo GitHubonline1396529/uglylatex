@@ -1,5 +1,5 @@
 %
-% This is file `repheaders.sty',
+% This is file `reportheaders.sty',
 % created for UglyLaTeX.
 %
 % Copyright (C) 2025 Githubonline1396529
@@ -15,6 +15,7 @@
 % This work has the LPPL maintenance status "maintained".
 %
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Redefine header numbers' format.
 \renewcommand\thechapter{
 \arabic{chapter}}
@@ -27,34 +28,60 @@
   \arabic{subsection}.\arabic{subsubsection}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Disable auto-clearpage after the Chapter header, forcing `chapter' not 
+% to start on a new page.
 \makeatletter
-\patchcmd{\@makechapterhead}{\vspace*{50\p@}}{\vspace*{25\p@}}{}{}
-\patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{\vspace*{25\p@}}{}{}
+\renewcommand
+\chapter{
+  \global\@topnum\z@
+  \@afterindentfalse
+  \secdef\@chapter\@schapter
+}
 \makeatother
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set different chapter number style for English and Chinese mode.
+
 \ifdefstring{\UGLY@lang}{cn}{
-  \titleformat{\chapter}[hang]%
+  \titleformat{\chapter}%
   {\centering\bfseries\large\color{ecolor}}%
   {\chinese{chapter}、}{0em}{}
 }{\relax}
 \ifdefstring{\UGLY@lang}{en}{
-  \titleformat{\chapter}[hang]%
+  \titleformat{\chapter}%
   {\centering\bfseries\large\color{ecolor}}%
   {\Roman{chapter}.}{0em}{}
 }{\relax}
+
+% \AtBeginDocument{
+%   \ifdefstring{\UGLY@lang}{cn}{
+%     \titleformat{\chapter}%
+%     {\centering\bfseries\large\color{ecolor}}%
+%     {\chinese{chapter}、}{0em}{}
+%   }{\relax}
+%   \ifdefstring{\UGLY@lang}{en}{
+%     \titleformat{\chapter}%
+%     {\centering\bfseries\large\color{ecolor}}%
+%     {\Roman{chapter}.}{0em}{}
+%   }{\relax}
+% }
+
 % We use \relax in the false branch of \ifdefstring to ensure that LaTeX  
 % does not encounter a missing argument error. The \ifdefstring macro  
-% requires four parameters: (1) the tested string, (2) the target string,  
-% (3) the code to execute if the strings match, and (4) the code to execute  
-% if they do not match. If the false branch is omitted, LaTeX will fail  
-% with an error such as:  
+% requires four parameters: (1) the tested string, (2) the target string, 
+% (3) the code to execute if the strings match, and (4) the code to 
+% execute if they do not match. If the false branch is omitted, LaTeX will
+% fail with an error such as:  
 %  
-%     ! LaTeX Error: Missing \begin{document}.  
+%     ! LaTeX Error: Missing \begin{document}.
 %  
-% This happens because \ifdefstring expects an explicit false branch, even  
-% if no action is required. Using \relax ensures LaTeX has a valid fallback  
-% without introducing an empty group ({}) that might affect parsing.  
+% This happens because \ifdefstring expects an explicit false branch, even
+% if no action is required. Using \relax ensures LaTeX has a valid 
+% fallback without introducing an empty group ({}) that might affect
+% parsing.  
 
+% Set title format.
 \titleformat{\section}
 {\bfseries\normalsize\color{ecolor}}
 {\thesection}
@@ -73,6 +100,7 @@
 {}
 [\hspace*{1em}] % Insert 1em spacing after the `subsubsection'
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Agjust spacing of the headers
 \titlespacing{\chapter}{0pt}{20pt}{10pt}
 \titlespacing{\section}{0pt}{0.5\baselineskip}{0.5\baselineskip}

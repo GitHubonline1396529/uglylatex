@@ -14,9 +14,10 @@
 %
 % This work has the LPPL maintenance status "maintained".
 %
-% \WarningsOff
-% \RequirePackage[\UGLY@fontsize]{extsizes}
-% \WarningsOn
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Papersize of the document.
+
+% Size of a panel computer.
 \ifdefstring{\UGLY@device}{pad}{%
   \geometry{
     paperwidth=6in,
@@ -25,6 +26,7 @@
     margin=8mm}}{%
   \relax}
 
+% Size of a Personal Computer screen.
 \ifdefstring{\UGLY@device}{pc}{
   \geometry{%
     margin=8mm,
@@ -33,6 +35,7 @@
     includefoot}}{%
   \relax}
 
+% Size of an Amazon Kindle Ebook reader.
 \ifdefstring{\UGLY@device}{kindle}{%
   \geometry{
     margin=8mm,
@@ -40,19 +43,21 @@
     paperheight=4.92in}}{%
   \relax}
 
+% Just normal A4 papers.
 \ifdefstring{\UGLY@device}{normal}{%
   \geometry{
     margin=1in,
     a4paper}}{%
   \relax}
 
-% 紧凑型布局，只有 2cm 页边距。
+% Also A4 paper, but in a compact layout, with only 2cm margins.
 \ifdefstring{\UGLY@device}{compact}{%
   \geometry{
     margin=2cm,
     a4paper}}{%
   \relax}
 
+% Size of a lantern slide.
 \ifdefstring{\UGLY@device}{screen}{%  
   \geometry{
     screen,
@@ -63,12 +68,14 @@
     footskip=0.6cm}}{%
   \relax}
 
+% Size of a booklet.
 \ifdefstring{\UGLY@device}{booklet}{%
   \geometry{
     margin=2cm,
     a5paper}}{%
   \relax}
 
+% Size of a textbook.
 \ifdefstring{\UGLY@device}{textbook}{%
   \geometry{
     margin=2cm,

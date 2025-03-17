@@ -14,100 +14,121 @@
 %
 % This work has the LPPL maintenance status "maintained".
 %
-% 正文字体
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Global font size setting for the document.
+\RequirePackage[\UGLY@fontsize]{extsizes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Font of the main text.
 %
-% 西文字体
+% Set the font for westernd characters to be `Times New Roman'.
 \setmainfont{Times New Roman}
 
-% 中文字体不需要额外设置，CTeX 已经解决了兼容性问题
+% Note There is no need to set Chinese font explicitly since CTeX can fit
+% the font automatically.
 
-% 额外的字体设置：有些情况下会使用的字体
+% Additional font settings.
 %
-% 使用思源宋体粗体作为标题字体，因为方正小标宋需要版权
+% The following command enable users to use `Source Han Serif SC Bold',
+% which is very useful if user want to set up a serif-styled large-scale
+% document title.
 \setCJKfamilyfont{shserifbold}{Source Han Serif SC Bold}
+% Although the FZXBSJT.ttf font, which is actually more commin, can be
+% licensed for free, considering that Founder Font Company recently 
+% enabled a client for font distribution, in order to prevent copyright 
+% disputes, the font file will not be included in the project directory,
+% which makes it a better choice to fully open source
 
-% 正文格式设置
-\setlength{\parindent}{1em}
-\linespread{1.25}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Text formatting.
+
+\setlength{\parindent}{1em} % Paragraph indentation
+\linespread{1.25} % Line spacing equals 1.25
 % \setlength{\parskip}{0pt plus 1pt}
-\setlength{\parskip}{0pt}
+\setlength{\parskip}{0pt} % Paragraph indent equals the line spacing.
 
-% 列表项左侧顶格写
-% 理论上，itemsep=0pt 或者 itemsep=0pt 可以设置 
-% itemize 和 enumerate 的每一项间距等于行距，但实际上
-% 这个设置和精美的带阴影的球的 item label 不兼容。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set list items to the left of the top box.
+
 \setlist[itemize]{
   % itemsep=0pt，
   noitemsep,
   leftmargin=*
 }
+
 \setlist[enumerate]{
   % itemsep=0pt，
   noitemsep,
   leftmargin=*
 }
+% Note Theoretically speaking, `itemsep=0pt' or `itemsep=0pt' can set the
+% spacing of each item in `itemize' and `enumerate' to equal the line
+% spacing, but by practicing I discovered this setting has a conflict with
+% the elegant-styled item label with the shaded ball. For this reason, I
+% commented it.
 
-% 多级列表格式设置
-% 设置一组列表项格式为带阴影的球，用于 itemize 环境。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set the format of multi-level list.
+% 
+% For the `itemized' environment: Plot shaded ball with TikZ and use it as
+% the item label of the `itemized` environment. Also we color the ball 
+% with the document theme color. These labels are named as eitemi, eitemii
+% and eitemiii.
 \usetikzlibrary{shadows}
 \newcommand*{\eitemi}{
-  \tikz\draw[baseline,ball color=ecolor,draw=none] circle (2pt);}
+  \tikz\draw[baseline,ball color=ecolor,draw=none] circle (2pt);
+}
+
 \newcommand*{\eitemii}{
   \tikz\draw[
     baseline,
     fill=ecolor,
     draw=none,
     circular drop shadow
-    ] circle (2pt);}
-\newcommand*{\eitemiii}{%
-  \tikz\draw[baseline,fill=ecolor,draw=none] circle (2pt);}
+  ] circle (2pt);
+}
 
-% 有序列表启用多级不同序号样式
+\newcommand*{\eitemiii}{%
+  \tikz\draw[baseline,fill=ecolor,draw=none] circle (2pt);
+}
+
+% Enable the elegant ball for itemized list.
+\setlist[itemize,1]{label={\eitemi}}
+\setlist[itemize,2]{label={\eitemii}}
+\setlist[itemize,3]{label={\eitemiii}}
+
+% For the `enumerate' environment: Use arabic numerals, lowercase letters,
+% uppercase Roman numerals and Captialized letters for a enumerate list of
+% level 1 through 4.
 \setlist[enumerate,1]{label=\color{ecolor}\arabic*.}
 \setlist[enumerate,2]{label=\color{ecolor}(\alph*).}
 \setlist[enumerate,3]{label=\color{ecolor}\Roman*.}
 \setlist[enumerate,4]{label=\color{ecolor}\Alph*.}
 
-% 无序列表启用更精致的 label 项
-\setlist[itemize,1]{label={\eitemi}}
-\setlist[itemize,2]{label={\eitemii}}
-\setlist[itemize,3]{label={\eitemiii}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Customize code block environment.
+%
+% Define a color to highlight comments in code. The green color of RGB 
+% (0, 100, 0) can be shown clearly on white paper.
+\definecolor{commentgreen}{RGB}{0, 100, 0}
 
-% 全文字号参数传递
-\RequirePackage[\UGLY@fontsize]{extsizes}
-
-% 字体格式处理
-\ifcsname kaishu\endcsname
-  \newcommand{\citshape}{\kaishu}
-\else
-  \newcommand{\citshape}{\itshape}
-\fi
-\ifcsname kaishu\endcsname
-  \newcommand{\cnormal}{\kaishu}
-\else
-  \newcommand{\cnormal}{\normalfont}
-\fi
-\ifcsname fangsong\endcsname
-  \newcommand{\cfs}{\fangsong}
-\else
-  \newcommand{\cfs}{\normalfont}
-\fi
-
-% 代码环境定制
-% 定义颜色
-\definecolor{commentgreen}{RGB}{0,100, 0}
+% This lightgrey can be used as background color of code block. However, I
+% finally desided not to use it. The current background color for code
+% blocks is pure white
+%
 % \definecolor{lightgrey}{HTML}{EEEEEE}
-% 设置代码环境
+
+% Customize code block format. 
 \lstset{
-  basicstyle=\small\ttfamily, % 整体的字号、字体
-  backgroundcolor=\color{white}, % 背景颜色
-  % frame=trbl, %显示各方向的代码框线条
-  frame=tb, %显示各方向的代码框线条，只保留上和下
-  framerule=1pt,
-  rulecolor=\color{ecolor},
-  % frameround=tttt, % 设置代码框各棱角的形状
-  showstringspaces=false, % 取消特别的字符间距
-  framexleftmargin=5pt, % 内部左边距
+  basicstyle=\small\ttfamily, % Font type and font size.
+  backgroundcolor=\color{white}, % Background color.
+  % frame=trbl, % Display frame lines on each side of the code block.
+  frame=tb, % Display frame lines, but only on top and below code block.
+  framerule=1pt, % The width of the code block frame lines.
+  rulecolor=\color{ecolor}, % Color of the frame lines.
+  % frameround=tttt, % The shape of each corner.
+  showstringspaces=false, % Cancel the string spaces.
+  framexleftmargin=5pt, % Internal left margin.
   keywordstyle=\color{blue},
   commentstyle=\color{commentgreen},
   stringstyle=\color{red},
@@ -121,9 +142,12 @@
   breakautoindent=true,
   % linewidth=\textwidth,
   % numberbychapter=true,
-  xleftmargin=1em, % 左右两侧的空白
+  xleftmargin=1em, % Outside margins.
   xrightmargin=1em,
 }
 
-% 表格格式设置
-\arrayrulecolor{ecolor} % 将所有表格线设为 ecolor
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table format settings.
+
+% Color all the table frames with the document theme color (The `ecolor').
+\arrayrulecolor{ecolor}

@@ -19,7 +19,7 @@
 ]
 \NeedsTeXFormat{LaTeX2e}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Process Control Packages.
 % 
 % Note these packages must be imported before the Complier constraint.
@@ -28,9 +28,9 @@
 \RequirePackage{etoolbox}
 \RequirePackage{calc}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Complier constraint, forcing user to use XeLaTeX and give necessary error 
-% message.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Complier constraint, forcing user to use XeLaTeX and give necessary 
+% error message.
 \RequireXeTeX
 \ifxetex\else
 \ClassError{uglypaper}{
@@ -38,10 +38,10 @@ You must use the `xelatex' driver\MessageBreak }{%
 Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \fi
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Class options processing.
-% Note this part of TeX must be `input' not `imported', which means, must use
-% `\input' not `\usepackage' or `\RequirePackage'.
+% Note this part of TeX must be `input' not `imported', which means, must
+% use `\input' not `\usepackage' or `\RequirePackage'.
 \input{classoptions}
 
 % Pass document class options to the `article' class, and load the class.
@@ -51,7 +51,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % Load the class.
 \LoadClass{article}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Import customized packages
 \RequirePackage{dependencies}
 \RequirePackage{docfmt}
@@ -62,17 +62,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % \RequirePackage{docappendix}
 \RequirePackage{commands}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title format settings.
 
 \RequirePackage{customized_headers/paperheaders}
 
 % 摘要格式设置
-\RequirePackage{customized_abstract/runin_abstract}
-
-% 调整摘要位置的间距
-% \setlength{\absleftindent}{1.18cm} % 控制摘要左缩进
-% \setlength{\absrightindent}{1.18cm} % 控制摘要右缩进
+\RequirePackage{customized_abstract/runinabstract}
 
 % 设置目录标题样式
 %
@@ -82,7 +78,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 目录标题：三号宋体，加粗，居中，段前20磅，段后10磅，无缩进，
 % “目”和“录”之间空4格；
 % \renewcommand{\contentsname}{\centering 目\ \ \ \ 录}
-\renewcommand{\cfttoctitlefont}{\hfill\normalsize} % ToC = Table of Contents
+\renewcommand{\cfttoctitlefont}{\hfill\normalsize}
+% ToC = Table of Contents
 \renewcommand{\cftaftertoctitle}{\hfill}
 \renewcommand{\cftloftitlefont}{\normalsize} % LoF = List of Figures
 \renewcommand{\cftafterloftitle}{}

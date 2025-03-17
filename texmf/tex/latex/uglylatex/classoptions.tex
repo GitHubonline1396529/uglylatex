@@ -14,14 +14,19 @@
 %
 % This work has the LPPL maintenance status "maintained".
 %
-
 % Document class option arguments procesessing.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Setup a group of document class options.
-\SetupKeyvalOptions{family=UGLY, prefix=UGLY@, setkeys=\kvsetkeys}
+
+\SetupKeyvalOptions{
+    family=UGLY,
+    prefix=UGLY@,
+    setkeys=\kvsetkeys
+}
 % \newcommand{\ekv}[1]{\kvsetkeys{UGLY}{#1}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Color theme of the document.
 
 % The default color is `black'.
@@ -46,11 +51,11 @@
 % \DeclareVoidOption{navy}{\kvsetkeys{UGLY}{color=navy}}
 % \DeclareVoidOption{airforce}{\kvsetkeys{UGLY}{color=airforce}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Document class language mode.
 %
-% Changing the language context will change the guide words for chart
-% titles (graphs, tables); article structure words, such as the `table of
+% Changing the language mode will change the guide words for chart titles
+% (graphs, tables); article structure words, such as the `table of
 % contents', `references', etc.; and the guide words in the theorem
 % environment, such as `theorem', `lemma', etc.
 %
@@ -58,7 +63,7 @@
 \DeclareVoidOption{cn}{\kvsetkeys{UGLY}{lang=cn}}
 \DeclareVoidOption{en}{\kvsetkeys{UGLY}{lang=en}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareStringOption[normal]{device}
 \DeclareVoidOption{pc}{\kvsetkeys{UGLY}{device=pc}}
 \DeclareVoidOption{pad}{\kvsetkeys{UGLY}{device=pad}}
@@ -69,7 +74,9 @@
 \DeclareVoidOption{booklet}{\kvsetkeys{UGLY}{device=booklet}}
 \DeclareVoidOption{textbook}{\kvsetkeys{UGLY}{device=textbook}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Extra font size, from 9pt to 20pt.
+
 \DeclareStringOption[11pt]{fontsize}
 \DeclareVoidOption{9pt}{\kvsetkeys{UGLY}{fontsize=9pt}}
 \DeclareVoidOption{10pt}{\kvsetkeys{UGLY}{fontsize=10pt}}
@@ -80,12 +87,13 @@
 \DeclareVoidOption{17pt}{\kvsetkeys{UGLY}{fontsize=17pt}}
 \DeclareVoidOption{20pt}{\kvsetkeys{UGLY}{fontsize=20pt}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Unfinished modules under construction.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The following are unfinished modules under construction.
 % 
 % See also: ElegantNote
 %    <https://github.com/ElegantLaTeX/ElegantNote>
-
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Seesight protective and eye-friendly mode
 %
 % \DeclareStringOption{bgmode}
@@ -93,22 +101,24 @@
 % \DeclareVoidOption{hazy}{\kvsetkeys{UGLY}{mode=hazy}}
 % \DeclareVoidOption{sepia}{\kvsetkeys{UGLY}{mode=sepia}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Customize Chinese fonts.
+%
 % \DeclareStringOption[ctexfont]{chinesefont}
 % \DeclareVoidOption{ctexfont}{\kvsetkeys{UGLY}{chinesefont=ctexfont}}
 % \DeclareVoidOption{founder}{\kvsetkeys{UGLY}{chinesefont=founder}}
 % \DeclareVoidOption{nofont}{\kvsetkeys{UGLY}{chinesefont=nofont}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \DeclareStringOption[numeric-comp]{citestyle}
 % \DeclareStringOption[numeric]{bibstyle}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \DeclareStringOption[biber]{bibend}
 % \DeclareVoidOption{biber}{\kvsetkeys{UGLY}{bibend=biber}}
 % \DeclareVoidOption{bibtex}{\kvsetkeys{UGLY}{bibend=bibtex}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \DeclareStringOption[cm]{math}
 % \DeclareVoidOption{newtx}{\kvsetkeys{UGLY}{math=newtx}}
 % \DeclareVoidOption{mtpro2}{\kvsetkeys{UGLY}{math=mtpro2}}

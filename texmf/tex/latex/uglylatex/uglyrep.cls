@@ -19,39 +19,41 @@
 ]
 \NeedsTeXFormat{LaTeX2e}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Process Control Packages.
 % 
-% Note these packages must be imported before the Complier constraint.
+% Note these packages must be imported before the compiler constraint.
 \RequirePackage{ifxetex}
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
 \RequirePackage{calc}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Complier constraint, forcing user to use XeLaTeX and give necessary error 
-% message.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Compiler constraint, forcing the user to use XeLaTeX and providing 
+% necessary error messages.
 \RequireXeTeX
 \ifxetex\else
 \ClassError{uglyrep}{
-You must use the `xelatex' driver\MessageBreak }{%
+You must use the `xelatex' driver\MessageBreak }{
 Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \fi
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Class options processing.
-% Note this part of TeX must be `input' not `imported', which means, must use
-% `\input' not `\usepackage' or `\RequirePackage'.
+%
+% Note that this part of TeX must be `input' rather than `imported',
+% meaning that `\input' must be used instead of `\usepackage' or
+% `\RequirePackage'.
 \input{classoptions}
 
-% Pass document class options to the `article' class, and load the class.
+% Pass document class options to the `article' class and load the class.
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessKeyvalOptions*\relax
 
 % Load the class.
 \LoadClass{report}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Import customized packages
 \RequirePackage{dependencies}
 \RequirePackage{docfmt}
@@ -62,44 +64,45 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % \RequirePackage{docappendix}
 \RequirePackage{commands}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title format settings.
 
-\RequirePackage{customized_headers/repheaders}
+\RequirePackage{customized_headers/reportheaders}
 
-% 摘要格式设置
-\RequirePackage{customized_abstract/abstract_page}
+% Abstract format settings
+\RequirePackage{customized_abstract/abstractpage}
 
-% 调整摘要位置的间距
-% \setlength{\absleftindent}{1.18cm} % 控制摘要左缩进
-% \setlength{\absrightindent}{1.18cm} % 控制摘要右缩进
-% \setlength{\abstitleskip}{-1em} % 控制摘要标题与摘要正文的间距
-% \setlength{\absparindent}{2em} % 控制摘要段落的缩进
-% \setlength{\absbottomskip}{1em} % 控制摘要与正文的间距
-
-% 设置目录标题样式
+% Set table of contents title style
 %
-% LaTeX 会默认把目录的标题当作一级 Chapter 或者 Section，加入到页眉当中。
-% 如果目录结束之后的正文部分不是紧跟着第一级 Chapter 或者 Section，而是，
-% 比方说，有一段普通文本，那么，这段内容就会全部被强行冠以“目录”或者
-% “CONTENT”字样的页眉。
-
-% 为了解决这个问题，我试了大半年，前面试了很多的方法，都没有解决。想了很
-% 长时间，这一行代码就是最终的解决方案。
-
-% 简单来说原理就是通过 LaTeX 的流程控制宏包 etoolbox 在每次 (其实就一次)
-% \tableofcontent 命令执行完毕之后，都清空一次页眉。目前我还没有想到更好
-% 的方法，也不确定这个方法是不是还有其他没有预料到的问题，先这样用着吧。
+% LaTeX will treat the table of contents title as a top-level Chapter or
+% Section by default, adding it to the header. If the main text following
+% the table of contents is not immediately a top-level Chapter or Section
+% but, for example, some ordinary text, then this text will be forcefully
+% assigned the "Contents" header. However, these text are not actual table
+% of content.
+%
+% To solve this issue, I experimented for over six months, trying many 
+% methods but failing to resolve it. After a long time, this single line
+% of code became the final solution.
+%
+% Simply put, the principle is to use LaTeX's process control package 
+% `etoolbox` to clear the header once every time (actually just once) when
+% `\tableofcontents` is executed. I haven't thought of a better method 
+% yet, and I'm unsure if this approach has any unforeseen issues, so I'll
+% use it for now.
 \apptocmd\tableofcontents{\clearpage\markboth{}{}}
 
-% 目录后必须换页
+% Ensure a page break after the table of contents.
+% 
 % \apptocmd{\tableofcontents}{\clearpage}{}{}
 
+% 标题间距设置
+\titlespacing{\chapter}{0pt}{20pt}{10pt}
+\titlespacing{\section}{0pt}{0.5\baselineskip}{0.5\baselineskip}
+\titlespacing{\subsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
+\titlespacing{\subsubsection}{0pt}{0\baselineskip}{0\baselineskip}[1em]
+
 % \makeatother
-%
-% 目录标题：三号宋体，加粗，居中，段前20磅，段后10磅，无缩进，
-% “目”和“录”之间空4格；
-% \renewcommand{\contentsname}{}
 % \renewcommand{\cfttoctitlefont}{\normalsize} % ToC = Table of Contents
 % \renewcommand{\cftaftertoctitle}{}
 % \renewcommand{\cftloftitlefont}{\normalsize} % LoF = List of Figures
@@ -107,44 +110,47 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % \renewcommand{\cftlottitlefont}{\normalsize} % LoT = List of Tables
 % \renewcommand{\cftafterlottitle}{}
 
-% 隐藏子小节
-% 设置目录深度显示三级
-\setcounter{tocdepth}{3} % 只显示到三级深度
+% Hide sub-subsections
+% Set table of contents depth to display up to three levels
+\setcounter{tocdepth}{3} % Only show up to three levels of depth
 
-% 拓宽 chapter 标题序号后面的间距
+% Expand the spacing after the chapter number in the title
 \addtolength{\cftchapnumwidth}{1em}
 
-\renewcommand{\cftchapfont}{\normalsize\bfseries} % 章节标题字体
-\renewcommand{\cftsecfont}{\normalsize} % 小节标题字体
-\renewcommand{\cftsubsecfont}{\normalsize} % 子小节标题字体
+\renewcommand{\cftchapfont}{\normalsize\bfseries} % Chapter title font
+\renewcommand{\cftsecfont}{\normalsize} % Section title font
+\renewcommand{\cftsubsecfont}{\normalsize} % Subsection title font
 
-% 设置目录项格式
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % 章节之间的点线
-\renewcommand{\cftsecpagefont}{\hfill\textperiodcentered} % 小节页码格式
-\renewcommand{\cftsubsecpagefont}{\hfill\textperiodcentered} % 子小节页码格式
+% Set table of contents item formatting
+% Dotted lines between chapters
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+% Section page number format
+\renewcommand{\cftsecpagefont}{\hfill\textperiodcentered}
+% Subsection page number format
+\renewcommand{\cftsubsecpagefont}{\hfill\textperiodcentered}
 
-% 设置目录项缩进和间距
-% \setlength{\cftbeforechapskip}{0pt} % 章节前的段距
-% \setlength{\cftbeforesecskip}{0pt} % 小节前的段距
-% \setlength{\cftbeforesubsecskip}{0pt} % 子小节前的段距
+% Set indentation and spacing of table of contents items
+% \setlength{\cftbeforechapskip}{0pt} % Spacing before chapters
+% \setlength{\cftbeforesecskip}{0pt} % Spacing before sections
+% \setlength{\cftbeforesubsecskip}{0pt} % Spacing before subsections
 
-\setlength{\cftchapindent}{0em} % 章节标题缩进
-\setlength{\cftsecindent}{2em} % 小节标题缩进
-\setlength{\cftsubsecindent}{4em} % 子小节标题缩进
-\setlength{\cftsubsubsecindent}{6em} % 子小节标题缩进
+\setlength{\cftchapindent}{0em} % Chapter title indentation
+\setlength{\cftsecindent}{2em} % Section title indentation
+\setlength{\cftsubsecindent}{4em} % Subsection title indentation
+\setlength{\cftsubsubsecindent}{6em} % Sub-subsection title indentation
 
-% 设置页眉和页脚
-% 页眉设置
+% Set headers and footers
+% Header settings
 \pagestyle{fancy}
 % \fancyhead{}
-% \fancyhead[LE,RO]{\thepage} % 页码
-% \fancyhead[LO]{\nouppercase{\rightmark}} % 左页章节标题
-% \fancyhead[RE]{\nouppercase{\leftmark}} % 右页章节标题
+% \fancyhead[LE,RO]{\thepage} % Page numbers
+% \fancyhead[LO]{\nouppercase{\rightmark}} % Left page chapter title
+% \fancyhead[RE]{\nouppercase{\leftmark}} % Right page chapter title
 \renewcommand{\chaptermark}[1]{
   \markboth{\thechapter#1}{}
 }
 
-% 附录格式设置
+% Appendix format settings
 \renewcommand{\appendix}{%
   \par
   \setcounter{chapter}{0}%
@@ -160,25 +166,19 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
   \renewcommand{\thesection}{\thechapter.\arabic{section}}%
 }
 
-% 设置图表标题样式
+% Caption format settings.
 
-% 图表按章节编号
+% The caption number in a report (I mean, in this document class, 
+% `uglyrep', which usually used in reports), should be numbered after the
+% chapter number, instead of just a number sequence.
 \numberwithin{table}{chapter}
 \numberwithin{figure}{chapter}
 \numberwithin{equation}{chapter}
-% \numberwithin{lstlisting}{section}  % 设置 listings 环境按章节编号
-% \newcounter{lstlisting}[section]
+% Set listings code block to be numbered after chapter numbers.
+% \AtBeginDocument{
+%   \counterwithin{lstlisting}{section}
+% }
 \renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
 % \renewcommand{\thelstlisting}{\arabic{section}.\arabic{lstlisting}}
-
-% 强制令 report 文档类里的 chapter 不换页
-\makeatletter
-\renewcommand
-\chapter{
-  \global\@topnum\z@
-  \@afterindentfalse
-  \secdef\@chapter\@schapter
-}
-\makeatother

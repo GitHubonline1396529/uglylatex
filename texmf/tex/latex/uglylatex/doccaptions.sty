@@ -14,22 +14,27 @@
 %
 % This work has the LPPL maintenance status "maintained".
 %
-% 设置图表标题样式
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set the chart caption style.
+
 \captionsetup{
   labelfont={bf, color=ecolor}, textfont=bf,
   font={small, bf, stretch=1.25},
-  labelsep=space,
+  labelsep=space, % A space after caption title and caption text
   justification=centering,
   singlelinecheck=false
 }
 
+% Caption for sunfigures. From subcaption package.
+%
+% See Also: The subcaption package <texdoc subcaption>.
 \subcaptionsetup{
   labelfont={bf, color=ecolor}, textfont=bf,
-  font={small, bf, stretch=1.25}, % 字体大小、加粗、行距
+  font={small, bf, stretch=1.25}, % small bold font with 1.25 line 
   labelsep=space, % 标签和标题之间的间隔
   labelformat=simple,
   singlelinecheck=off % 关闭单行检测
 }
 
-% 设置子图标题
+% Numbering the subcaptions as `(a)', `(b)', etc.
 \renewcommand\thesubfigure{(\alph{subfigure})}

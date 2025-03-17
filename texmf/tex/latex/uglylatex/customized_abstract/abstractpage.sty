@@ -1,0 +1,72 @@
+%
+% This is file `abstract_page.sty',
+% created for UglyLaTeX.
+%
+% Copyright (C) 2025 Githubonline1396529
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License (LPPL),
+% either version 1.3c of this license or (at your option)
+% any later version. The latest version of this license is in:
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of
+% LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% Abstract format settings for the document class `uglyrep'
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Package to setup abstract.
+%
+% note that for the document class `uglypaper', the `runin' option is
+% required when importing the `abstract' package, but it is not required
+% in the other two document classes `uglynite' and `uglyrep'. Therefore,
+% the `abstract' package needs to be imported here, so that we can see 
+% whether the `runin' option is used, rather than in the style file 
+% `dependencies.sty`, which lists all the rest of the dependent packages.
+
+\RequirePackage{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abstract format settings for Chinese mode.
+
+\ifdefstring{\UGLY@lang}{cn}{
+  \renewcommand{\abstractname}{
+    摘\ \ \ \ 要
+    } % Set the abstract title text.
+}{\relax}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abstract format settings for English mode.
+
+\ifdefstring{\UGLY@lang}{en}{
+  \renewcommand{\abstractname}{
+    Abstract} % 设置摘要标题文本
+}{\relax}
+
+% Use normal font for abstract.
+\renewcommand{\abstractnamefont}{
+\bfseries\large\selectfont}
+\renewcommand{\abstracttextfont}{
+\normalfont\normalsize\selectfont}
+
+\renewcommand{\abstractnamefont}{
+  \bfseries\large\color{ecolor}
+}
+
+% Adjust the spacing of the abstract position
+
+% Control the left indentation of the abstract
+% \setlength{\absleftindent}{1.18cm}
+
+% Control the right indentation of the abstract
+% \setlength{\absrightindent}{1.18cm}
+
+% Control the spacing between the abstract title and text
+% \setlength{\abstitleskip}{-1em}
+
+% Control the paragraph indentation in the abstract
+% \setlength{\absparindent}{2em}
+
+% Control the spacing between the abstract and the main text
+% \setlength{\absbottomskip}{1em}

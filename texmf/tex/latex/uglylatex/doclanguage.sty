@@ -14,16 +14,34 @@
 %
 % This work has the LPPL maintenance status "maintained".
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Adjustable language mode settings.
+%
 % Changing the language context will change the guide words for chart
-% titles (graphs, tables); article structure words, such as the `table of
-% contents', `references', etc.; and the guide words in the theorem
+% titles (graphs, tables); article structure words, such as the `table 
+% of contents', `references', etc.; and the guide words in the theorem
 % environment, such as `theorem', `lemma', etc.
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ifdefstring{\UGLY@lang}{cn}{
-  \theoremstyle{plain}% default
+% Considering the font size and styles of the abstract title and the
+% chapter/section numbers are not only different in different language 
+% modes of these three document classes, but also different in these three
+% document classes themselves, this part of formatting is seperated into
+% six style package files under the directory `customized_headers` and the
+% `customized_abstract`.
+%
+% See the following files for the adjustable language mode settings for
+% the abstract title and chapter/section numbers of the three document
+% classes:
+%
+%   [1]: ./tex/latex/uglylatex/customized_abstract/abstractblock.sty
+%   [2]: ./tex/latex/uglylatex/customized_abstract/abstractpage.sty
+%   [3]: ./tex/latex/uglylatex/customized_abstract/runinabstract.sty
+%   [4]: ./tex/latex/uglylatex/customized_headers/noteheaders.sty
+%   [5]: ./tex/latex/uglylatex/customized_headers/paperheaders.sty
+%   [6]: ./tex/latex/uglylatex/customized_headers/repheaders.sty
+%
+\ifdefstring{\UGLY@lang}{cn}{ % If assigned Chinese mode.
+  \theoremstyle{plain} % default
   \newtheorem{theorem}{定理}[section] %
   \newtheorem{lemma}[theorem]{引理} %
   \newtheorem{proposition}[theorem]{命题} %
@@ -43,10 +61,9 @@
   \renewcommand\refname{\color{ecolor}参考文献} %
   \renewcommand\figurename{图} %
   \renewcommand\tablename{表}%
-  \newcommand\versiontext{版本：}%
-  \newcommand\updatetext{日期：}%
+  \newcommand\versiontext{版本：} %
+  \newcommand\updatetext{日期：} %
   \newcommand{\ebibname}{参考文献}
-  % \renewcommand\abstractname{摘\ \ \ \ 要}
   \setlength\parindent{2\ccwd}
   \newcommand{\keywords}[1]{
     \vskip2ex\par\noindent{\small\heiti\color{ecolor} 关键词: } #1
@@ -78,7 +95,10 @@
   \newcommand\versiontext{\itshape Version: }%
   \newcommand\updatetext{\itshape Date: }%
   \setlength\parindent{2em}
-  % \renewcommand{\abstracttextfont}{\sffamily\small\noindent\ignorespaces}
+  % \renewcommand{\abstracttextfont}{
+  %   \sffamily\small\noindent\ignorespaces
+  % }
+
   % newcommands defined in this template.
   \newcommand{\keywords}[1]{
     \vskip 2ex\par\noindent{\bfseries\color{ecolor} Keywords: } #1
@@ -93,16 +113,20 @@
 }{\relax}
 % We use \relax in the false branch of \ifdefstring to ensure that LaTeX  
 % does not encounter a missing argument error. The \ifdefstring macro  
-% requires four parameters: (1) the tested string, (2) the target string,  
-% (3) the code to execute if the strings match, and (4) the code to execute  
-% if they do not match. If the false branch is omitted, LaTeX will fail  
-% with an error such as:  
+% requires four parameters: (1) the tested string, (2) the target string, 
+% (3) the code to execute if the strings match, and (4) the code to 
+% execute if they do not match. If the false branch is omitted, LaTeX will
+% fail with an error such as:  
 %  
 %     ! LaTeX Error: Missing \begin{document}.  
 %  
-% This happens because \ifdefstring expects an explicit false branch, even  
-% if no action is required. Using \relax ensures LaTeX has a valid fallback  
-% without introducing an empty group ({}) that might affect parsing.  
+% This happens because \ifdefstring expects an explicit false branch, even
+% if no action is required. Using \relax ensures LaTeX has a valid 
+% fallback without introducing an empty group ({}) that might affect
+% parsing.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define environments.
 
 \let\openbox\relax
 \newtheoremstyle{plain}{\topsep}{\topsep}{\citshape}{}{%

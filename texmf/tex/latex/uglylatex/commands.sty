@@ -50,3 +50,25 @@
 
 % 设置字体为思源宋体粗体的命令
 \newcommand{\shserifbold}{\CJKfamily{shserifbold}}
+
+% The following font settings are inherted from ElegantNote. Although I
+% don't really sure what they're used for, they seems to be really useful.
+% Considering that some of the functions that should be implemented have
+% not yet been implemented, and the code logic may be used in the subse
+% quent development of the project, I say that these codes remain in the
+% project.
+\ifcsname kaishu\endcsname
+  \newcommand{\citshape}{\kaishu}
+\else
+  \newcommand{\citshape}{\itshape}
+\fi
+\ifcsname kaishu\endcsname
+  \newcommand{\cnormal}{\kaishu}
+\else
+  \newcommand{\cnormal}{\normalfont}
+\fi
+\ifcsname fangsong\endcsname
+  \newcommand{\cfs}{\fangsong}
+\else
+  \newcommand{\cfs}{\normalfont}
+\fi
