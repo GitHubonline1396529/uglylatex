@@ -4,7 +4,7 @@
 # Date: 2025/3/10
 # Version: 0.1.0.0
 # License: Copyright (c) 2025 Githubonline1396529
-#
+ 
 # `DISTRIBUTION` specifies the distribution of your LaTeX. Options can be 
 # `texlive` or `miktex` 
 DISTRIBUTION = miktex

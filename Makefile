@@ -40,7 +40,7 @@ PANDOC_OPTIONS = \
 --metadata-file=$(README_YAML_HEADER)
 
 ifeq ($(DISTRIBUTION), miktex)
-    REFRESH := mktexlsr
+    REFRESH := miktex-console task --update-fndb
 else
     REFRESH := texhash .
 endif
