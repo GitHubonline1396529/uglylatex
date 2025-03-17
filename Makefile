@@ -61,7 +61,7 @@ example:
 	@echo "Compiling example files..."
 	@cd example && for file in $(TEX_FILES); do \
 		echo "Compiling $$file"; \
-		latexmk -xelatex $$file; \
+		latexmk -xelatex --shell-escape $$file; \
 	done
 	@cp $(EXAMPLE_SOURCE)/*.pdf $(PACKAGE_DIR)/doc/$(PACKAGE_NAME)
 	@echo "All PDFs have been copied to $(PACKAGE_DIR)/doc/"
