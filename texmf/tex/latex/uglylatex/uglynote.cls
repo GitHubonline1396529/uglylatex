@@ -47,6 +47,7 @@
 % `\RequirePackage'.
 \input{classoptions}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Pass document class options to the `article' class, and load the class.
 \DeclareDefaultOption{
   \PassOptionsToClass{\CurrentOption}{article}
@@ -57,7 +58,7 @@
 \LoadClass{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Import customized packages
+% Import customized packages.
 
 \RequirePackage{dependencies}
 \RequirePackage{docfmt}
@@ -65,7 +66,6 @@
 \RequirePackage{doccolor}
 \RequirePackage{doccaptions}
 \RequirePackage{doclanguage}
-% \RequirePackage{docappendix}
 \RequirePackage{commands}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -80,17 +80,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table of content format setting.
-%
-% The `\contentsname' depends on the language model of the document. See  
-% `doclanguage.sty' for this part of implementation.
-%
-\renewcommand{\cfttoctitlefont}{\hfill\normalsize} 
-% ToC = Table of Contents
-\renewcommand{\cftaftertoctitle}{\hfill}
-\renewcommand{\cftloftitlefont}{\normalsize} % LoF = List of Figures
-\renewcommand{\cftafterloftitle}{}
-\renewcommand{\cftlottitlefont}{\normalsize} % LoT = List of Tables
-\renewcommand{\cftafterlottitle}{}
+\RequirePackage{customized_toc/toclines}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set the page header and the page footer.

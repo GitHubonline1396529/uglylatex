@@ -46,6 +46,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % `\RequirePackage'.
 \input{classoptions}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Pass document class options to the `article' class and load the class.
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessKeyvalOptions*\relax
@@ -69,11 +70,14 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 \RequirePackage{customized_headers/reportheaders}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Abstract format settings
 \RequirePackage{customized_abstract/abstractpage}
 
-% Set table of contents title style
-%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set table of contents title style.
+\RequirePackage{customized_toc/tocpage}
+
 % LaTeX will treat the table of contents title as a top-level Chapter or
 % Section by default, adding it to the header. If the main text following
 % the table of contents is not immediately a top-level Chapter or Section
@@ -95,49 +99,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % Ensure a page break after the table of contents.
 % 
 % \apptocmd{\tableofcontents}{\clearpage}{}{}
-
-% 标题间距设置
-\titlespacing{\chapter}{0pt}{20pt}{10pt}
-\titlespacing{\section}{0pt}{0.5\baselineskip}{0.5\baselineskip}
-\titlespacing{\subsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
-\titlespacing{\subsubsection}{0pt}{0\baselineskip}{0\baselineskip}[1em]
-
-% \makeatother
-% \renewcommand{\cfttoctitlefont}{\normalsize} % ToC = Table of Contents
-% \renewcommand{\cftaftertoctitle}{}
-% \renewcommand{\cftloftitlefont}{\normalsize} % LoF = List of Figures
-% \renewcommand{\cftafterloftitle}{}
-% \renewcommand{\cftlottitlefont}{\normalsize} % LoT = List of Tables
-% \renewcommand{\cftafterlottitle}{}
-
-% Hide sub-subsections
-% Set table of contents depth to display up to three levels
-\setcounter{tocdepth}{3} % Only show up to three levels of depth
-
-% Expand the spacing after the chapter number in the title
-\addtolength{\cftchapnumwidth}{1em}
-
-\renewcommand{\cftchapfont}{\normalsize\bfseries} % Chapter title font
-\renewcommand{\cftsecfont}{\normalsize} % Section title font
-\renewcommand{\cftsubsecfont}{\normalsize} % Subsection title font
-
-% Set table of contents item formatting
-% Dotted lines between chapters
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
-% Section page number format
-\renewcommand{\cftsecpagefont}{\hfill\textperiodcentered}
-% Subsection page number format
-\renewcommand{\cftsubsecpagefont}{\hfill\textperiodcentered}
-
-% Set indentation and spacing of table of contents items
-% \setlength{\cftbeforechapskip}{0pt} % Spacing before chapters
-% \setlength{\cftbeforesecskip}{0pt} % Spacing before sections
-% \setlength{\cftbeforesubsecskip}{0pt} % Spacing before subsections
-
-\setlength{\cftchapindent}{0em} % Chapter title indentation
-\setlength{\cftsecindent}{2em} % Section title indentation
-\setlength{\cftsubsecindent}{4em} % Subsection title indentation
-\setlength{\cftsubsubsecindent}{6em} % Sub-subsection title indentation
 
 % Set headers and footers
 % Header settings

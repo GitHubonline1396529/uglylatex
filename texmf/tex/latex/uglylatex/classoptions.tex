@@ -20,16 +20,16 @@
 % Setup a group of document class options.
 
 \SetupKeyvalOptions{
-    family=UGLY,
-    prefix=UGLY@,
-    setkeys=\kvsetkeys
+  family=UGLY,
+  prefix=UGLY@,
+  setkeys=\kvsetkeys
 }
 % \newcommand{\ekv}[1]{\kvsetkeys{UGLY}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Color theme of the document.
+% Define class options.
 
-% The default color is `black'.
+% Color theme of the document. The default color is `black'.
 \DeclareStringOption[black]{color}
 
 % Color schemes from ElagantLaTeX.
@@ -51,7 +51,6 @@
 % \DeclareVoidOption{navy}{\kvsetkeys{UGLY}{color=navy}}
 % \DeclareVoidOption{airforce}{\kvsetkeys{UGLY}{color=airforce}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Document class language mode.
 %
 % Changing the language mode will change the guide words for chart titles
@@ -63,7 +62,8 @@
 \DeclareVoidOption{cn}{\kvsetkeys{UGLY}{lang=cn}}
 \DeclareVoidOption{en}{\kvsetkeys{UGLY}{lang=en}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document paper size.
+
 \DeclareStringOption[normal]{device}
 \DeclareVoidOption{pc}{\kvsetkeys{UGLY}{device=pc}}
 \DeclareVoidOption{pad}{\kvsetkeys{UGLY}{device=pad}}
@@ -74,7 +74,6 @@
 \DeclareVoidOption{booklet}{\kvsetkeys{UGLY}{device=booklet}}
 \DeclareVoidOption{textbook}{\kvsetkeys{UGLY}{device=textbook}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Extra font size, from 9pt to 20pt.
 
 \DeclareStringOption[11pt]{fontsize}

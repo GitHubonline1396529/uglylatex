@@ -44,6 +44,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % use `\input' not `\usepackage' or `\RequirePackage'.
 \input{classoptions}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Pass document class options to the `article' class, and load the class.
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessKeyvalOptions*\relax
@@ -70,21 +71,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 摘要格式设置
 \RequirePackage{customized_abstract/runinabstract}
 
-% 设置目录标题样式
-%
-% 拓宽 section 标题序号后面的间距
-\addtolength{\cftsecnumwidth}{1em}
-%
-% 目录标题：三号宋体，加粗，居中，段前20磅，段后10磅，无缩进，
-% “目”和“录”之间空4格；
-% \renewcommand{\contentsname}{\centering 目\ \ \ \ 录}
-\renewcommand{\cfttoctitlefont}{\hfill\normalsize}
-% ToC = Table of Contents
-\renewcommand{\cftaftertoctitle}{\hfill}
-\renewcommand{\cftloftitlefont}{\normalsize} % LoF = List of Figures
-\renewcommand{\cftafterloftitle}{}
-\renewcommand{\cftlottitlefont}{\normalsize} % LoT = List of Tables
-\renewcommand{\cftafterlottitle}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set table of contents title style.
+\RequirePackage{customized_toc/toclines}
 
 % 设置页眉和页脚
 \pagestyle{fancy}
