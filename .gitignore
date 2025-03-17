@@ -20,3 +20,4 @@
 # PDF files in example dictionary
 example/*.pdf
 example/_minted*
+example/*.minted
