@@ -32,6 +32,9 @@
   % Set the font for westernd characters to be `Times New Roman' if using
   % XeTeX compling the document.
   \setmainfont{Times New Roman}
+  % Note There is no need to set Chinese font explicitly since CTeX can 
+  % fit the font automatically.
+
   % \setmainfont{texgyretermes}[
   %   UprightFont = *-regular ,
   %   BoldFont = *-bold ,
@@ -53,10 +56,8 @@
   \RequirePackage[scaled=.90]{helvet}
 \fi
 
-% Note There is no need to set Chinese font explicitly since CTeX can fit
-% the font automatically.
-
-% Additional font settings.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Extra font settings.
 %
 % The following command enable users to use `Source Han Serif SC Bold',
 % which is very useful if user want to set up a serif-styled large-scale
