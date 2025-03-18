@@ -16,7 +16,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{paperheaders}[
+\ProvidesPackage{customized_abstract/paperheaders}[
   2025/03/17 Headers' formatting for uglypaper.cls.
 ]
 
@@ -32,9 +32,11 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifdefstring{\UGLY@lang}{cn}{
+  \ifXeTeX
   \titleformat{\section}%
   {\bfseries\large\color{ecolor}}%
   {\chinese{section}、}{0em}{}
+  \fi
 }{\relax}
 \ifdefstring{\UGLY@lang}{en}{
   \titleformat{\section}%

@@ -16,7 +16,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{reportheaders}[
+\ProvidesPackage{customized_abstract/reportheaders}[
   2025/03/17 Headers' formatting for uglyrep.cls.
 ]
 
@@ -39,9 +39,11 @@
 % Set different chapter number style for English and Chinese mode.
 
 \ifdefstring{\UGLY@lang}{cn}{
+  \ifXeTeX
   \titleformat{\chapter}[hang]%
   {\centering\bfseries\Large\color{ecolor}}%
   {\chinese{chapter}、}{0em}{}
+  \fi
 }{\relax}
 \ifdefstring{\UGLY@lang}{en}{
   \titleformat{\chapter}[hang]%

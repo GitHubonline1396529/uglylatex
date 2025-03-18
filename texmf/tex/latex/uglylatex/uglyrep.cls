@@ -31,12 +31,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Compiler constraint, forcing the user to use XeLaTeX and providing 
 % necessary error messages.
-\RequireXeTeX
-\ifxetex\else
-\ClassError{uglyrep}{
-You must use the `xelatex' driver\MessageBreak }{
-Just choose `xelatex', no `pdflatex' or `latex' and so on.}
-\fi
+%
+% \RequireXeTeX
+% \ifxetex\else
+% \ClassError{uglyrep}{
+% You must use the `xelatex' driver\MessageBreak }{
+% Just choose `xelatex', no `pdflatex' or `latex' and so on.}
+% \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Class options processing.

@@ -15,7 +15,7 @@
 % This work has the LPPL maintenance status "maintained".
 %
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{noteheaders}[
+\ProvidesPackage{customized_abstract/noteheaders}[
   2025/03/17 Headers' formatting for uglynote.cls.
 ]
 
@@ -28,9 +28,11 @@
 {\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
 
 \ifdefstring{\UGLY@lang}{cn}{
+  \ifXeTeX
   \titleformat{\section}%
   {\centering\bfseries\large\color{ecolor}}%
   {\chinese{section}、}{0em}{}
+  \fi
 }{\relax}
 \ifdefstring{\UGLY@lang}{en}{
   \titleformat{\section}%

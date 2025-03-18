@@ -26,9 +26,32 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Font of the main text.
-%
-% Set the font for westernd characters to be `Times New Roman'.
-\setmainfont{Times New Roman}
+
+\ifXeTeX
+  \RequirePackage[no-math]{fontspec} % `fontspec' only supports XeTeX.
+  % Set the font for westernd characters to be `Times New Roman' if using
+  % XeTeX compling the document.
+  \setmainfont{Times New Roman}
+  % \setmainfont{texgyretermes}[
+  %   UprightFont = *-regular ,
+  %   BoldFont = *-bold ,
+  %   ItalicFont = *-italic ,
+  %   BoldItalicFont = *-bolditalic ,
+  %   Extension = .otf ,
+  %   Scale = 1.0]
+    
+  % \setsansfont{texgyreheros}[
+  %   UprightFont = *-regular ,
+  %   BoldFont = *-bold ,
+  %   ItalicFont = *-italic ,
+  %   BoldItalicFont = *-bolditalic ,
+  %   Extension = .otf ,
+  %   Scale = 0.9]
+\else
+  % If not using XeTeX.
+  \RequirePackage{newtxtext}
+  \RequirePackage[scaled=.90]{helvet}
+\fi
 
 % Note There is no need to set Chinese font explicitly since CTeX can fit
 % the font automatically.
@@ -38,7 +61,11 @@
 % The following command enable users to use `Source Han Serif SC Bold',
 % which is very useful if user want to set up a serif-styled large-scale
 % document title.
-\setCJKfamilyfont{shserifbold}{Source Han Serif SC Bold}
+
+\ifXeTeX % Disable this when not using XeTeX.
+  \setCJKfamilyfont{shserifbold}{Source Han Serif SC Bold}
+\fi
+
 % Although the FZXBSJT.ttf font, which is actually more commin, can be
 % licensed for free, considering that Founder Font Company recently 
 % enabled a client for font distribution, in order to prevent copyright 

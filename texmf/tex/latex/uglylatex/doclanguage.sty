@@ -46,7 +46,9 @@
 %   [5]: ./tex/latex/uglylatex/customized_headers/paperheaders.sty
 %   [6]: ./tex/latex/uglylatex/customized_headers/repheaders.sty
 %
+
 \ifdefstring{\UGLY@lang}{cn}{ % If assigned Chinese mode.
+  \ifXeTeX
   \theoremstyle{plain} % default
   \newtheorem{theorem}{定理}[section] %
   \newtheorem{lemma}[theorem]{引理} %
@@ -84,6 +86,7 @@
   %   \zhdigits{\number\year}年%
   %   \zhnumber{\number\month}月%
   %   \zhnumber{\number\day}日}
+  \fi
 }{\relax}
 
 \ifdefstring{\UGLY@lang}{en}{

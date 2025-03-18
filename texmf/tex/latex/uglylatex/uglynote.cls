@@ -31,13 +31,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Complier constraint, forcing user to use XeLaTeX and give necessary
 % error message.
-\RequireXeTeX
-\ifxetex\else
-\ClassError{uglynote}{
-  You must use the `xelatex' driver\MessageBreak }{%
-    Just choose `xelatex', no `pdflatex' or `latex' and so on.
-  }
-\fi
+%
+% \RequireXeTeX
+% \ifxetex\else
+% \ClassError{uglynote}{
+%   You must use the `xelatex' driver\MessageBreak }{%
+%     Just choose `xelatex', no `pdflatex' or `latex' and so on.
+%   }
+% \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Class options processing.
