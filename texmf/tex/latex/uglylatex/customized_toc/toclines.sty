@@ -18,7 +18,7 @@
 % Table of content format setting.
 %
 % Extend the spacing after `section' numbers
-\addtolength{\cftsecnumwidth}{1em}
+\addtolength{\cftsecnumwidth}{0em}
 %
 % The `\contentsname' depends on the language model of the document. See  
 % `doclanguage.sty' for this part of implementation.
@@ -30,3 +30,9 @@
 \renewcommand{\cftafterloftitle}{}
 \renewcommand{\cftlottitlefont}{\normalsize} % LoT = List of Tables
 \renewcommand{\cftafterlottitle}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of contents' indent.
+\setlength{\cftsecindent}{0em} % Section title indentation
+\setlength{\cftsubsecindent}{2em} % Subsection title indentation
+\setlength{\cftsubsubsecindent}{4em} % Sub-subsection title indentation
