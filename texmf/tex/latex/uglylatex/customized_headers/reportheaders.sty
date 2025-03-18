@@ -22,27 +22,29 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Redefine header numbers' format.
-% \renewcommand\thechapter{
-% \arabic{chapter}}
-% \renewcommand\thesection{
-% \arabic{chapter}.\arabic{section}}
-% \renewcommand\thesubsection{
-% \arabic{chapter}.\arabic{section}.\arabic{subsection}}
-% \renewcommand\thesubsubsection{
-%   \arabic{chapter}.\arabic{section}.%
-%   \arabic{subsection}.\arabic{subsubsection}
-% }
+\renewcommand\thechapter{
+\arabic{chapter}}
+\renewcommand\thesection{
+\arabic{chapter}.\arabic{section}}
+\renewcommand\thesubsection{
+\arabic{chapter}.\arabic{section}.\arabic{subsection}}
+\renewcommand\thesubsubsection{
+  \arabic{chapter}.\arabic{section}.%
+  \arabic{subsection}.\arabic{subsubsection}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header text format.
+
 % Set different chapter number style for English and Chinese mode.
 
 \ifdefstring{\UGLY@lang}{cn}{
-  \titleformat{\chapter}%
+  \titleformat{\chapter}[hang]%
   {\centering\bfseries\Large\color{ecolor}}%
   {\chinese{chapter}、}{0em}{}
 }{\relax}
 \ifdefstring{\UGLY@lang}{en}{
-  \titleformat{\chapter}%
+  \titleformat{\chapter}[hang]%
   {\centering\bfseries\Large\color{ecolor}}%
   {\Roman{chapter}.}{1em}{}
 }{\relax}
@@ -91,7 +93,10 @@
 % Disable auto-clearpage after the Chapter header, forcing `chapter' not 
 % to start on a new page.
 %
-% Warning: This 
+% Warning: This part of implement must be placed after the language mode
+% control, since `\makeatother' can cause the `\ifdefstring' command not
+% to work. (Also the `\titleformat' command inside will be invalid and
+% stop working)
 % 
 % Here are three different methods to realize this function. I don't sure
 % which choice is the best so I keep all three implements here and 
@@ -99,24 +104,12 @@
 
 \makeatletter
 
-% Method A. See The following webpage for more details.
-% <https://tex.stackexchange.com/questions/24066/start-new-chapter-on-same-page>
-\patchcmd{%
-  \scr@startchapter%
-}{%
-  \if@openright\cleardoublepage\else\clearpage\fi%
-}{}{}{}
-
-% Method B. Use `\patchcmd' to patch vspace after `Chapter'
-% \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{\vspace*{25\p@}}{}{}
-% \patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{\vspace*{25\p@}}{}{}
-
-% Method C. Redfine `Chapter' completely with `\clearpage' removed.
-% \renewcommand
-% \chapter{
-%   \global\@topnum\z@
-%   \@afterindentfalse
-%   \secdef\@chapter\@schapter
-% }
-% \makeatother
+% Redfine `Chapter' with `\clearpage' removed.
+\renewcommand
+\chapter{
+  \global\@topnum\z@
+  \@afterindentfalse
+  \secdef\@chapter\@schapter
+}
+\makeatother
 

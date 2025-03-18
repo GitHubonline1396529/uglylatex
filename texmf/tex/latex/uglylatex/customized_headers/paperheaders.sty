@@ -39,7 +39,7 @@
 \ifdefstring{\UGLY@lang}{en}{
   \titleformat{\section}%
   {\bfseries\large\color{ecolor}}%
-  {\Roman{section}.}{0em}{}
+  {\Roman{section}.}{1em}{}
 }{\relax}
 % We use \relax in the false branch of \ifdefstring to ensure that LaTeX  
 % does not encounter a missing argument error. The \ifdefstring macro  
@@ -68,11 +68,3 @@
 \titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
 % \titlespacing{\subsection}{0pt}{0pt}{0pt}
 % \titlespacing{\subsubsection}{0pt}{0pt}{0pt}
-
-% Detailed adjusts of headers.
-%
-% Adjust the `\droptitle' distance to reduce the space between the title
-% and the top of the page. Since this is considered to be not necessary, I
-% temporary commented it.
-%
-% \setlength{\droptitle}{-5cm}
