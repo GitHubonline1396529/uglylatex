@@ -1,0 +1,134 @@
+%
+% This is file `docadmonitions.sty',
+% created for UglyLaTeX.
+%
+% Copyright (C) 2025 Githubonline1396529
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License (LPPL),
+% either version 1.3c of this license or (at your option)
+% any later version. The latest version of this license is in:
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of
+% LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{docadmonitions}[
+  2025/03/18 Support Markdown styled adamonitions for the document class.
+]
+
+\definecolor{infotypecolor}{HTML}{005b96}%
+\definecolor{warningtypecolor}{HTML}{BB8009}%
+\definecolor{tiptypecolor}{HTML}{2EA043}%
+\definecolor{importanttypecolor}{HTML}{8256D0}%
+\definecolor{cautiontypecolor}{HTML}{C83C39}%
+
+\ifdefstring{\UGLY@lang}{cn}{ % If assigned Chinese mode.
+  \newcommand{\infotypename}{信息}
+  \newcommand{\warningtypename}{警告}
+  \newcommand{\tiptypename}{提示}
+  \newcommand{\importantname}{重要}
+  \newcommand{\cautiontypename}{危险}
+}{\relax}
+\ifdefstring{\UGLY@lang}{en}{ % If assigned English mode.
+  \newcommand{\infotypename}{Info}
+  \newcommand{\warningtypename}{Warning}
+  \newcommand{\tiptypename}{Tip}
+  \newcommand{\importantname}{Important}
+  \newcommand{\cautiontypename}{Caution}
+}{\relax}
+% We use \relax in the false branch of \ifdefstring to ensure that LaTeX  
+% does not encounter a missing argument error. The \ifdefstring macro  
+% requires four parameters: (1) the tested string, (2) the target string, 
+% (3) the code to execute if the strings match, and (4) the code to 
+% execute if they do not match. If the false branch is omitted, LaTeX will
+% fail with an error such as:  
+%  
+%     ! LaTeX Error: Missing \begin{document}.  
+%  
+% This happens because \ifdefstring expects an explicit false branch, even
+% if no action is required. Using \relax ensures LaTeX has a valid 
+% fallback without introducing an empty group ({}) that might affect
+% parsing.  
+
+% 定义 tcolorbox 样式
+\tcbuselibrary{skins, breakable}
+
+\newtcolorbox{info}[1][]{%
+  enhanced,
+  breakable,
+  colback=white, % 背景颜色
+  colframe=infotypecolor, % 边框颜色
+  coltitle=white, % 标题颜色
+  fonttitle=\bfseries\small,  % 标题字体加粗
+  fontupper=\bfseries, % 正文字体加粗
+  boxrule=0.75mm, % 边框粗细
+  % arc=2mm, % 圆角半径
+  left=2.5pt, right=2.5pt, % 内边距
+  top=2.5pt, bottom=2.5pt,
+  title={\infotypename~\thetcbcounter}, % 标题格式
+}
+
+\newtcolorbox{warning}[1][]{%
+  enhanced,
+  breakable,
+  colback=white, % 背景颜色
+  colframe=warningtypecolor, % 边框颜色
+  coltitle=white, % 标题颜色
+  fonttitle=\bfseries\small,  % 标题字体加粗
+  fontupper=\bfseries, % 正文字体加粗
+  boxrule=0.75mm, % 边框粗细
+  % arc=2mm, % 圆角半径
+  left=2.5pt, right=2.5pt, % 内边距
+  top=2.5pt, bottom=2.5pt,
+  title={\warningtypename~\thetcbcounter}, % 标题格式
+}
+
+
+\newtcolorbox{tip}[1][]{%
+  enhanced,
+  breakable,
+  colback=white, % 背景颜色
+  colframe=tiptypecolor, % 边框颜色
+  coltitle=white, % 标题颜色
+  fonttitle=\bfseries\small,  % 标题字体加粗
+  fontupper=\bfseries, % 正文字体加粗
+  boxrule=0.75mm, % 边框粗细
+  % arc=2mm, % 圆角半径
+  left=2.5pt, right=2.5pt, % 内边距
+  top=2.5pt, bottom=2.5pt,
+  title={\tiptypename~\thetcbcounter}, % 标题格式
+}
+
+\newtcolorbox{important}[1][]{%
+  enhanced,
+  breakable,
+  colback=white, % 背景颜色
+  colframe=importanttypecolor, % 边框颜色
+  coltitle=white, % 标题颜色
+  fonttitle=\bfseries\small,  % 标题字体加粗
+  fontupper=\bfseries, % 正文字体加粗
+  boxrule=0.75mm, % 边框粗细
+  % arc=2mm, % 圆角半径
+  left=2.5pt, right=2.5pt, % 内边距
+  top=2.5pt, bottom=2.5pt,
+  title={\importanttypename~\thetcbcounter}, % 标题格式
+}
+
+\newtcolorbox{caution}[1][]{%
+  enhanced,
+  breakable,
+  colback=white, % 背景颜色
+  colframe=cautiontypecolor, % 边框颜色
+  coltitle=white, % 标题颜色
+  fonttitle=\bfseries\small,  % 标题字体加粗
+  fontupper=\bfseries, % 正文字体加粗
+  boxrule=0.75mm, % 边框粗细
+  % arc=2mm, % 圆角半径
+  left=2.5pt, right=2.5pt, % 内边距
+  top=2.5pt, bottom=2.5pt,
+  title={\cautiontypename~\thetcbcounter}, % 标题格式
+}
