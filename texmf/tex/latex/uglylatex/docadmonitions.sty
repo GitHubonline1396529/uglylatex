@@ -20,11 +20,17 @@
   2025/03/18 Support Markdown styled adamonitions for the document class.
 ]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define colors for alart blocks.
+
 \definecolor{infotypecolor}{HTML}{005b96}%
 \definecolor{warningtypecolor}{HTML}{BB8009}%
 \definecolor{tiptypecolor}{HTML}{2EA043}%
 \definecolor{importanttypecolor}{HTML}{8256D0}%
 \definecolor{cautiontypecolor}{HTML}{C83C39}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Language mode support for alart block.
 
 \ifdefstring{\UGLY@lang}{cn}{ % If assigned Chinese mode.
   \newcommand{\infotypename}{信息}
@@ -54,81 +60,89 @@
 % fallback without introducing an empty group ({}) that might affect
 % parsing.  
 
-% 定义 tcolorbox 样式
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define tcolorbox format.
+
 \tcbuselibrary{skins, breakable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define tcolorboxes for info, warning, tips, important and caution.
+%
+% Note that its `info' not `note' here (Although GitHub support `note' 
+% block instead of `info', on most other platforms such as Obsidian, the 
+% `info' block is more common.)
 
 \newtcolorbox{info}[1][]{%
   enhanced,
   breakable,
-  colback=white, % 背景颜色
-  colframe=infotypecolor, % 边框颜色
-  coltitle=white, % 标题颜色
-  fonttitle=\bfseries\small,  % 标题字体加粗
-  fontupper=\bfseries, % 正文字体加粗
-  boxrule=0.75mm, % 边框粗细
-  % arc=2mm, % 圆角半径
-  left=2.5pt, right=2.5pt, % 内边距
+  colback=white, % Background color.
+  colframe=infotypecolor, % Frame color.
+  coltitle=white, % Title color.
+  fonttitle=\bfseries\small, % Bold small font for block title.
+  fontupper=\bfseries, % Bold normal sized font for block text.
+  boxrule=0.75mm, % Frame line width.
+  % arc=2mm, % Corner radius.
+  left=2.5pt, right=2.5pt, % Paddings.
   top=2.5pt, bottom=2.5pt,
-  title={\infotypename~\thetcbcounter}, % 标题格式
+  title={\infotypename~\thetcbcounter}, % Title format.
 }
 
 \newtcolorbox{warning}[1][]{%
   enhanced,
   breakable,
-  colback=white, % 背景颜色
-  colframe=warningtypecolor, % 边框颜色
-  coltitle=white, % 标题颜色
-  fonttitle=\bfseries\small,  % 标题字体加粗
-  fontupper=\bfseries, % 正文字体加粗
-  boxrule=0.75mm, % 边框粗细
-  % arc=2mm, % 圆角半径
-  left=2.5pt, right=2.5pt, % 内边距
+  colback=white, % Background color.
+  colframe=warningtypecolor, % Frame color.
+  coltitle=white, % Title color.
+  fonttitle=\bfseries\small, % Bold small font for block title.
+  fontupper=\bfseries, % Bold normal sized font for block text.
+  boxrule=0.75mm, % Frame line width.
+  % arc=2mm, % Corner radius.
+  left=2.5pt, right=2.5pt, % Paddings.
   top=2.5pt, bottom=2.5pt,
-  title={\warningtypename~\thetcbcounter}, % 标题格式
+  title={\warningtypename~\thetcbcounter}, % Title format.
 }
-
 
 \newtcolorbox{tip}[1][]{%
   enhanced,
   breakable,
-  colback=white, % 背景颜色
-  colframe=tiptypecolor, % 边框颜色
-  coltitle=white, % 标题颜色
-  fonttitle=\bfseries\small,  % 标题字体加粗
-  fontupper=\bfseries, % 正文字体加粗
-  boxrule=0.75mm, % 边框粗细
-  % arc=2mm, % 圆角半径
-  left=2.5pt, right=2.5pt, % 内边距
+  colback=white, % Background color.
+  colframe=tiptypecolor, % Frame color.
+  coltitle=white, % Title color.
+  fonttitle=\bfseries\small, % Bold small font for block title.
+  fontupper=\bfseries, % Bold normal sized font for block text.
+  boxrule=0.75mm, % Frame line width.
+  % arc=2mm, % Corner radius.
+  left=2.5pt, right=2.5pt, % Paddings.
   top=2.5pt, bottom=2.5pt,
-  title={\tiptypename~\thetcbcounter}, % 标题格式
+  title={\tiptypename~\thetcbcounter}, % Title format.
 }
 
 \newtcolorbox{important}[1][]{%
   enhanced,
   breakable,
-  colback=white, % 背景颜色
-  colframe=importanttypecolor, % 边框颜色
-  coltitle=white, % 标题颜色
-  fonttitle=\bfseries\small,  % 标题字体加粗
-  fontupper=\bfseries, % 正文字体加粗
-  boxrule=0.75mm, % 边框粗细
-  % arc=2mm, % 圆角半径
-  left=2.5pt, right=2.5pt, % 内边距
+  colback=white, % Background color.
+  colframe=importanttypecolor, % Frame color.
+  coltitle=white, % Title color.
+  fonttitle=\bfseries\small, % Bold small font for block title.
+  fontupper=\bfseries, % Bold normal sized font for block text.
+  boxrule=0.75mm, % Frame line width.
+  % arc=2mm, % Corner radius.
+  left=2.5pt, right=2.5pt, % Paddings.
   top=2.5pt, bottom=2.5pt,
-  title={\importanttypename~\thetcbcounter}, % 标题格式
+  title={\importanttypename~\thetcbcounter}, % Title format.
 }
 
 \newtcolorbox{caution}[1][]{%
   enhanced,
   breakable,
-  colback=white, % 背景颜色
-  colframe=cautiontypecolor, % 边框颜色
-  coltitle=white, % 标题颜色
-  fonttitle=\bfseries\small,  % 标题字体加粗
-  fontupper=\bfseries, % 正文字体加粗
-  boxrule=0.75mm, % 边框粗细
-  % arc=2mm, % 圆角半径
-  left=2.5pt, right=2.5pt, % 内边距
+  colback=white, % Background color.
+  colframe=cautiontypecolor, % Frame color.
+  coltitle=white, % Title color.
+  fonttitle=\bfseries\small, % Bold small font for block title.
+  fontupper=\bfseries, % Bold normal sized font for block text.
+  boxrule=0.75mm, % Frame line width.
+  % arc=2mm, % Corner radius.
+  left=2.5pt, right=2.5pt, % Paddings.
   top=2.5pt, bottom=2.5pt,
-  title={\cautiontypename~\thetcbcounter}, % 标题格式
+  title={\cautiontypename~\thetcbcounter}, % Title format.
 }
