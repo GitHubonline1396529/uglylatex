@@ -43,7 +43,7 @@
 % Class options processing.
 % Note this part of TeX must be `input' not `imported', which means, must
 % use `\input' not `\usepackage' or `\RequirePackage'.
-\input{classoptions}
+\InputIfFileExists{classoptions}{}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Pass document class options to the `article' class, and load the class.

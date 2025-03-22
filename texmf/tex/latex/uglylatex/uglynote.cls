@@ -46,7 +46,7 @@
 % Note that this part of TeX must be `input' rather than `imported',
 % meaning that `\input' must be used instead of `\usepackage' or
 % `\RequirePackage'.
-\input{classoptions}
+\InputIfFileExists{classoptions}{}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Pass document class options to the `article' class, and load the class.
