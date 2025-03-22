@@ -82,14 +82,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table of content format setting.
+
 \RequirePackage{customized_toc/toclines}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set the page header and the page footer.
+
 \pagestyle{fancy} % Use the footheader style `fancy'
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Appendix format settings.
+
 \renewcommand{\appendix}{%
   \par
   \setcounter{section}{0}%
@@ -104,9 +107,15 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Additional defined functional commands. Defined in `commands.sty'.
+
 \RequirePackage{commands}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Adjust title format.
+%
+% Reduce the space between title and the main text.
+% \setlength{\posttitle}{0.5cm}
+
 % Redefine `\maketitle' command to:
 %   1. Accurately adjust the position of `title'.
 %   2. Colour the title text lines with `ecolor'.
@@ -130,7 +139,9 @@
   {\@bspredate \@date \@bspostdate}
   \maketitlehookd
   \par
-\vskip 1.5em}
+% \vskip 1.5em
+\vskip 1em % Reduce the space between title and the main body text.
+}
 
 \renewcommand{\maketitle}{\par
   \begingroup

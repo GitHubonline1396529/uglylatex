@@ -53,14 +53,20 @@
 \ifdefstring{\UGLY@device}{normal}{%
   \geometry{
     margin=1in,
-    a4paper}}{%
+    a4paper}
+  % Reduce the space between the document title and the page header.
+  \setlength{\droptitle}{-2cm}
+    }{%
   \relax}
 
 % Also A4 paper, but in a compact layout, with only 2cm margins.
 \ifdefstring{\UGLY@device}{compact}{%
   \geometry{
     margin=2cm,
-    a4paper}}{%
+    a4paper}
+  % Reduce the space between the document title and the page header.
+  \setlength{\droptitle}{-1cm}
+  }{%
   \relax}
 
 % Size of a lantern slide.

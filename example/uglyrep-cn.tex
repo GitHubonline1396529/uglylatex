@@ -1,4 +1,4 @@
-\documentclass[12pt, green]{uglyrep}
+\documentclass[12pt, green, normal]{uglyrep}
 \title{\bfseries UglyRep：一个“丑陋”的\LaTeX{}报告模板}
 \author{GitHubonline1396529}
 \date{\today}
@@ -19,7 +19,12 @@
 
   本文是UglyRep模板的排版效果示例及模板文档，在展示排版效果的同时简要阐述了模板的部分功能及其使用方法。%
   % UglyRep最初是我留作自用的\LaTeX 报告模板，用以在\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目停止更新后取代其功能。
-  UglyRep模板对标的是\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目中的\href{https://github.com/ElegantLaTeX/ElegantBook}{ElegantBook}，实际上却是基于\texttt{report}文档类构建的。这样的设计不仅是为了更好的Pandoc兼容性，也是从更强的实用性的角度出发的考量。
+  UglyRep模板对标的是\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目中的\href{https://github.com/ElegantLaTeX/ElegantBook}{ElegantBook}，实际上却是基于\texttt{report}文档类构建的。这样的设计是出于如下的两个原因考虑：
+
+  \begin{enumerate}
+    \item \textbf{更好的Pandoc兼容性}：Pandoc不支持在Markdown文件的YAML Header中设置Book文档类的Preface，但是可以设置Report文档类的Abstract。
+    \item \textbf{从更强的实用性的角度出发}：在日常生活中实际上编写书籍的机会更少，而编写带封面的Report的机会更多。
+  \end{enumerate}
 
   \keywords{\LaTeX;\quad 排版;\quad 文档类;}
 \end{abstract}

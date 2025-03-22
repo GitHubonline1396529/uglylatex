@@ -69,19 +69,27 @@
 
 \RequirePackage{customized_headers/paperheaders}
 
-% 摘要格式设置
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abstract format setting.
+
 \RequirePackage{customized_abstract/runinabstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set table of contents title style.
+
 \RequirePackage{customized_toc/toclines}
 
-% 设置页眉和页脚
-\pagestyle{fancy}
-% \fancyhead{} % 仅清空页眉
-% \renewcommand{\headrulewidth}{0pt} % 去掉页眉的横线
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set the page header and the page footer.
 
-% 附录格式设置
+\pagestyle{fancy} % Use the footheader style `fancy'
+\pagestyle{fancy}
+% \fancyhead{} % Only clean up page head.
+% \renewcommand{\headrulewidth}{0pt} % Remove the page head. style line.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendix format settings.
+
 \renewcommand{\appendix}{%
   \par
   \setcounter{section}{0}%
@@ -94,9 +102,20 @@
   \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}%
 }
 
-% 定义新的命令
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Adjust title format.
+%
+% Reduce the space between title and the main text.
+% \setlength{\posttitle}{0.5cm}
 
-% 精确调整 aritcle title 的位置
+% Redefine `\maketitle' command to:
+%   1. Accurately adjust the position of `title'.
+%   2. Colour the title text lines with `ecolor'.
+%
+% See also: The titling package <texdoc titling>
+% Note: I forget what I should note here, but I really sure I've got
+% something to note with, so I kept the `Note:' mark here to remind myself
+% writting the note down immediately once I recall it.
 \makeatletter
 \def\@maketitle{%
   \color{ecolor}
@@ -112,7 +131,9 @@
   {\@bspredate \@date \@bspostdate}
   \maketitlehookd
   \par
-\vskip 1.5em}
+% \vskip 1.5em
+\vskip 1em % Reduce the space between title and the main body text.
+}
 
 \renewcommand{\maketitle}{\par
   \begingroup
