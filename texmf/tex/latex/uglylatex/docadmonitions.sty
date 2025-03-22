@@ -25,7 +25,7 @@
 
 \definecolor{infotypecolor}{HTML}{005b96}%
 \definecolor{warningtypecolor}{HTML}{BB8009}%
-\definecolor{tiptypecolor}{HTML}{2EA043}%
+\definecolor{tiptypecolor}{HTML}{007802}%
 \definecolor{importanttypecolor}{HTML}{8256D0}%
 \definecolor{cautiontypecolor}{HTML}{C83C39}%
 
@@ -66,6 +66,31 @@
 \tcbuselibrary{skins, breakable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define a default tcolorbox set.
+
+\tcbset{
+  uglylatexdefault/.style={
+    enhanced,
+    breakable,
+    attach boxed title to top left={
+      xshift=5mm, % Position of box title.
+      yshift=-3.09mm
+    },
+    coltitle=white, % Title color
+    boxed title style={
+      boxrule=0.5mm,
+      arc=0mm % Corner radius.
+    },
+    fonttitle=\bfseries\normalsize, % Bold for the font title
+    fontupper=\normalsize,
+    boxrule=0.5mm, % Frame line width.
+    left=2.5pt, right=2.5pt, % Paddings.
+    top=3.09mm, bottom=2.5pt
+  }
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define tcolorboxes for info, warning, tips, important and caution.
 %
 % Note that its `info' not `note' here (Although GitHub support `note' 
@@ -73,76 +98,41 @@
 % `info' block is more common.)
 
 \newtcolorbox{info}[1][]{%
-  enhanced,
-  breakable,
-  colback=white, % Background color.
+  uglylatexdefault,
+  colback=infotypecolor!10!white, % Background color.
   colframe=infotypecolor, % Frame color.
-  coltitle=white, % Title color.
-  fonttitle=\bfseries\small, % Bold small font for block title.
-  fontupper=\bfseries, % Bold normal sized font for block text.
-  boxrule=0.75mm, % Frame line width.
-  % arc=2mm, % Corner radius.
-  left=2.5pt, right=2.5pt, % Paddings.
-  top=2.5pt, bottom=2.5pt,
   title={\infotypename~\thetcbcounter}, % Title format.
+  boxed title style={colback=infotypecolor}
 }
 
 \newtcolorbox{warning}[1][]{%
-  enhanced,
-  breakable,
-  colback=white, % Background color.
+  uglylatexdefault,
+  colback=warningtypecolor!10!white, % Background color.
   colframe=warningtypecolor, % Frame color.
-  coltitle=white, % Title color.
-  fonttitle=\bfseries\small, % Bold small font for block title.
-  fontupper=\bfseries, % Bold normal sized font for block text.
-  boxrule=0.75mm, % Frame line width.
-  % arc=2mm, % Corner radius.
-  left=2.5pt, right=2.5pt, % Paddings.
-  top=2.5pt, bottom=2.5pt,
   title={\warningtypename~\thetcbcounter}, % Title format.
+  boxed title style={colback=warningtypecolor}
 }
 
 \newtcolorbox{tip}[1][]{%
-  enhanced,
-  breakable,
-  colback=white, % Background color.
+  uglylatexdefault,
+  colback=tiptypecolor!10!white, % Background color.
   colframe=tiptypecolor, % Frame color.
-  coltitle=white, % Title color.
-  fonttitle=\bfseries\small, % Bold small font for block title.
-  fontupper=\bfseries, % Bold normal sized font for block text.
-  boxrule=0.75mm, % Frame line width.
-  % arc=2mm, % Corner radius.
-  left=2.5pt, right=2.5pt, % Paddings.
-  top=2.5pt, bottom=2.5pt,
   title={\tiptypename~\thetcbcounter}, % Title format.
+  boxed title style={colback=tiptypecolor}
 }
 
 \newtcolorbox{important}[1][]{%
-  enhanced,
-  breakable,
-  colback=white, % Background color.
+  uglylatexdefault,
+  colback=importanttypecolor!10!white, % Background color.
   colframe=importanttypecolor, % Frame color.
-  coltitle=white, % Title color.
-  fonttitle=\bfseries\small, % Bold small font for block title.
-  fontupper=\bfseries, % Bold normal sized font for block text.
-  boxrule=0.75mm, % Frame line width.
-  % arc=2mm, % Corner radius.
-  left=2.5pt, right=2.5pt, % Paddings.
-  top=2.5pt, bottom=2.5pt,
   title={\importanttypename~\thetcbcounter}, % Title format.
+  boxed title style={colback=importanttypecolor}
 }
 
 \newtcolorbox{caution}[1][]{%
-  enhanced,
-  breakable,
-  colback=white, % Background color.
+  uglylatexdefault,
+  colback=cautiontypecolor!10!white, % Background color.
   colframe=cautiontypecolor, % Frame color.
-  coltitle=white, % Title color.
-  fonttitle=\bfseries\small, % Bold small font for block title.
-  fontupper=\bfseries, % Bold normal sized font for block text.
-  boxrule=0.75mm, % Frame line width.
-  % arc=2mm, % Corner radius.
-  left=2.5pt, right=2.5pt, % Paddings.
-  top=2.5pt, bottom=2.5pt,
   title={\cautiontypename~\thetcbcounter}, % Title format.
+  boxed title style={colback=cautiontypecolor}
 }
