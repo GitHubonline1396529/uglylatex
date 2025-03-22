@@ -77,7 +77,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Text formatting.
 
-\setlength{\parindent}{1em} % Paragraph indentation
+\setlength{\parindent}{2em} % Paragraph indentation
 \linespread{1.25} % Line spacing equals 1.25
 % \setlength{\parskip}{0pt plus 1pt}
 \setlength{\parskip}{0pt} % Paragraph indent equals the line spacing.
@@ -186,3 +186,16 @@
 
 % Color all the table frames with the document theme color (The `ecolor').
 \arrayrulecolor{ecolor}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Redefine quote environment.
+
+\renewenvironment{quote}
+  {\list{}{\setlength{\leftmargin}{2em} 
+           \setlength{\rightmargin}{2em}
+           \setlength{\parindent}{2em}
+           \itshape}
+    \item\relax}
+  {\endlist}
+
+% It seems that `\setlength{\parindent}{2em}' do not work in pandoc.
