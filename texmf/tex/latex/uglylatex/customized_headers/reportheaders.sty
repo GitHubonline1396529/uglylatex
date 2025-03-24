@@ -41,13 +41,13 @@
 \ifdefstring{\UGLY@lang}{cn}{
   \ifXeTeX
   \titleformat{\chapter}[hang]%
-  {\centering\bfseries\Large\color{ecolor}}%
+  {\centering\bfseries\large\color{ecolor}}%
   {\chinese{chapter}、}{0em}{}
   \fi
 }{\relax}
 \ifdefstring{\UGLY@lang}{en}{
   \titleformat{\chapter}[hang]%
-  {\centering\bfseries\Large\color{ecolor}}%
+  {\centering\bfseries\large\color{ecolor}}%
   {\Roman{chapter}.}{1em}{}
 }{\relax}
 
@@ -67,18 +67,18 @@
 
 % Set title format.
 \titleformat{\section}
-{\bfseries\large\color{ecolor}}
+{\bfseries\normalsize\color{ecolor}}
 {\thesection}
 {1em}
 {}
 \titleformat{\subsection}
-{\bfseries\normalsize\color{ecolor}}
+{\bfseries\small\color{ecolor}}
 {\thesubsection}
 {1em}
 {}
 \titleformat{\subsubsection}[runin]
 % Use [runin] argument to make `subsubsection' a more elegant format.
-{\bfseries\small\color{ecolor}} %
+{\bfseries\normalsize\color{ecolor}} %
 {\thesubsubsection}
 {1em}
 {}
