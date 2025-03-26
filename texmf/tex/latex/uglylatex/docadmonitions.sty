@@ -21,6 +21,10 @@
 ]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Required packages.
+\RequirePackage{fontawesome}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define colors for alart blocks.
 
 \definecolor{infotypecolor}{HTML}{005b96}%
@@ -30,21 +34,39 @@
 \definecolor{cautiontypecolor}{HTML}{C83C39}%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FontAwsome usage.
+
+\ifdefstring{\UGLY@usefa}{true}{ % If assigned to use FontAwsome.
+  \newcommand{\infotypeprefix}{\faInfoCircle\ }
+  \newcommand{\warningtypeprefix}{\faWarning\ }
+  \newcommand{\tiptypeprefix}{\faLightbulbO\ }
+  \newcommand{\importanttypeprefix}{\faFlag\ }
+  \newcommand{\cautiontypeprefix}{\faFlash\ }
+}{\relax}
+\ifdefstring{\UGLY@usefa}{false}{ % If assigned to use FontAwsome.
+  \newcommand{\infotypeprefix}{\relax}
+  \newcommand{\warningtypeprefix}{\relax}
+  \newcommand{\tiptypeprefix}{\relax}
+  \newcommand{\importanttypeprefix}{\relax}
+  \newcommand{\cautiontypeprefix}{\relax}
+}{\relax}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Language mode support for alart block.
 
 \ifdefstring{\UGLY@lang}{cn}{ % If assigned Chinese mode.
-  \newcommand{\infotypename}{信息}
-  \newcommand{\warningtypename}{警告}
-  \newcommand{\tiptypename}{提示}
-  \newcommand{\importanttypename}{重要}
-  \newcommand{\cautiontypename}{危险}
+  \newcommand{\infotypename}{\infotypeprefix 信息}
+  \newcommand{\warningtypename}{\warningtypeprefix 警告}
+  \newcommand{\tiptypename}{\tiptypeprefix 提示}
+  \newcommand{\importanttypename}{\importanttypeprefix 重要}
+  \newcommand{\cautiontypename}{\cautiontypeprefix 注意}
 }{\relax}
 \ifdefstring{\UGLY@lang}{en}{ % If assigned English mode.
-  \newcommand{\infotypename}{Info}
-  \newcommand{\warningtypename}{Warning}
-  \newcommand{\tiptypename}{Tip}
-  \newcommand{\importanttypename}{Important}
-  \newcommand{\cautiontypename}{Caution}
+  \newcommand{\infotypename}{\infotypeprefix Info}
+  \newcommand{\warningtypename}{\infotypeprefix Warning}
+  \newcommand{\tiptypename}{\infotypeprefix Tip}
+  \newcommand{\importanttypename}{\infotypeprefix Important}
+  \newcommand{\cautiontypename}{\infotypeprefix Caution}
 }{\relax}
 % We use \relax in the false branch of \ifdefstring to ensure that LaTeX  
 % does not encounter a missing argument error. The \ifdefstring macro  

@@ -68,6 +68,12 @@
 \DeclareVoidOption{cn}{\kvsetkeys{UGLY}{lang=cn}}
 \DeclareVoidOption{en}{\kvsetkeys{UGLY}{lang=en}}
 
+% Use fontawsome for admonition blocks.
+
+\DeclareStringOption[true]{usefa}
+\DeclareVoidOption{dousefa}{\kvsetkeys{UGLY}{usefa=true}}
+\DeclareVoidOption{notusefa}{\kvsetkeys{UGLY}{usefa=false}}
+
 % Document paper size.
 
 \DeclareStringOption[normal]{device}
