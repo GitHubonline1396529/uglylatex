@@ -61,6 +61,7 @@
 \RequirePackage{doccolor}
 \RequirePackage{doccaptions}
 \RequirePackage{doclanguage}
+\RequirePackage{docadmonitions}
 % \RequirePackage{docappendix}
 \RequirePackage{commands}
 
