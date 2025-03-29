@@ -32,6 +32,10 @@
   \arabic{chapter}.\arabic{section}.%
   \arabic{subsection}.\arabic{subsubsection}
 }
+\renewcommand\theparagraph{
+  \arabic{chapter}.\arabic{section}.%
+  \arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Header text format.
@@ -71,11 +75,13 @@
 {\thesection}
 {1em}
 {}
+
 \titleformat{\subsection}
 {\bfseries\small\color{ecolor}}
 {\thesubsection}
 {1em}
 {}
+
 \titleformat{\subsubsection}[runin]
 % Use [runin] argument to make `subsubsection' a more elegant format.
 {\bfseries\normalsize\color{ecolor}} %
@@ -83,6 +89,10 @@
 {1em}
 {}
 [\hspace*{1em}] % Insert 1em spacing after the `subsubsection'
+
+\titleformat{\paragraph}[runin]
+{\small\bfseries\color{ecolor}}
+{\theparagraph}{1em}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Agjust spacing of the headers
