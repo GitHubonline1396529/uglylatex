@@ -20,7 +20,8 @@
 *.toc
 *.xdv
 
-# The vscode workspace folder
+# The Visual Studio Code workspace folder, I just cannot stop Visual Studio
+# Code generating this stupid workspace folder even if I don't really need it.
 .vscode
 .vscode/*
 

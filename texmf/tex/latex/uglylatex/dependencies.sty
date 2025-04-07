@@ -19,12 +19,14 @@
   2025/03/18 Global package dependencies. Most of the external LaTeX Pages
   are imported in this style file.
 ]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Import CTeX to support Chinese text.
 \RequirePackage{ctex}
 \ctexset{today=old}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages for setting title formats.
 \RequirePackage{titling}
 \RequirePackage{titlesec}
 \RequirePackage{array}
@@ -32,11 +34,23 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The basic format settings, including the fontsize, page size, etc.
-\RequirePackage{geometry}
+%
+% Note that the `fontspec` is not loaded here since it requires XeLaTeX to
+% compline the document. I hope that in English mode the user can compile
+% the project directly using latex instead of xelatex while the document 
+% is only written in lattin characters, so the `fontspec` package will be
+% loaded dynamically according to the language mode chosen by the user.
+% You can see `doclanguage.sty` for the detailed implement.
+%
+% Also, the `geometry` package is loaded in `docpapersize.sty` instead of 
+% here.
 
-% \RequirePackage{fontspec}
+% Enable tables and figures to be float objects.
 \RequirePackage{float}
+
+% This package is used to generate Lorem Ipsum text in Chinese.
 % \RequirePackage{zhlipsum}
+
 \RequirePackage{authblk}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -79,18 +93,34 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Other necessary packages.
 \RequirePackage{fancyhdr}
+
+% Packages to using and defining the format of numbered lists.
 \RequirePackage{enumerate}
-\RequirePackage{enumitem} % 用于有序列表的设置
+\RequirePackage{enumitem}
+
 \RequirePackage{metalogo}
 \RequirePackage{setspace}
-\RequirePackage{caption} % For customizing captions
+
+% For customizing captions
+\RequirePackage{caption}
+
+% Since the `subfigure' is old and out-of-dated, here I use subcaption 
+% instead.
 % \RequirePackage{subfigure}
 \RequirePackage{subcaption}
-% \RequirePackage{abstract} % 用于设置摘要
-% \RequirePackage[runin]{abstract}
-% 利用可选参数 runin ，将摘要标题添加到摘要正文段前
+
+% Note that The abstract package is actually imported into individual 
+% files in the `customized_abstract\' directory, since the summary format
+% is set differently in each of the three document classes, and I want to
+% control the abstract title format directly using option while loading 
+% the package.
+
+% Package to set the format of appendix.
 \RequirePackage{appendix}
-\RequirePackage{graphicx} % graphicpaths 需要这个包
+
+% Allows the document class to automatically recognize some typical 
+% picture path names, making it easier for users to specify picture files.
+\RequirePackage{graphicx} % `\graphicpaths' command requires this package.
 \graphicspath{
   {./fig/}
   {./figs/}
@@ -107,21 +137,37 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 用于设置表格样式的包
-\RequirePackage{booktabs} % 使用 Excel2LaTeX 插件导出的表格需要这个
+% Packages for setting table formats.
+%
+% Package to draw standard academic three-line tables, using command 
+% `\toprule', `\midrule' and `\bottomrule'. If the user is using
+% `Excel2LaTeX', which is an Excel plugin, to convert their Excel tables
+% to LaTeX, it will be very convenient, since they do not need to manually
+% load the package with `usepackage' command.
+\RequirePackage{booktabs}
+
+% Using multirows in tables.
 \RequirePackage{multirow}
+
+% Use this package to deal with long tables.
 \RequirePackage{longtable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Enable users to insert PDF pages into the document.
 \RequirePackage{pdfpages}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Use `biblatex' for citing references.
 \RequirePackage[
   style=gb7714-2015,
   sorting=none,
   backend=biber,
   hyperref=true,
   url=false
-]{biblatex}  % 使用 biblatex 处理引用
+]{biblatex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 部分与学科高度相关的包
+% STEM related packages.
 \RequirePackage{braket} % 量子力学算符
 \RequirePackage{qcircuit} % 量子电路绘制
 \RequirePackage[version=4]{mhchem} % 化学式、反应方程的书写
@@ -149,7 +195,6 @@
 \RequirePackage{matlab-prettifier} % MATLAB 专门的代码环境
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% This is an egg.
 %
 %             A____A       A____A     Thank you for reading the source!
 %            /*    *\     /*    *\    Here are some cats for you.
