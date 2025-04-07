@@ -23,6 +23,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Global font size setting for the document.
 \RequirePackage[\UGLY@fontsize]{extsizes}
+\RequirePackage{fvextra}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Font of the main text.
@@ -153,12 +154,12 @@
 %
 % \definecolor{lightgrey}{HTML}{EEEEEE}
 
-% Customize code block format. 
+% Customize code block format in lstlisting.
 \lstset{
   basicstyle=\small\ttfamily, % Font type and font size.
   backgroundcolor=\color{white}, % Background color.
-  % frame=trbl, % Display frame lines on each side of the code block.
-  frame=tb, % Display frame lines, but only on top and below code block.
+  frame=trbl, % Display frame lines on each side of the code block.
+  % frame=tb, % Display frame lines, but only on top and below code block.
   framerule=1pt, % The width of the code block frame lines.
   rulecolor=\color{ecolor}, % Color of the frame lines.
   % frameround=tttt, % The shape of each corner.
@@ -169,7 +170,7 @@
   stringstyle=\color{red},
   numberstyle=\small\color{ecolor},
   stepnumber=1,
-  numbersep=5pt,
+  numbersep=10pt,
   showspaces=false,
   showstringspaces=false,
   breaklines=true,
@@ -180,6 +181,21 @@
   xleftmargin=1em, % Outside margins.
   xrightmargin=1em,
 }
+
+% Customize code block format in Verbatim.
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+    breaklines,
+    commandchars=\\\{\},
+    numbers=left, % Line numbers on the left.
+    numbersep=10pt, % Separate between line numbers and the code.
+    frame=single, % Single frames.
+    framerule=0.5pt, % Frame line width.
+    framesep=3mm, % Distance between the frame lines and the text.
+    rulecolor=\color{ecolor},
+    xleftmargin=1em, % Left indent.
+    baselinestretch=1, % Line spacing.
+    fontsize=\small, % Text size.
+  }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table format settings.
