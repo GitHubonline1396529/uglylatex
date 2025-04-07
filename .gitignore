@@ -1,3 +1,10 @@
+# .gitignore for the UglyLaTeX Project.
+#
+# Name: .gitignore
+# Date: 2025/04/07
+# Version: 0.1.0.1
+# License: Copyright (c) Githubonline1396529
+
 # All auxiliary files of LaTeX
 *.aux
 *.bbl
