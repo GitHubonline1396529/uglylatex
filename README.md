@@ -167,7 +167,7 @@ urlcolor: ecolor
 
 ### 在 Pandoc 中启用代码换行
 
-Pandoc 中默认使用 `Verbatim` 环境高亮代码，过长的代码可能会超出屏幕。在 Markdown 文件开头的 YAML Header 中使用如下命令可以确保高亮的代码块启用自动换行。
+Pandoc 中默认使用 `Verbatim` 环境高亮代码，过长的代码可能会超出屏幕。在 Markdown 文件开头的 YAML Header 中使用如下命令可以确保高亮的代码块启用自动换行。尽管在 \LaTeX\ 模式下已经正确定义了 `Verbatim` 环境下的自动换行，Pandoc 似乎存在某种机制会主动覆盖掉这些设置。
 
 ```yaml {.numberLines}
 # Warp lines in code blocks
