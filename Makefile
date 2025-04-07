@@ -1,4 +1,4 @@
-# Makefile for project `UglyLaTeX`
+# Makefile for project `UglyLaTeX`.
 #
 # Name: Makefile
 # Date: 2025/3/10
