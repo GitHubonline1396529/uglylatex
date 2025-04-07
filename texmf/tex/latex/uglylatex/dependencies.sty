@@ -16,8 +16,8 @@
 %
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{dependencies}[
-  2025/03/18 Package dependencies. Most of the external LaTeX Pages are%
-  imported in this style file.
+  2025/03/18 Global package dependencies. Most of the external LaTeX Pages
+  are imported in this style file.
 ]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Import CTeX to support Chinese text.
@@ -31,7 +31,7 @@
 \RequirePackage{hologo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 设置页边距
+% The basic format settings, including the fontsize, page size, etc.
 \RequirePackage{geometry}
 
 % \RequirePackage{fontspec}
@@ -40,7 +40,7 @@
 \RequirePackage{authblk}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 与数学环境有关的包
+% Packages related to math and math environments.
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}
@@ -50,12 +50,12 @@
 % \RequirePackage{newtxmath}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 用于设置目录样式的包
+% Packages to set title and header formats.
 \RequirePackage[titles, subfigure]{tocloft}
 \RequirePackage{titletoc}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 交叉引用包
+% Packages for using crossref.
 \RequirePackage[
   % colorlinks=true,
   % linkcolor=black,
@@ -69,13 +69,15 @@
   urlcolor=ecolor
 ]{hyperref}
 \RequirePackage{bookmark}
+
+% Enable section numbers in PDF bookmark.
 \bookmarksetup{
   numbered, 
   open,
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 其他包
+% Other necessary packages.
 \RequirePackage{fancyhdr}
 \RequirePackage{enumerate}
 \RequirePackage{enumitem} % 用于有序列表的设置
@@ -123,7 +125,7 @@
 \RequirePackage{braket} % 量子力学算符
 \RequirePackage{qcircuit} % 量子电路绘制
 \RequirePackage[version=4]{mhchem} % 化学式、反应方程的书写
-\RequirePackage{chemfig} %结构式绘制
+\RequirePackage{chemfig} % 结构式绘制
 \RequirePackage{tikz} % 一般图绘制
 \RequirePackage{tikz-network} % 神经网络图示绘制
 \RequirePackage{circuitikz} % 数字电路绘制
@@ -140,11 +142,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 代码环境设置
 \RequirePackage{verbatim} % 简易代码环境
-% （提供：verbatim 环境。缺点：不能解决断行问题。）
+% (提供：verbatim 环境。缺点：不能解决断行问题。)
 \RequirePackage{listings} % 定制代码环境
 % \RequirePackage{minted} % 定制代码环境
-% \RequirePackage{fvextra} % 定制代码环境
-\RequirePackage{matlab-prettifier} % MATLAB专门的代码环境
+\RequirePackage{fvextra} % 定制代码环境
+\RequirePackage{matlab-prettifier} % MATLAB 专门的代码环境
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % This is an egg.
