@@ -3,9 +3,9 @@
 \begin{remark}
   之所以默认导入和预设\texttt{listing}而不是\texttt{minted}，是出于以下的三个原因作出的考虑：
   \begin{enumerate}
-    \item \texttt{minted}宏包在使用的时候需要预先配置过Python 2.6或者以上版本的运行环境，部分用户可能不具备相应的条件。
+    \item \texttt{minted}宏包在使用的时候需要您在您的计算机上预先配置过Python 2.6或者以上版本的运行环境，部分用户可能不具备相应的条件。
     \item 使用\texttt{minted}宏包的在编译的时候，要额外加上\texttt{-shell-escape}参数。如果用户在使用任何预先定义过编译规则的IDE环境，就有可能出现不兼容的情况，而且这种需要查文档才会了解的额外的参数指定对新手用户也不是很友好。
-    \item 如果用户使用的是Pandoc Markdown to PDF via \LaTeX{}，那么Pandoc会在编译含代码块的Markdown文档时正确地自动引用\texttt{minted}宏包，无需用户做任何额外的设置。
+    \item 如果用户使用的是Pandoc Markdown to PDF via \LaTeX{}，那么Pandoc会在编译含代码块的Markdown文档时正确地自动引用\texttt{Verbatim}宏包，无需用户做任何额外的设置。
   \end{enumerate}
 \end{remark}
 

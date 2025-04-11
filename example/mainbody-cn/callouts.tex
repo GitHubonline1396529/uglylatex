@@ -1,5 +1,39 @@
 本文档类为充分兼容Markdwon to \LaTeX via PDF，为Markdown中的Callout Blocks/Adminition/Alart Quote Blocks\footnote{这些都是同一种Markdown扩展语法的别名}扩展提供了额外的格式支持。在文档类中，定义了\texttt{info}、\texttt{warning}、\texttt{tip}、\texttt{important}、\texttt{caution}五种Callout环境，以便兼容Markdown语法。
 
-\begin{important}
+\begin{note}
   在GitHub上，使用\texttt{note}而不是\texttt{info}作为Callout块的名称，但是因为\texttt{note}在本文档类中被分配给了“注”环境，这里只能使用\texttt{info}。
+\end{note}
+
+具体来说，在一些扩展的Markdown语法当中，你通常可以使用如下的语句来指定一个带有醒目颜色标记的“警示块”\footnote{对于这一语法的详细使用方法，可以参考\href{}{GitHub}上的\href{https://github.com/orgs/community/discussions/16925}{这个 discussions 页面}。}。
+
+\begin{minted}{markdown}
+> [!warning]
+> 这是一个信息块，你可以将一些信息写入文本当中，
+> 这些信息就会被展示在框里。
+\end{minted}
+
+这一语法当前在GitHub、Obsidian、Typora、Visual Studio Code等平台上均可以使用，这就导致了大量的Markdown文件都包含这种语法。但到目前为止，Pandoc尚未提供这一语法的支持，如果直接将相应的Markdown文本转化为\LaTeX{}，就会发现这些文本被“原样”地包含在导出的PDF当中\footnote{关于这种情况的详细信息，可以参考我的博客\href{https://www.cnblogs.com/BOXonline1396529/articles/18799607}{利用Pandoc Lua Filter将Markdown中的Alarts Quote Block渲染为\LaTeX{}环境}}。为了应对这种情况，本文档类的作者为用户提供了这个 Pandoc 的 Lua 过滤器脚本\href{https://github.com/GitHubonline1396529/callout2latex}{\texttt{callout2latex}}，以便用户更加方便地将Markdown文件通过Pandoc转化为PDF via \LaTeX{}。
+
+\begin{info}
+  突出显示用户应该考虑的信息。
+\end{info}
+
+\begin{warning}
+  由于存在潜在风险，需要用户立即关注的关键内容。
+\end{warning}
+
+\begin{tip}
+  帮助用户取得更大成功的可选信息。
+\end{tip}
+
+\begin{important}
+  某一行为的潜在负面后果。
 \end{important}
+
+\begin{caution}
+  这是一条需要注意的内容。
+\end{caution}
+
+\begin{remark}
+  尽管这个文档环境在本系列下属的三个文档类当中都是可以使用的，因为三个文档类文件共享同一份环境定义，但是我还是建议你仅在UglyNote文档类中使用，因为UglyPaper和UglyRep看上去更加正式，如果出现这些彩色的块，看上去就会很奇怪。
+\end{remark}
