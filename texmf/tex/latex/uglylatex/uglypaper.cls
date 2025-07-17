@@ -15,7 +15,7 @@
 % This work has the LPPL maintenance status "maintained".
 %
 \ProvidesClass{uglypaper}[
-  2025/03/14 Customized document class based on `aritcle'
+  2025/03/14 Customized document class based on `article'
 ]
 \NeedsTeXFormat{LaTeX2e}
 
