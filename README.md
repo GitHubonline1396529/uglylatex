@@ -12,7 +12,7 @@
 
 ## 排版效果展示
 
-本项目总共包含三个模板类：
+本项目总共包含三个模板类，分别是：
 
 - **UglyNote**：用于轻量化、便捷地编写常见的笔记、博客等。
 - **UglyPaper**：比 UglyNote 更紧凑的布局，适合编写更加正式的文档。
@@ -22,12 +22,33 @@
 
 ![排版效果展示](./image/uglylatex.jpg)
 
+## 文档类的使用
+
+如果您希望直接使用本文档类，您可以将`texmf/tex/latex/uglulatex/`下的所有文件直接复制黏贴到您希望创建文档的工作目录下，然后在工作目录的根目录下新建一个 `main.tex` 文件。接下来的处理步骤，就像您在使用 ElegentNote 那样，直接引用文档类：
+
+```tex
+\documentclass{uglynote}  % 或者 uglypaper, uglyrep
+\title{这里书写您的文档标题}
+\author{这里写您的名字}
+\begin{document}
+\maketitle
+
+以下是正文内容……
+\end{document}
+```
+
+其余的部分就像您使用任何其他的 LaTeX 文档类一样，方便且容易。此外，由于几乎所有您可能会用到的宏包都已经被本文档类包含，因此您不需要担心宏包缺失的问题。
+
+其他详细的使用细节，您可以在本项目的其他文档文件中找到；如果您想要将本文档类安装到您的本地计算机，您可以在本文的下一节中找到对此的详细说明。
+
 ## 文档类安装
 
-将文档类安装到计算机可以允许您在计算机上的任何位置调用本文档类进行写作，这对于快速编排文档，尤其是与 Pandoc 协同编写文档尤其有帮助。本文档类有 2 种安装方法：
+本项目允许您将文档类安装到您的计算机，这可以允许您在计算机上的任何位置调用本文档类进行写作，这对于快速编排文档，尤其是与 Pandoc 协同编写文档尤其有帮助。本文档类有 2 种安装方法：
 
 1. 使用 Makefile 进行自动安装；
 2. 手动安装到计算机目录。
+
+我知道您想说什么。是的，本项目的自动化安装工具的形式比较原始，只能使用基础的 GNU Make 工具，而不是更加现代化的 LaTeX 工作流，比如 l3doc 之类的。这并非是出于其他技术上的考量，单纯只是因为我还没学会而已。但无论如何，本项目的作者可以保证这个自动安装工具已经在各个平台上通过了测试，可以放心使用。
 
 ### 使用 Makefile 进行自动安装
 
@@ -50,13 +71,13 @@
 
 1. **以年份命名的版本号目录**：位于安装目录 `texlive` 下的形如 `2023`、`2024` 这样的目录名[^1]。保存的是 `texlive` 内置的宏包文件。不建议安装到此位置。
 2. **本地用户自定义安装的宏包文件目录**：只能被当前用户访问，在 Windows 和 Linux/MacOS 上有所不同，一般情况下： 
-  - **Linux/macOS**: `~/texmf`
-  - **Windows**: `%USERPROFILE%\texmf`
+   - **Linux/macOS**: `~/texmf`
+   - **Windows**: `%USERPROFILE%\texmf`
 3. **全局用户自定义安装的宏包文件目录**：能够被所有用户访问，如果您在 Linux/MacOS 上使用 \TeX Live，则该路径可能是 `/usr/local/texlive/texmf-local`；如果您在 Windows 上使用 \TeX Live，比如，如果您安装了 \TeX Live 2023，则在您的 \TeX Live 安装目录下会存在一个 `texmf-local` 目录。**推荐安装到此位置**。
 
 您可以使用如下命令查询安装目录：
 
-```bash {.numberLines}
+```bash
 # 查询本地用户的安装目录
 kpsewhich -var-value TEXMFHOME
 # 查询全局安装目录
@@ -81,14 +102,14 @@ TEXMF = /d/texlive/texmf-local
 TEXMF = /d/Programs/texmf-local
 ```
 
-*Note*. 在 Windows 上运行 `make` 命令，通常情况下需要配置 GCC 工具链。常见的 POSIX 兼容层，比如 MSYS 2，使用根目录下的 `/c`、`/d` 来指定 Windows 盘符。但如果您使用的是 Cygwin，或者 WSL，则磁盘可能是被挂载在 `/mnt` 目录下。
+*Note*. 在 Windows 上运行 `make` 命令，通常情况下需要配置 GCC 工具链。常见的 POSIX 兼容层，比如 MSYS 2，使用根目录下的 `/c`、`/d` 来指定 Windows 盘符。但如果您使用的是 Cygwin，或者 WSL，则磁盘可能是被挂载在 `/mnt` 目录下。具体的情况，这边建议您在编辑 `config.mk` 文件之前进行查证。
 
-```makefile {.numberLines}
+```makefile
 TEXMF = /mnt/d/texlive/texmf-local
 TEXMF = /mnt/d/Programs/texmf-local
 ```
 
-如果您在 Linux 或者 MacOS 上使用 \TeX Live 并且希望将模板安装到本地用户的主目录：
+如果您在 Linux 或者 MacOS 上使用 \TeX Live 并且希望将模板安装到本地用户的主目录，可以使用如下的设置：
 
 ```makefile
 TEXMF = ~/texmf
@@ -99,6 +120,8 @@ TEXMF = ~/texmf
 ```makefile
 TEXMF = /usr/local/texlive/texmf-local
 ```
+
+关于上述的细节，您可以在 `config.mk` 的代码注释中找到几乎是同样详细的说明。
 
 #### 执行安装命令
 
@@ -131,7 +154,7 @@ texdoc -l uglylatex
 本文档类用到的所有宏包如下表所示。在使用本文档类之前，请您先确保这些宏包已经被正确配置。
 
 | 1                 | 2          | 3        | 4         |
-|-------------------|------------|----------|-----------|
+| ----------------- | ---------- | -------- | --------- |
 | ifxetex           | kvoptions  | etoolbox | calc      |
 | ctex              | titling    | titlesec | array     |
 | hologo            | geometry   | fontsprc | float     |
@@ -147,7 +170,6 @@ texdoc -l uglylatex
 | xcolor            | colortbl   | xpatch   | verbatim  |
 | matlab-prettifier | bookmark   |          |           |
 
-
 : 本文档类所使用到的宏包
 
 ## Q&A
@@ -156,7 +178,7 @@ texdoc -l uglylatex
 
 Pandoc 默认会将所有引用、文件链接、URL 和交叉引用设置为黑色。如果需要启用颜色格式，可以在 Markdown 文件开头的 YAML Header 中加入如下内容。
 
-```yaml {.numberLines}
+```yaml
 # Enable document colors.
 colorlinks: true
 citecolor: ecolor
@@ -169,7 +191,7 @@ urlcolor: ecolor
 
 Pandoc 中默认使用 `Verbatim` 环境高亮代码，过长的代码可能会超出屏幕。在 Markdown 文件开头的 YAML Header 中使用如下命令可以确保高亮的代码块启用自动换行。尽管在 \LaTeX\ 模式下已经正确定义了 `Verbatim` 环境下的自动换行，Pandoc 似乎存在某种机制会主动覆盖掉这些设置。
 
-```yaml {.numberLines}
+```yaml
 # Warp lines in code blocks
 header-includes:
   - \usepackage{fvextra}
@@ -178,5 +200,17 @@ header-includes:
       breaklines,commandchars=\\\{\}
     }
 ```
+
+### 在云端平台上使用
+
+最近有用户问起如何在云端 LaTeX 平台 (如 Overleaf) 上使用本文档类。实际上，操作方法也比较简单。您只需要将 `texmf/tex/latex/uglulatex/` 下的所有文件复制到您的 Overleaf 项目的根目录下即可。然后新建 `main.tex` 文件，输入如下内容：
+
+```tex
+\documentclass[12pt, cn]{uglynote}  % 或者 uglypaper, uglyrep
+\begin{document}
+\end{document}
+```
+
+其余的部分和您在本地使用的时候是完全一样的。与此同时，由于本文档类没有使用任何额外的字体，Overleaf 理论上会正确应用平台的 Fandol 宋体渲染您的文档。
 
 [^1]: 该数字即您安装的 \TeX Live 年份版本号。
