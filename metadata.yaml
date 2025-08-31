@@ -8,11 +8,10 @@
 # Metadata
 subtitle: (README.md)
 author: Githubonline1396529
-date: \zhtoday
 
 # LaTeX options
 documentclass: uglynote
-classoption: 12pt, cyan
+classoption: 12pt
 mainfont: Times New Roman
 toc: true
 indent: true
@@ -23,7 +22,7 @@ colorlinks: true
 citecolor: ecolor
 filecolor: ecolor
 linkcolor: ecolor
-urlcolor: ecolor
+urlcolor: blue
 
 # Warp lines in code blocks
 header-includes:
