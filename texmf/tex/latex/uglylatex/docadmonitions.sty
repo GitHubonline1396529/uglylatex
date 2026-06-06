@@ -93,21 +93,33 @@
 \tcbset{
   uglylatexdefault/.style={
     enhanced,
+    frame hidden,
     breakable,
-    attach boxed title to top left={
-      xshift=5mm, % Position of box title.
-      yshift=-3.09mm
-    },
-    coltitle=white, % Title color
-    boxed title style={
-      boxrule=0.5mm,
-      arc=0mm % Corner radius.
-    },
     fonttitle=\bfseries\normalsize, % Bold for the font title
+    attach title to upper,
+    after title={\par},
+    boxed title style={
+      enhanced,
+      boxrule=0pt,
+      colback=white!0!white,
+      sharp corners,
+      left=0pt, right=0pt, top=0pt, bottom=0pt,
+      boxsep=0pt,
+      arc=0mm, outer arc=0mm,
+    },
     fontupper=\normalsize,
-    boxrule=0.5mm, % Frame line width.
-    left=2.5pt, right=2.5pt, % Paddings.
-    top=3.09mm, bottom=2.5pt
+    colback=white!0!white,
+    colbacktitle=white!0!white,
+    boxrule=0pt,
+    % Hide the default tcolorbox frame completely. Using leftrule/toprule/
+    % bottomrule/rightrule alone can leave very thin residual lines from the
+    % box skin. We will draw the left border explicitly with borderline west.
+    toprule=0pt,
+    bottomrule=0pt,
+    rightrule=0pt,
+    arc=0mm, outer arc=0mm,
+    left=5pt, right=2.5pt,  % Paddings.
+    top=2.5pt, bottom=2.5pt
   }
 }
 
@@ -118,43 +130,50 @@
 % Note that its `info' not `note' here (Although GitHub support `note' 
 % block instead of `info', on most other platforms such as Obsidian, the 
 % `info' block is more common.)
+%
+% Use explicit left borderlines instead of relying on leftrule/toprule/
+% bottomrule/rightrule alone. The default tcolorbox skin can still draw
+% very thin residual frame lines, so we hide the frame and draw a single
+% west borderline for each box.
 
-\newtcolorbox{info}[1][]{%
+\newtcolorbox{info}[1][infotypecolor]{%
   uglylatexdefault,
-  colback=infotypecolor!10!white, % Background color.
-  colframe=infotypecolor, % Frame color.
-  title={\infotypename~\thetcbcounter}, % Title format.
-  boxed title style={colback=infotypecolor}
+  colframe=#1,
+  coltitle=#1,
+  % Explicit left border only. This is preferred over leftrule because
+  % leftrule can leave hairline remnants on other box edges.
+  borderline west={0.5mm}{0pt}{#1},
+  title={\infotypename~\thetcbcounter}
 }
 
-\newtcolorbox{warning}[1][]{%
+\newtcolorbox{warning}[1][warningtypecolor]{%
   uglylatexdefault,
-  colback=warningtypecolor!10!white, % Background color.
-  colframe=warningtypecolor, % Frame color.
-  title={\warningtypename~\thetcbcounter}, % Title format.
-  boxed title style={colback=warningtypecolor}
+  colframe=#1,
+  coltitle=#1,
+  borderline west={0.5mm}{0pt}{#1},
+  title={\warningtypename~\thetcbcounter}
 }
 
-\newtcolorbox{tip}[1][]{%
+\newtcolorbox{tip}[1][tiptypecolor]{%
   uglylatexdefault,
-  colback=tiptypecolor!10!white, % Background color.
-  colframe=tiptypecolor, % Frame color.
-  title={\tiptypename~\thetcbcounter}, % Title format.
-  boxed title style={colback=tiptypecolor}
+  colframe=#1,
+  coltitle=#1,
+  borderline west={0.5mm}{0pt}{#1},
+  title={\tiptypename~\thetcbcounter}
 }
 
-\newtcolorbox{important}[1][]{%
+\newtcolorbox{important}[1][importanttypecolor]{%
   uglylatexdefault,
-  colback=importanttypecolor!10!white, % Background color.
-  colframe=importanttypecolor, % Frame color.
-  title={\importanttypename~\thetcbcounter}, % Title format.
-  boxed title style={colback=importanttypecolor}
+  colframe=#1,
+  coltitle=#1,
+  borderline west={0.5mm}{0pt}{#1},
+  title={\importanttypename~\thetcbcounter}
 }
 
-\newtcolorbox{caution}[1][]{%
+\newtcolorbox{caution}[1][cautiontypecolor]{%
   uglylatexdefault,
-  colback=cautiontypecolor!10!white, % Background color.
-  colframe=cautiontypecolor, % Frame color.
-  title={\cautiontypename~\thetcbcounter}, % Title format.
-  boxed title style={colback=cautiontypecolor}
+  colframe=#1,
+  coltitle=#1,
+  borderline west={0.5mm}{0pt}{#1},
+  title={\cautiontypename~\thetcbcounter}
 }
