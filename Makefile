@@ -45,7 +45,7 @@ else
     REFRESH := texhash .
 endif
 
-.PHONY: example clear
+.PHONY: test example doc clear
 
 all:
 	@echo "Building project..."
@@ -56,15 +56,19 @@ install:
 	cp -r ./$(PACKAGE_DIR)/* $(TEXMF)/
 	cd $(TEXMF) && $(REFRESH)
 
-# Build example PDF files
-example:
+# Compile example PDFs only (no install, for quick testing)
+test:
 	@echo "Compiling example files..."
 	@cd example && for file in $(TEX_FILES); do \
 		echo "Compiling $$file"; \
 		latexmk -xelatex --shell-escape $$file; \
 	done
+
+# Build example PDFs, install to doc/, and convert README
+example: test
 	@cp $(EXAMPLE_SOURCE)/*.pdf $(PACKAGE_DIR)/doc/$(PACKAGE_NAME)
 	@echo "All PDFs have been copied to $(PACKAGE_DIR)/doc/"
+	$(MAKE) doc
 
 # Convert README.md into document PDF
 doc:
