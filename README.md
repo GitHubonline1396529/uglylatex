@@ -151,26 +151,22 @@ texdoc -l uglylatex
 
 ## 宏包
 
-本文档类用到的所有宏包如下表所示。在使用本文档类之前，请您先确保这些宏包已经被正确配置。
+本文档类用到的宏包按功能分类如下。
 
-| 1                 | 2          | 3        | 4         |
-| ----------------- | ---------- | -------- | --------- |
-| ifxetex           | kvoptions  | etoolbox | calc      |
-| ctex              | titling    | titlesec | array     |
-| hologo            | geometry   | fontsprc | float     |
-| authblk           | amsmath    | amssymb  | amsthm    |
-| mathtools         | mathrsfs   | cancel   | tocloft   |
-| titletoc          | hyperref   | fancyhdr | enumerate |
-| enumitem          | metalogo   | setspace | caption   |
-| subcaption        | appendix   | graphicx | booktabs  |
-| multirow          | longtable  | pdfpages | braket    |
-| qcircuit          | mhchem     | chemfig  | tikz      |
-| tikz-network      | circuitikz | pdfpages | braket    |
-| multirow          | longtable  | pgfplots | color     |
-| xcolor            | colortbl   | xpatch   | verbatim  |
-| matlab-prettifier | bookmark   |          |           |
+- **流程控制与参数处理**：`ifxetex`, `kvoptions`, `etoolbox`, `calc`
+- **基础文档格式**：`extsizes`, `titling`, `titlesec`, `tocloft`, `titletoc`, `fancyhdr`, `geometry`, `setspace`, `array`
+- **字体与语言**：`fontspec`, `ctex`\*, `hologo`, `metalogo`
+- **数学与定理环境**：`amsmath`, `amssymb`, `amsthm`, `mathtools`, `mathrsfs`, `cancel`
+- **颜色与美化**：`xcolor`, `colortbl`, `tcolorbox`, `xpatch`, `caption`, `subcaption`, `enumitem`, `enumerate`
+- **图表与浮动体**：`float`, `graphicx`, `pdfpages`, `abstract`
+- **表格**：`booktabs`, `multirow`, `longtable`
+- **代码环境**：`verbatim`, `listings`, `fvextra`, `matlab-prettifier`
+- **文献引用**：`biblatex`（样式 `gb7714-2015`，后端 `biber`，可通过 `nobib` 禁用）
+- **STEM 功能包（可选）**：`tikz`, `pgfplots`, `braket`, `qcircuit`, `mhchem`, `chemfig`, `tikz-network`, `circuitikz`
+- **超链接与交叉引用**：`hyperref`, `bookmark`, `authblk`, `appendix`
+- **其他**：`fontawesome`
 
-: 本文档类所使用到的宏包
+\* `ctex` 仅在 `lang=cn` 模式下加载。STEM 包通过 `stem` 文档类选项按需启用。
 
 ## Q&A
 
