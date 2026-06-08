@@ -155,18 +155,16 @@ texdoc -l uglylatex
 
 - **流程控制与参数处理**：`ifxetex`, `kvoptions`, `etoolbox`, `calc`
 - **基础文档格式**：`extsizes`, `titling`, `titlesec`, `tocloft`, `titletoc`, `fancyhdr`, `geometry`, `setspace`, `array`
-- **字体与语言**：`fontspec`, `ctex`\*, `hologo`, `metalogo`
+- **字体与语言**：`fontspec`, `ctex`[^2], `hologo`, `metalogo`
 - **数学与定理环境**：`amsmath`, `amssymb`, `amsthm`, `mathtools`, `mathrsfs`, `cancel`
 - **颜色与美化**：`xcolor`, `colortbl`, `tcolorbox`, `xpatch`, `caption`, `subcaption`, `enumitem`, `enumerate`
 - **图表与浮动体**：`float`, `graphicx`, `pdfpages`, `abstract`
 - **表格**：`booktabs`, `multirow`, `longtable`
 - **代码环境**：`verbatim`, `listings`, `fvextra`, `matlab-prettifier`
 - **文献引用**：`biblatex`（样式 `gb7714-2015`，后端 `biber`，可通过 `nobib` 禁用）
-- **STEM 功能包（可选）**：`tikz`, `pgfplots`, `braket`, `qcircuit`, `mhchem`, `chemfig`, `tikz-network`, `circuitikz`
+- **STEM 功能包**[^3]：`tikz`, `pgfplots`, `braket`, `qcircuit`, `mhchem`, `chemfig`, `tikz-network`, `circuitikz`
 - **超链接与交叉引用**：`hyperref`, `bookmark`, `authblk`, `appendix`
 - **其他**：`fontawesome`
-
-\* `ctex` 仅在 `lang=cn` 模式下加载。STEM 包通过 `stem` 文档类选项按需启用。
 
 ## Q&A
 
@@ -210,3 +208,5 @@ header-includes:
 其余的部分和您在本地使用的时候是完全一样的。与此同时，由于本文档类没有使用任何额外的字体，Overleaf 理论上会正确应用平台的 Fandol 宋体渲染您的文档。
 
 [^1]: 该数字即您安装的 \TeX Live 年份版本号。
+[^2]: `ctex` 仅在 `lang=cn` 模式下加载。
+[^3]: STEM 包通过 `stem` 文档类选项按需启用。
