@@ -1,26 +1,18 @@
-本文档类用到的所有宏包如下表\ref{tab:dependencies}所示。在使用本文档类之前，请您先确保这些宏包已经被正确配置。
+本文档类用到的宏包按功能分类如下。
 
-\begin{table}[H]
-  \centering
-  \caption{本文档类所使用到的宏包}\label{tab:dependencies}
-  \begin{tabular}{cccc}
-    \toprule
-    1 & 2 & 3 & 4 \\
-    \midrule
-    ifxetex & kvoptions & etoolbox & calc \\
-    ctex & titling & titlesec & array \\
-    hologo & geometry & fontsprc & float \\
-    authblk & amsmath & amssymb & amsthm \\
-    mathtools & mathrsfs & cancel & tocloft \\
-    titletoc & hyperref & fancyhdr & enumerate \\
-    enumitem & metalogo & setspace & caption \\
-    subcaption & appendix & graphicx & booktabs \\
-    multirow & longtable & pdfpages & braket \\
-    qcircuit & mhchem & chemfig & tikz \\
-    tikz-network & circuitikz & pdfpages & braket \\
-    multirow & longtable & pgfplots & color \\
-    xcolor & colortbl & xpatch & verbatim \\
-    matlab-prettifier & bookmark & fontawsome & tcolorbox \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+\begin{itemize}[noitemsep]
+  \item \textbf{流程控制与参数处理}：\texttt{ifxetex}, \texttt{kvoptions}, \texttt{etoolbox}, \texttt{calc}
+  \item \textbf{基础文档格式}：\texttt{extsizes}, \texttt{titling}, \texttt{titlesec}, \texttt{tocloft}, \texttt{titletoc}, \texttt{fancyhdr}, \texttt{geometry}, \texttt{setspace}, \texttt{array}
+  \item \textbf{字体与语言}：\texttt{fontspec}, \texttt{ctex}\textsuperscript{*}, \texttt{hologo}, \texttt{metalogo}
+  \item \textbf{数学与定理环境}：\texttt{amsmath}, \texttt{amssymb}, \texttt{amsthm}, \texttt{mathtools}, \texttt{mathrsfs}, \texttt{cancel}
+  \item \textbf{颜色与美化}：\texttt{xcolor}, \texttt{colortbl}, \texttt{tcolorbox}, \texttt{xpatch}, \texttt{caption}, \texttt{subcaption}, \texttt{enumitem}, \texttt{enumerate}
+  \item \textbf{图表与浮动体}：\texttt{float}, \texttt{graphicx}, \texttt{pdfpages}, \texttt{abstract}
+  \item \textbf{表格}：\texttt{booktabs}, \texttt{multirow}, \texttt{longtable}
+  \item \textbf{代码环境}：\texttt{verbatim}, \texttt{listings}, \texttt{fvextra}, \texttt{matlab-prettifier}
+  \item \textbf{文献引用}：\texttt{biblatex}（样式 \texttt{gb7714-2015}，后端 \texttt{biber}，可通过 \texttt{nobib} 禁用）
+  \item \textbf{STEM 功能包}\textsuperscript{*}：\texttt{tikz}, \texttt{pgfplots}, \texttt{braket}, \texttt{qcircuit}, \texttt{mhchem}, \texttt{chemfig}, \texttt{tikz-network}, \texttt{circuitikz}
+  \item \textbf{超链接与交叉引用}：\texttt{hyperref}, \texttt{bookmark}, \texttt{authblk}, \texttt{appendix}
+  \item \textbf{其他}：\texttt{fontawesome}
+\end{itemize}
+
+\textsuperscript{*} \texttt{ctex} 仅在 \texttt{lang=cn} 模式下加载。STEM 包通过 \texttt{stem} 文档类选项按需启用。
