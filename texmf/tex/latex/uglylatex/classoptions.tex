@@ -86,6 +86,12 @@
 \DeclareVoidOption{booklet}{\kvsetkeys{UGLY}{device=booklet}}
 \DeclareVoidOption{textbook}{\kvsetkeys{UGLY}{device=textbook}}
 
+% Use STEM-related packages (tikz, pgfplots, chemfig, etc.)
+\DeclareBoolOption[false]{stem}
+
+% Use biblatex for bibliography (default: enabled).
+\DeclareBoolOption[true]{bib}
+
 % Extra font size, from 9pt to 20pt.
 
 \DeclareStringOption[11pt]{fontsize}

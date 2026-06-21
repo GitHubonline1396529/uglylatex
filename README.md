@@ -151,26 +151,20 @@ texdoc -l uglylatex
 
 ## 宏包
 
-本文档类用到的所有宏包如下表所示。在使用本文档类之前，请您先确保这些宏包已经被正确配置。
+本文档类用到的宏包按功能分类如下。
 
-| 1                 | 2          | 3        | 4         |
-| ----------------- | ---------- | -------- | --------- |
-| ifxetex           | kvoptions  | etoolbox | calc      |
-| ctex              | titling    | titlesec | array     |
-| hologo            | geometry   | fontsprc | float     |
-| authblk           | amsmath    | amssymb  | amsthm    |
-| mathtools         | mathrsfs   | cancel   | tocloft   |
-| titletoc          | hyperref   | fancyhdr | enumerate |
-| enumitem          | metalogo   | setspace | caption   |
-| subcaption        | appendix   | graphicx | booktabs  |
-| multirow          | longtable  | pdfpages | braket    |
-| qcircuit          | mhchem     | chemfig  | tikz      |
-| tikz-network      | circuitikz | pdfpages | braket    |
-| multirow          | longtable  | pgfplots | color     |
-| xcolor            | colortbl   | xpatch   | verbatim  |
-| matlab-prettifier | bookmark   |          |           |
-
-: 本文档类所使用到的宏包
+- **流程控制与参数处理**：`ifxetex`, `kvoptions`, `etoolbox`, `calc`
+- **基础文档格式**：`extsizes`, `titling`, `titlesec`, `tocloft`, `titletoc`, `fancyhdr`, `geometry`, `setspace`, `array`
+- **字体与语言**：`fontspec`, `ctex`[^2], `hologo`, `metalogo`
+- **数学与定理环境**：`amsmath`, `amssymb`, `amsthm`, `mathtools`, `mathrsfs`, `cancel`
+- **颜色与美化**：`xcolor`, `colortbl`, `tcolorbox`, `xpatch`, `caption`, `subcaption`, `enumitem`, `enumerate`
+- **图表与浮动体**：`float`, `graphicx`, `pdfpages`, `abstract`
+- **表格**：`booktabs`, `multirow`, `longtable`
+- **代码环境**：`verbatim`, `listings`, `fvextra`, `matlab-prettifier`
+- **文献引用**：`biblatex`（样式 `gb7714-2015`，后端 `biber`，可通过 `nobib` 禁用）
+- **STEM 功能包**[^3]：`tikz`, `pgfplots`, `braket`, `qcircuit`, `mhchem`, `chemfig`, `tikz-network`, `circuitikz`
+- **超链接与交叉引用**：`hyperref`, `bookmark`, `authblk`, `appendix`
+- **其他**：`fontawesome`
 
 ## Q&A
 
@@ -214,3 +208,5 @@ header-includes:
 其余的部分和您在本地使用的时候是完全一样的。与此同时，由于本文档类没有使用任何额外的字体，Overleaf 理论上会正确应用平台的 Fandol 宋体渲染您的文档。
 
 [^1]: 该数字即您安装的 \TeX Live 年份版本号。
+[^2]: `ctex` 仅在 `lang=cn` 模式下加载。
+[^3]: STEM 包通过 `stem` 文档类选项按需启用。

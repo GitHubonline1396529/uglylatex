@@ -65,6 +65,8 @@
 % \RequirePackage{docappendix}
 \RequirePackage{commands}
 
+\ifUGLY@stem\RequirePackage{docstem}\fi
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title format settings.
 
@@ -83,7 +85,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set the page header and the page footer.
 
-\pagestyle{fancy} % Use the footheader style `fancy'
 \pagestyle{fancy}
 % \fancyhead{} % Only clean up page head.
 % \renewcommand{\headrulewidth}{0pt} % Remove the page head. style line.

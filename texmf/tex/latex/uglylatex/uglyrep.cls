@@ -67,6 +67,8 @@
 % \RequirePackage{docappendix}
 \RequirePackage{commands}
 
+\ifUGLY@stem\RequirePackage{docstem}\fi
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title format settings.
 

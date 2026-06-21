@@ -21,9 +21,11 @@
 ]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Import CTeX to support Chinese text.
-\RequirePackage{ctex}
-\ctexset{today=old}
+% Import CTeX to support Chinese text (only in Chinese mode).
+\ifdefstring{\UGLY@lang}{cn}{%
+  \RequirePackage{ctex}
+  \ctexset{today=old}
+}{\relax}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Packages for setting title formats.
@@ -157,29 +159,24 @@
 \RequirePackage{pdfpages}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Use `biblatex' for citing references.
-\RequirePackage[
-  style=gb7714-2015,
-  sorting=none,
-  backend=biber,
-  hyperref=true,
-  url=false
-]{biblatex}
+% Use `biblatex' for citing references (optional, disable via `nobib`).
+\ifUGLY@bib
+  \RequirePackage[
+    style=gb7714-2015,
+    sorting=none,
+    backend=biber,
+    hyperref=true,
+    url=false
+  ]{biblatex}
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% STEM related packages.
-\RequirePackage{tikz} % This is TikZ everyone knows it.
-\RequirePackage{pgfplots} % Plotting functions.
-\RequirePackage{braket} % Dirac notations.
-\RequirePackage{qcircuit} % Quantum circuit drawing.
-\RequirePackage[version=4]{mhchem} % Chamical equations.
-\RequirePackage{chemfig} % Chemical structures.
-\RequirePackage{tikz-network} % Network drawing.
-\RequirePackage{circuitikz} % Circuit drawing.
+% STEM related packages (optional, loaded via `stem` class option).
+%
+% See docstem.sty for the full list.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Colors and boxes related packages.
-\RequirePackage{color}
 \RequirePackage{xcolor}
 \RequirePackage{colortbl}
 \RequirePackage{tcolorbox}
@@ -187,11 +184,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Code environment related packages.
-\RequirePackage{verbatim} % Simple verbatim environment.
-\RequirePackage{listings} % For code environment.
-% \RequirePackage{minted} % For code environment with highlighting.
-\RequirePackage{fvextra} % For customize the verbatim environment.
-\RequirePackage{matlab-prettifier} % Code environment for MATLAB.
+\RequirePackage{verbatim}
+\RequirePackage{listings}
+% \RequirePackage{minted}
+\RequirePackage{matlab-prettifier}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %

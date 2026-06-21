@@ -70,6 +70,8 @@
 \RequirePackage{docadmonitions}
 \RequirePackage{commands}
 
+\ifUGLY@stem\RequirePackage{docstem}\fi
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title format settings.
 
@@ -104,11 +106,6 @@
   {\Alph{section}. }{0em}{}
   \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}%
 }
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Additional defined functional commands. Defined in `commands.sty'.
-
-\RequirePackage{commands}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Adjust title format.
