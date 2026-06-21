@@ -21,11 +21,9 @@
 ]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Import CTeX to support Chinese text (only in Chinese mode).
-\ifdefstring{\UGLY@lang}{cn}{%
-  \RequirePackage{ctex}
-  \ctexset{today=old}
-}{\relax}
+% Import CTeX to support Chinese text.
+\RequirePackage{ctex}
+\ctexset{today=old}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Packages for setting title formats.
