@@ -19,12 +19,11 @@
 
   本文是UglyRep模板的排版效果示例及模板文档，在展示排版效果的同时简要阐述了模板的部分功能及其使用方法。%
   % UglyRep最初是我留作自用的\LaTeX 报告模板，用以在\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目停止更新后取代其功能。
-  UglyRep模板对标的是\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目中的\href{https://github.com/ElegantLaTeX/ElegantBook}{ElegantBook}，实际上却是基于\texttt{report}文档类构建的。这样的设计是出于如下的两个原因考虑：
-
-  \begin{enumerate}
-    \item \textbf{更好的Pandoc兼容性}：Pandoc不支持在Markdown文件的YAML Header中设置Book文档类的Preface，但是可以设置Report文档类的Abstract。
-    \item \textbf{从更强的实用性的角度出发}：在日常生活中实际上编写书籍的机会更少，而编写带封面的Report的机会更多。
-  \end{enumerate}
+  UglyRep模板对标的是\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目中的\href{https://github.com/ElegantLaTeX/ElegantBook}{ElegantBook}，实际上却是基于\texttt{report}文档类构建的。这样的设计是为了支持本项目颇具优势的Pandoc Markdown to PDF via \LaTeX{}工作流。
+  
+  一方面，Pandoc不支持在Markdown文件的YAML Header中设置Book文档类的Preface，但是可以设置Report文档类的Abstract。因此，如果想要在Pandoc Markdown to PDF via \LaTeX{}的过程中使用Ugly\LaTeX{}模板，必须基于Report文档类，否则就需要使用其他手段设计专门的工作流。而且，在这种情况下，想要将一个基于Book文档类的模板集成于本项目下，由于许多文件中的格式定义无法与其他文档类共享 (例如独立的封面样式定义)，会变得非常麻烦。
+  
+  另一方面，在这个领域，基于原有的\href{https://github.com/ElegantLaTeX/ElegantBook}{ElegantBook}模板的工作流已经有很多了，大家可以自行搜索。加之在日常生活中，Pandoc Markdown to PDF via \LaTeX{}的应用场景下实际上编写书籍的机会更少，而编写带封面的Report的机会更多。因此本项目作了这样的设计。
 
   \keywords{\LaTeX;\quad 排版;\quad 文档类;}
 \end{abstract}

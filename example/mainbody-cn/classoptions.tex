@@ -3,9 +3,21 @@
 \begin{itemize}
     \item \texttt{color}，用于指定文档的配色，目前可选项有默认的\texttt{black} 以及：
     \begin{enumerate}
-        \item \href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目原有的配色系列，为了与新的配色加以区分，均冠以了\texttt{elegant}的前缀，可选选项包括\texttt{elegantblue}、\texttt{elegantbrown}、\texttt{elegantcyan}、\texttt{elegantgreen}、\texttt{elegantsakura}；
-        \item 新的增强型配色\texttt{blue}、\texttt{green}、\texttt{olive} (代替了\texttt{brown})、\texttt{cyan} 和 \texttt{crimson} (代替了\texttt{sakura})。
+        \item \href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目原有的配色系列，满足原教旨主义用户的需求。为了与新的配色加以区分，均冠以了\texttt{elegant}的前缀，可选选项包括\texttt{elegantblue}、\texttt{elegantbrown}、\texttt{elegantcyan}、\texttt{elegantgreen}、\texttt{elegantsakura}；
+        \item 新的增强型配色\texttt{blue}、\texttt{green}、\texttt{olive} (代替了\texttt{brown})、\texttt{cyan} 和 \texttt{crimson} (代替了\texttt{sakura}\footnote{\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}项目原有的\texttt{sakura}颜色非常浅，在实际的使用中经常发现打印和在屏幕上显示时存在字迹不清晰的情况。})。
     \end{enumerate}
-    \item \texttt{device}，用于控制纸张大小，可选的选项包括默认的\texttt{normal}，以及\texttt{pad}、\texttt{pd}、\texttt{kindle}、\texttt{compact}、\texttt{screen}、\texttt{booklet}、\texttt{textbook}。
+    \item \texttt{device}，用于控制纸张大小，可选的选项包括：
+    \begin{enumerate}
+        \item 默认的\texttt{normal}：1英寸的纸张边距，适合大多数打印和屏幕阅读的需求。拿在手里翻阅的时候你的大拇指刚好可以稳稳地抓住纸张的边缘，既不会遮挡内容，也不会让你觉得空荡荡的。
+        \item \texttt{pad}：适合平板电脑等小屏幕设备的阅读，考虑到了设备本身自带的屏幕边距，边距较窄，能够最大化地利用屏幕空间。
+        \item \texttt{pc}：适合个人电脑屏幕的阅读，边距适中，能够在保持内容清晰的同时提供足够的空白区域，提升阅读体验。
+        \item \texttt{kindle}：适合亚马逊 Kindle 电子书阅读器的阅读，边距较窄，能够充分利用 Kindle 的屏幕空间，同时保持内容的清晰和可读性。
+        \item \texttt{compact}：适合需要在A4纸上打印的文档。边距较窄，能够最大化地利用纸张空间，切实节约您的文档打印费用。适合学术论文、报告等正式文档的打印需求。同时如果您的文本选择使用双列模式布局也可以使用这个打印规格，它能让左右两侧的文本列具有更大的宽度。
+        \item \texttt{screen}：老式电脑屏幕的尺寸比例，适配大多数教育机构的投影仪。不仅方便你在老显示器上阅读，也可以充当演示文稿的功能\footnote{想想看吧，如果普通的文稿文档就能够精准地填充投影仪的屏幕，何必要为一场最多不超过5分钟的课堂作业小演讲去折腾足以把人气个半死的Beamer呢？如果没有动画演示的需求，实际上\href{https://github.com/ElegantLaTeX/}{Elegant\LaTeX}文档类生成的演示文稿已经足以应付大多数的公开演讲场景。只是你可能要稍加频繁地使用\texttt{\textbackslash clearpage}命令，并且把字号加大几号。}。
+        \item \texttt{booklet}：采用A5纸张、2厘米页边距的开本规格，适合制作小册子的文档，边距较窄，能够充分利用纸张空间。如果您想要制作一本大厚度 (100页或以上) 胶装本的“手边书”，可以考虑这个选项。
+        \item \texttt{textbook}：采用B5纸张、2厘米页边距的开本规格，适合制作教科书的文档，边距适中，能够在保持内容清晰、足以容纳较长的数学公式和图例的同时提供足够的空白区域，提升阅读体验。
+    \end{enumerate}
     \item \texttt{fontsize}，用于指定字体大小，默认为\texttt{11pt}，选项包括\texttt{8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt}, 和\texttt{20pt}。
+    \item \texttt{stem}，用于导入常用的STEM领域的宏包，选项包括\texttt{tikz}, \texttt{pgfplots}, \texttt{braket}, \texttt{qcircuit}, \texttt{mhchem}, \texttt{chemfig}, \texttt{tikz-network}, \texttt{circuitikz}。
+    \item \texttt{nobib}，对于没有参考文献的文档，用于禁用文档类自带的参考文献功能，节约编译时间。
 \end{itemize}
